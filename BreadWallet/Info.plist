@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>LoafWallet</string>
+	<string>BapWallet</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>

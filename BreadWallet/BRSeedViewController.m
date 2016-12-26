@@ -61,6 +61,7 @@ int tapCount = 0;
 
     if (manager.noWallet) {
         self.seedPhrase = [manager generateRandomSeed];
+        NSLog(@"BRSeedViewController customInit .. [BRPeerManager sharedInstance] connect");
         [[BRPeerManager sharedInstance] connect];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:WALLET_NEEDS_BACKUP_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];

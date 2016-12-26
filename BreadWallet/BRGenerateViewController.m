@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     // Adding border to Generate Button
+      NSLog(@"%s viewDidLoad", __FILE__);
     
     self.genButton.layer.cornerRadius = 2;
     self.genButton.layer.borderWidth = 2;

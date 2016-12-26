@@ -90,6 +90,7 @@ static NSString *sanitizeString(NSString *s)
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%s viewDidLoad", __FILE__);
     // Do any additional setup after loading the view, typically from a nib.
     
     self.addressView.layer.cornerRadius = 3;

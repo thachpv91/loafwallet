@@ -178,6 +178,7 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationProtectedDataDidBecomeAvailable object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             NSLog(@"background fetch protected data available");
+            NSLog(@"[BRPeerManager sharedInstance] connect");
             [[BRPeerManager sharedInstance] connect];
         }];
 
@@ -198,6 +199,7 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
         }];
 
     NSLog(@"background fetch starting");
+    NSLog(@"[BRPeerManager sharedInstance] connect");
     [[BRPeerManager sharedInstance] connect];
 
     // sync events to the server

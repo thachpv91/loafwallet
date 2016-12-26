@@ -75,6 +75,10 @@
 #define SEED_KEY            @"seed" // depreceated
 #define USER_ACCOUNT_KEY    @"https://api.breadwallet.com"
 
+// thachpv added
+
+// thachpv
+
 static BOOL setKeychainData(NSData *data, NSString *key, BOOL authenticated)
 {
     if (! key) return NO;

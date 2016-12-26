@@ -64,7 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(@"%s viewDidLoad", __FILE__);
     self.receiveButton.layer.cornerRadius = 2;
     self.receiveButton.layer.borderWidth = 2;
     self.receiveButton.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor colorWithRed:40.0 green:40.0 blue:40.0 alpha:0.90]);

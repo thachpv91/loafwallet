@@ -51,6 +51,9 @@
 #define BALANCE_KEY            @"BALANCE"
 #define HAS_AUTHENTICATED_KEY  @"HAS_AUTHENTICATED"
 
+FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotification;
+FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
+
 @interface BRRootViewController ()
 
 @property (nonatomic, strong) IBOutlet UIProgressView *progress, *pulse;
@@ -73,6 +76,7 @@
 @property (nonatomic, assign) NSTimeInterval timeout, start;
 @property (nonatomic, assign) SystemSoundID pingsound;
 
+
 @end
 
 @implementation BRRootViewController
@@ -80,7 +84,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    NSLog(@"%s viewDidLoad", __FILE__);
     // Do any additional setup after loading the view.
 
     // detect jailbreak so we can throw up an idiot warning, in viewDidLoad so it can't easily be swizzled out
@@ -177,7 +181,8 @@
         queue:nil usingBlock:^(NSNotification *note) {
             if (! manager.noWallet) {
                 BREventManager *eventMan = [BREventManager sharedEventManager];
-            
+                NSLog(@"BRRootViewController viewDidLoad self.foregroundObserver = ...");
+                NSLog(@"BRRootViewController viewDidLoad BRPeerManager.connect()");
                 [[BRPeerManager sharedInstance] connect];
                 [self.sendViewController updateClipboardText];
 
@@ -254,6 +259,7 @@
         usingBlock:^(NSNotification *note) {
             if (! manager.noWallet && self.reachability.currentReachabilityStatus != NotReachable &&
                 [UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+                NSLog(@"self.reachabilityObserver = .. [BRPeerManager sharedInstance] connect");
                 [[BRPeerManager sharedInstance] connect];
             }
             else if (! manager.noWallet && self.reachability.currentReachabilityStatus == NotReachable) {
@@ -382,6 +388,13 @@
           delegate:self cancelButtonTitle:NSLocalizedString(@"ignore", nil)
           otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
     }
+    self.navigationController.navigationBar.hidden = YES;
+    
+    // BRWalletManager *manager = [BRWalletManager sharedInstance];
+    if(!manager.logged)
+    {
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -391,6 +404,7 @@
     self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"burger"];
 	self.tabBarController.view.alpha = 1.0;
     if ([BRWalletManager sharedInstance].didAuthenticate) [self unlock:nil];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -413,7 +427,6 @@
     if ([UIApplication sharedApplication].protectedDataAvailable) {
         [self performSelector:@selector(protectedViewDidAppear) withObject:nil afterDelay:0.0];
     }
-    
     [super viewDidAppear:animated];
 }
 
@@ -439,22 +452,22 @@
     if (manager.noWallet) {
         if (! manager.passcodeEnabled) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"turn device passcode on", nil)
-              message:NSLocalizedString(@"\nA device passcode is needed to safeguard your wallet. Go to settings and "
-                                        "turn passcode on to continue.", nil)
-              delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
+                                        message:NSLocalizedString(@"\nA device passcode is needed to safeguard your wallet. Go to settings and "
+                                                                  "turn passcode on to continue.", nil)
+                                       delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
         }
         else {
             [self.navigationController
-            presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"NewWalletNav"] animated:NO
-            completion:^{
-                self.splash.hidden = YES;
-                self.navigationController.navigationBar.hidden = NO;
-				
-				if ([self.tabBarController.viewControllers containsObject:self.receiveViewController]) {
-					[self.tabBarController setSelectedViewController:self.receiveViewController];
-				}
-            }];
-
+             presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"NewWalletNav"] animated:NO
+             completion:^{
+                 self.splash.hidden = YES;
+                 self.navigationController.navigationBar.hidden = NO;
+                 
+                 if ([self.tabBarController.viewControllers containsObject:self.receiveViewController]) {
+                     [self.tabBarController setSelectedViewController:self.receiveViewController];
+                 }
+             }];
+            
             manager.didAuthenticate = YES;
             self.showTips = YES;
             [self unlock:nil];
@@ -464,30 +477,32 @@
         if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY]) self.balance = [defs doubleForKey:BALANCE_KEY];
         self.splash.hidden = YES;
         self.navigationController.navigationBar.hidden = NO;
-		self.tabBarController.view.alpha = 1.0;
+        self.tabBarController.view.alpha = 1.0;
         [self.receiveViewController updateAddress];
         if (self.reachability.currentReachabilityStatus == NotReachable) [self showErrorBar];
-
+        
         if (self.navigationController.visibleViewController == self) {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         }
-
+        
 #if SNAPSHOT
         return;
 #endif
-
+        
         if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
             while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
             [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
             [self unlock:nil];
         }
-
+        
         if (self.navigationController.visibleViewController == self) {
             if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
         }
         
         if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+            NSLog(@"BRRootViewController protectedViewDidApper ");
+            NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
             [[BRPeerManager sharedInstance] connect];
             [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
             
@@ -495,6 +510,36 @@
             if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
         }
     }
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    
+    (segue.destinationViewController).transitioningDelegate = self;
+    (segue.destinationViewController).modalPresentationStyle = UIModalPresentationCustom;
+    [self hideErrorBar];
+    
+    if ([sender isEqual:NSLocalizedString(@"show phrase", nil)]) { // show recovery phrase
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
+                                    message:[NSString stringWithFormat:@"\n%@\n\n%@\n\n%@\n",
+                                             [NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
+                                                                "phrase or they can spend your bitcoins.\n", nil)
+                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
+                                             [NSLocalizedString(@"\nNEVER type your recovery phrase into\n"
+                                                                "password managers or elsewhere.\n"
+                                                                "Other devices may be infected.\n", nil)
+                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
+                                             [NSLocalizedString(@"\nDO NOT take a screenshot.\n"
+                                                                "Screenshots are visible to other apps\n"
+                                                                "and devices.\n", nil)
+                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]]
+                                   delegate:[(id)segue.destinationViewController viewControllers].firstObject
+                          cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"show", nil), nil]
+         show];
+    }
+
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -512,35 +557,6 @@
 
     return YES;
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [super prepareForSegue:segue sender:sender];
-
-    (segue.destinationViewController).transitioningDelegate = self;
-    (segue.destinationViewController).modalPresentationStyle = UIModalPresentationCustom;
-    [self hideErrorBar];
-    
-    if ([sender isEqual:NSLocalizedString(@"show phrase", nil)]) { // show recovery phrase
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
-          message:[NSString stringWithFormat:@"\n%@\n\n%@\n\n%@\n",
-                   [NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
-                                      "phrase or they can spend your bitcoins.\n", nil)
-                    stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
-                   [NSLocalizedString(@"\nNEVER type your recovery phrase into\n"
-                                      "password managers or elsewhere.\n"
-                                      "Other devices may be infected.\n", nil)
-                    stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
-                   [NSLocalizedString(@"\nDO NOT take a screenshot.\n"
-                                      "Screenshots are visible to other apps\n"
-                                      "and devices.\n", nil)
-                    stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]]
-            delegate:[(id)segue.destinationViewController viewControllers].firstObject
-            cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"show", nil), nil]
-         show];
-    }
-}
-
 - (void)dealloc
 {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
@@ -559,6 +575,7 @@
     if (self.syncStartedObserver) [[NSNotificationCenter defaultCenter] removeObserver:self.syncStartedObserver];
     if (self.syncFinishedObserver) [[NSNotificationCenter defaultCenter] removeObserver:self.syncFinishedObserver];
     if (self.syncFailedObserver) [[NSNotificationCenter defaultCenter] removeObserver:self.syncFailedObserver];
+
     AudioServicesDisposeSystemSoundID(self.pingsound);
 }
 
@@ -873,7 +890,8 @@
 {
     [BREventManager saveEvent:@"root:connect"];
     if (! sender && [self.reachability currentReachabilityStatus] == NotReachable) return;
-
+    NSLog(@"(IBAction)connect:(id)sender.  -> BRPeerManager.connect");
+    
     [[BRPeerManager sharedInstance] connect];
     [BREventManager saveEvent:@"root:connect_success"];
     if (self.reachability.currentReachabilityStatus == NotReachable) [self showErrorBar];
@@ -1068,6 +1086,8 @@ viewControllerAfterViewController:(UIViewController *)viewController
     }
     else if ([from isKindOfClass:[UINavigationController class]] && to == self.navigationController) { // modal dismiss
         if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+            NSLog(@"BRRootViewController animateTransition.. [BRPeerManager sharedInstance] connect");
+
             [[BRPeerManager sharedInstance] connect];
             [self.sendViewController updateClipboardText];
         }

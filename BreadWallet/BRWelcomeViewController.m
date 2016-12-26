@@ -51,6 +51,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"BRWelcomeViewController viewDidLoad");
         
     self.navigationController.delegate = self;
 
