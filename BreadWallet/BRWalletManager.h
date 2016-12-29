@@ -68,6 +68,8 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotificatio
 @property (nonatomic, readonly) NSArray * _Nullable currencyCodes; // list of supported local currency codes
 @property (nonatomic, readonly) NSArray * _Nullable currencyNames; // names for local currency codes
 
+@property (nonatomic, assign) BOOL isFirtTimeLogin;
+
 + (instancetype _Nullable)sharedInstance;
 
 - (NSString * _Nullable)generateRandomSeed; // generates a random seed, saves to keychain and returns the seedPhrase
