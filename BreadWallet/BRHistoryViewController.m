@@ -453,7 +453,8 @@ static NSString *dateFormat(NSString *template)
     static NSString *noTxIdent = @"NoTxCell", *transactionIdent = @"TransactionCell", *actionIdent = @"ActionCell";
 //    static NSString *disclosureIdent = @"DisclosureCell";
     UITableViewCell *cell = nil;
-    UILabel *textLabel, *unconfirmedLabel, *sentLabel, *localCurrencyLabel, *detailTextLabel;
+    UILabel *textLabel, *unconfirmedLabel, *sentLabel, *detailTextLabel;
+    //UILabel *localCurrencyLabel;
     UIImageView *tickChecked, *tickUnchecked;
     BRWalletManager *manager = [BRWalletManager sharedInstance];
 
@@ -470,7 +471,7 @@ static NSString *dateFormat(NSString *template)
                 textLabel = (id)[cell viewWithTag:1];
                 detailTextLabel = (id)[cell viewWithTag:2];
                 unconfirmedLabel = (id)[cell viewWithTag:3];
-                localCurrencyLabel = (id)[cell viewWithTag:5];
+                //localCurrencyLabel = (id)[cell viewWithTag:5];
                 sentLabel = (id)[cell viewWithTag:6];
                 tickChecked = (id)[cell viewWithTag:9];
                 tickUnchecked = (id)[cell viewWithTag:10];
@@ -527,23 +528,20 @@ static NSString *dateFormat(NSString *template)
 
                 if (sent > 0 && received == sent) {
                     textLabel.text = [manager stringForAmount:sent];
-                    localCurrencyLabel.text = [NSString stringWithFormat:@"%@",
-                                               [manager localCurrencyStringForAmount:sent]];
+                    //localCurrencyLabel.text = [NSString stringWithFormat:@"%@", [manager localCurrencyStringForAmount:sent]];
                     sentLabel.text = NSLocalizedString(@"moved", nil);
                     sentLabel.textColor = [UIColor whiteColor];
                 }
                 else if (sent > 0) {
                     textLabel.text = [manager stringForAmount:received - sent];
-                    localCurrencyLabel.text = [NSString stringWithFormat:@"%@",
-                                               [manager localCurrencyStringForAmount:received - sent]];
+                   // localCurrencyLabel.text = [NSString stringWithFormat:@"%@",[manager localCurrencyStringForAmount:received - sent]];
                     // Declare sent txs
                     sentLabel.text = NSLocalizedString(@"sent", nil);
                     sentLabel.textColor = [UIColor colorWithRed:1.0 green:0.33 blue:0.33 alpha:1.0];
                 }
                 else {
                     textLabel.text = [manager stringForAmount:received];
-                    localCurrencyLabel.text = [NSString stringWithFormat:@"%@",
-                                               [manager localCurrencyStringForAmount:received]];
+                    //localCurrencyLabel.text = [NSString stringWithFormat:@"%@", [manager localCurrencyStringForAmount:received]];
                     // Declare received txs
                     sentLabel.text = NSLocalizedString(@"received", nil);
                     sentLabel.textColor = [UIColor colorWithRed:0.0 green:0.75 blue:0.0 alpha:1.0];

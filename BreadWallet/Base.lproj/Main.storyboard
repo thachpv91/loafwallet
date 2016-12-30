@@ -1701,16 +1701,6 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="left" horizontalHuggingPriority="249" text="($1,000.00)" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="74" translatesAutoresizingMaskIntoConstraints="NO" id="JNR-nK-iyP">
-                                            <rect key="frame" x="193.5" y="12" width="74" height="20"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="49v-w7-zHL"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="highlightedColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        </label>
                                         <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygs-bs-Yv0">
                                             <rect key="frame" x="0.0" y="44" width="375" height="0.5"/>
                                             <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1721,7 +1711,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ygs-bs-Yv0" firstAttribute="leading" secondItem="n9h-gA-rtw" secondAttribute="leading" id="B94-24-yGa"/>
-                                        <constraint firstItem="0ui-yr-JjJ" firstAttribute="leading" secondItem="JNR-nK-iyP" secondAttribute="trailing" constant="5" id="GiQ-Xv-U5l"/>
                                         <constraint firstAttribute="centerY" secondItem="0ui-yr-JjJ" secondAttribute="centerY" id="SiK-uI-6Jv"/>
                                         <constraint firstItem="0ui-yr-JjJ" firstAttribute="top" secondItem="XJu-9x-HqQ" secondAttribute="top" id="Vlm-Dy-0Be"/>
                                         <constraint firstAttribute="bottom" secondItem="ygs-bs-Yv0" secondAttribute="bottom" constant="-1" id="aL9-AV-0QJ"/>
@@ -1731,7 +1720,6 @@
                                         <constraint firstItem="fX0-7c-MzP" firstAttribute="top" secondItem="n9h-gA-rtw" secondAttribute="top" id="oq2-4s-VIj"/>
                                         <constraint firstItem="XJu-9x-HqQ" firstAttribute="leading" secondItem="n9h-gA-rtw" secondAttribute="leading" constant="15" id="yCG-zv-efZ"/>
                                         <constraint firstAttribute="trailing" secondItem="0ui-yr-JjJ" secondAttribute="trailing" constant="15" id="yIN-5u-c8p"/>
-                                        <constraint firstItem="0ui-yr-JjJ" firstAttribute="top" secondItem="JNR-nK-iyP" secondAttribute="top" id="yST-0f-bPc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1769,13 +1757,6 @@
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="($1,000.00)" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="64.5" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-oB-KWn">
-                                            <rect key="frame" x="223.5" y="34" width="64.5" height="15.5"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        </label>
                                         <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXV-Is-AB7">
                                             <rect key="frame" x="0.0" y="59.5" width="375" height="0.5"/>
                                             <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1785,7 +1766,6 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="N6a-t6-1jK" firstAttribute="leading" secondItem="wd8-oB-KWn" secondAttribute="trailing" constant="5" id="9Y4-6u-xaz"/>
                                         <constraint firstAttribute="trailing" secondItem="doQ-Jb-ONm" secondAttribute="trailing" id="A9q-Ot-B0V"/>
                                         <constraint firstItem="WHQ-zW-IjD" firstAttribute="top" secondItem="00M-e1-IWY" secondAttribute="bottom" constant="5" id="Hy7-ai-9mb"/>
                                         <constraint firstItem="N6a-t6-1jK" firstAttribute="baseline" secondItem="WHQ-zW-IjD" secondAttribute="baseline" id="KOu-GW-OHg"/>
@@ -1796,8 +1776,6 @@
                                         <constraint firstItem="MXV-Is-AB7" firstAttribute="leading" secondItem="8N2-YD-eEK" secondAttribute="leading" id="gZ8-Wd-VKX"/>
                                         <constraint firstAttribute="bottom" secondItem="MXV-Is-AB7" secondAttribute="bottom" constant="-0.5" id="h06-hD-M6e"/>
                                         <constraint firstAttribute="centerY" secondItem="00M-e1-IWY" secondAttribute="centerY" constant="10" id="iSD-WL-R05"/>
-                                        <constraint firstItem="N6a-t6-1jK" firstAttribute="baseline" secondItem="wd8-oB-KWn" secondAttribute="baseline" id="mR3-gb-ltA"/>
-                                        <constraint firstItem="wd8-oB-KWn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WHQ-zW-IjD" secondAttribute="trailing" id="qW3-h6-0NK"/>
                                         <constraint firstAttribute="trailing" secondItem="MXV-Is-AB7" secondAttribute="trailing" id="uQC-H5-0ap"/>
                                         <constraint firstItem="WHQ-zW-IjD" firstAttribute="leading" secondItem="8N2-YD-eEK" secondAttribute="leading" constant="15" id="x9a-x1-jVO"/>
                                         <constraint firstItem="doQ-Jb-ONm" firstAttribute="top" secondItem="8N2-YD-eEK" secondAttribute="top" id="yfN-Dl-i8Z"/>
@@ -1831,13 +1809,6 @@
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="($1,000.00)" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="64.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ofd-q3-a1P">
-                                            <rect key="frame" x="223.5" y="12" width="64.5" height="15.5"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        </label>
                                         <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-4u-olC">
                                             <rect key="frame" x="0.0" y="39.5" width="375" height="0.5"/>
                                             <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1849,14 +1820,11 @@
                                     <constraints>
                                         <constraint firstItem="gZx-fI-siU" firstAttribute="leading" secondItem="M2v-gZ-6Uv" secondAttribute="leading" constant="15" id="26Q-HI-Xzr"/>
                                         <constraint firstAttribute="bottom" secondItem="Z6C-4u-olC" secondAttribute="bottom" constant="-0.5" id="5uc-5c-Dam"/>
-                                        <constraint firstItem="Ofd-q3-a1P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gZx-fI-siU" secondAttribute="trailing" id="7yf-8D-brr"/>
                                         <constraint firstItem="Z6C-4u-olC" firstAttribute="leading" secondItem="M2v-gZ-6Uv" secondAttribute="leading" id="AtH-Lw-eM8"/>
                                         <constraint firstAttribute="trailing" secondItem="AF4-DF-4BL" secondAttribute="trailing" id="C1h-YS-pJU"/>
                                         <constraint firstAttribute="centerY" secondItem="gZx-fI-siU" secondAttribute="centerY" id="Eac-tD-4Ts"/>
-                                        <constraint firstItem="hJG-af-ws1" firstAttribute="baseline" secondItem="Ofd-q3-a1P" secondAttribute="baseline" id="GkK-Wg-a1g"/>
                                         <constraint firstItem="AF4-DF-4BL" firstAttribute="leading" secondItem="M2v-gZ-6Uv" secondAttribute="leading" id="Jo2-pr-qAg"/>
                                         <constraint firstAttribute="trailing" secondItem="Z6C-4u-olC" secondAttribute="trailing" id="KfY-mu-pDu"/>
-                                        <constraint firstItem="hJG-af-ws1" firstAttribute="leading" secondItem="Ofd-q3-a1P" secondAttribute="trailing" constant="5" id="Rzb-w3-N6n"/>
                                         <constraint firstItem="hJG-af-ws1" firstAttribute="baseline" secondItem="gZx-fI-siU" secondAttribute="baseline" id="e9t-CV-tvR"/>
                                         <constraint firstItem="AF4-DF-4BL" firstAttribute="top" secondItem="M2v-gZ-6Uv" secondAttribute="top" id="l9B-6T-RVm"/>
                                         <constraint firstAttribute="trailing" secondItem="hJG-af-ws1" secondAttribute="trailing" constant="15" id="s2U-sz-2B5"/>
@@ -2508,13 +2476,6 @@ Other devices may be infected.
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="left" horizontalCompressionResistancePriority="749" text="$1,000.00" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="74" translatesAutoresizingMaskIntoConstraints="NO" id="qo1-BB-2n5">
-                                            <rect key="frame" x="212" y="17" width="76" height="20"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="highlightedColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <size key="shadowOffset" width="0.0" height="0.0"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick-checked" translatesAutoresizingMaskIntoConstraints="NO" id="Q41-gN-Pns">
                                             <rect key="frame" x="15" y="17" width="42" height="42"/>
                                         </imageView>
@@ -2525,14 +2486,14 @@ Other devices may be infected.
                                             </constraints>
                                         </imageView>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="unconfirmed" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="73" translatesAutoresizingMaskIntoConstraints="NO" id="Y15-sw-t5q">
-                                            <rect key="frame" x="213" y="39" width="75" height="20"/>
+                                            <rect key="frame" x="158" y="39" width="73" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" text="Detail" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="31.5" translatesAutoresizingMaskIntoConstraints="NO" id="RBk-Ju-5IV" customClass="BRCopyLabel">
-                                            <rect key="frame" x="105" y="39" width="88" height="20"/>
+                                            <rect key="frame" x="105" y="39" width="33" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2542,13 +2503,10 @@ Other devices may be infected.
                                     <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="Y15-sw-t5q" firstAttribute="centerX" secondItem="qo1-BB-2n5" secondAttribute="centerX" id="0Il-Ij-tve"/>
                                         <constraint firstItem="Q41-gN-Pns" firstAttribute="leading" secondItem="egJ-fd-0eP" secondAttribute="leading" id="2ca-U1-14O"/>
-                                        <constraint firstItem="mdF-Na-3wW" firstAttribute="top" secondItem="qo1-BB-2n5" secondAttribute="top" id="3E1-8Y-ulz"/>
                                         <constraint firstItem="Y15-sw-t5q" firstAttribute="baseline" secondItem="RBk-Ju-5IV" secondAttribute="baseline" id="3ub-Wt-Td0"/>
                                         <constraint firstItem="Q41-gN-Pns" firstAttribute="trailing" secondItem="egJ-fd-0eP" secondAttribute="trailing" id="5f8-6K-uuf"/>
                                         <constraint firstItem="Y15-sw-t5q" firstAttribute="leading" secondItem="RBk-Ju-5IV" secondAttribute="trailing" constant="20" id="7sc-gn-s2m"/>
-                                        <constraint firstItem="qo1-BB-2n5" firstAttribute="leading" secondItem="mdF-Na-3wW" secondAttribute="trailing" constant="31" id="EYt-Kd-rhh"/>
                                         <constraint firstItem="egJ-fd-0eP" firstAttribute="bottom" secondItem="RBk-Ju-5IV" secondAttribute="bottom" id="JQG-wg-VdK"/>
                                         <constraint firstItem="Q41-gN-Pns" firstAttribute="leading" secondItem="70g-yG-whh" secondAttribute="leadingMargin" constant="7" id="KdF-Ot-9fV"/>
                                         <constraint firstItem="UXB-HW-dsW" firstAttribute="top" secondItem="70g-yG-whh" secondAttribute="top" id="Kqs-oM-1Nz"/>
@@ -2560,11 +2518,8 @@ Other devices may be infected.
                                         <constraint firstItem="Y15-sw-t5q" firstAttribute="centerY" secondItem="RBk-Ju-5IV" secondAttribute="centerY" id="aJk-YK-mwP"/>
                                         <constraint firstItem="Q41-gN-Pns" firstAttribute="top" secondItem="UXB-HW-dsW" secondAttribute="bottom" constant="16" id="bDi-18-CGd"/>
                                         <constraint firstItem="egJ-fd-0eP" firstAttribute="centerY" secondItem="70g-yG-whh" secondAttribute="centerY" id="dBG-Dy-Mo3"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qo1-BB-2n5" secondAttribute="trailing" constant="79" id="dmv-Rz-joy"/>
                                         <constraint firstItem="egJ-fd-0eP" firstAttribute="top" secondItem="Q41-gN-Pns" secondAttribute="top" id="nKv-fa-485"/>
                                         <constraint firstItem="mdF-Na-3wW" firstAttribute="leading" secondItem="egJ-fd-0eP" secondAttribute="trailing" constant="48" id="ofR-Dj-mu8"/>
-                                        <constraint firstItem="Y15-sw-t5q" firstAttribute="trailing" secondItem="qo1-BB-2n5" secondAttribute="trailing" id="sT7-a6-QU1"/>
-                                        <constraint firstItem="mdF-Na-3wW" firstAttribute="bottom" secondItem="qo1-BB-2n5" secondAttribute="bottom" id="sjL-kO-bR4"/>
                                         <constraint firstItem="RBk-Ju-5IV" firstAttribute="top" secondItem="mdF-Na-3wW" secondAttribute="bottom" constant="2" id="tKF-Nx-U09"/>
                                     </constraints>
                                 </tableViewCellContentView>

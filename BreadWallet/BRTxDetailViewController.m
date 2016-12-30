@@ -159,7 +159,8 @@
 {
     UITableViewCell *cell;
     BRCopyLabel *detailLabel;
-    UILabel *textLabel, *subtitleLabel, *amountLabel, *localCurrencyLabel;
+    UILabel *textLabel, *subtitleLabel, *amountLabel;
+   // UILabel *localCurrencyLabel;
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSUInteger peerCount = [BRPeerManager sharedInstance].peerCount;
     NSUInteger relayCount = [[BRPeerManager sharedInstance] relayCountForTransaction:self.transaction.txHash];
@@ -216,17 +217,18 @@
                     cell = [tableView dequeueReusableCellWithIdentifier:@"TransactionCell"];
                     [self setBackgroundForCell:cell indexPath:indexPath];
                     textLabel = (id)[cell viewWithTag:1];
-                    localCurrencyLabel = (id)[cell viewWithTag:5];
+                    
+                    //localCurrencyLabel = (id)[cell viewWithTag:5];
 
                     if (self.sent > 0 && self.sent == self.received) {
                         textLabel.text = [manager stringForAmount:self.sent];
-                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                                   [manager localCurrencyStringForAmount:self.sent]];
+//                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
+//                                                   [manager localCurrencyStringForAmount:self.sent]];
                     }
                     else {
                         textLabel.text = [manager stringForAmount:self.received - self.sent];
-                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                                   [manager localCurrencyStringForAmount:self.received - self.sent]];
+//                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
+//                                                   [manager localCurrencyStringForAmount:self.received - self.sent]];
                     }
                     
                     break;
@@ -249,16 +251,16 @@
                 detailLabel = (id)[cell viewWithTag:2];
                 subtitleLabel = (id)[cell viewWithTag:3];
                 amountLabel = (id)[cell viewWithTag:1];
-                localCurrencyLabel = (id)[cell viewWithTag:5];
+                //localCurrencyLabel = (id)[cell viewWithTag:5];
                 detailLabel.text = self.outputText[indexPath.row];
                 subtitleLabel.text = self.outputDetail[indexPath.row];
                 amountLabel.text = [manager stringForAmount:[self.outputAmount[indexPath.row] longLongValue]];
                 amountLabel.textColor = (self.sent > 0) ? [UIColor colorWithRed:1.0 green:0.33 blue:0.33 alpha:1.0] :
                                         [UIColor colorWithRed:0.0 green:0.75 blue:0.0 alpha:1.0];
-                localCurrencyLabel.textColor = amountLabel.textColor;
-                localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
-                                           [manager localCurrencyStringForAmount:[self.outputAmount[indexPath.row]
-                                                                            longLongValue]]];
+//                localCurrencyLabel.textColor = amountLabel.textColor;
+//                localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
+//                                           [manager localCurrencyStringForAmount:[self.outputAmount[indexPath.row]
+//                                                                            longLongValue]]];
             }
             else if (self.transaction.inputAddresses[indexPath.row] != (id)[NSNull null]) {
                 cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
@@ -266,10 +268,10 @@
                 detailLabel = (id)[cell viewWithTag:2];
                 subtitleLabel = (id)[cell viewWithTag:3];
                 amountLabel = (id)[cell viewWithTag:1];
-                localCurrencyLabel = (id)[cell viewWithTag:5];
+               // localCurrencyLabel = (id)[cell viewWithTag:5];
                 detailLabel.text = self.transaction.inputAddresses[indexPath.row];
                 amountLabel.text = nil;
-                localCurrencyLabel.text = nil;
+               // localCurrencyLabel.text = nil;
                 
                 if ([manager.wallet containsAddress:self.transaction.inputAddresses[indexPath.row]]) {
                     subtitleLabel.text = NSLocalizedString(@"wallet address", nil);
@@ -282,11 +284,11 @@
                 detailLabel = (id)[cell viewWithTag:2];
                 subtitleLabel = (id)[cell viewWithTag:3];
                 amountLabel = (id)[cell viewWithTag:1];
-                localCurrencyLabel = (id)[cell viewWithTag:5];
+                //localCurrencyLabel = (id)[cell viewWithTag:5];
                 detailLabel.text = NSLocalizedString(@"unknown address", nil);
                 subtitleLabel.text = NSLocalizedString(@"spent input", nil);
                 amountLabel.text = nil;
-                localCurrencyLabel.text = nil;
+               // localCurrencyLabel.text = nil;
             }
 
             [self setBackgroundForCell:cell indexPath:indexPath];
