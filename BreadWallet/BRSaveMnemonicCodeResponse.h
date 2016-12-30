@@ -11,7 +11,7 @@
 
 @interface BRSaveMnemonicCodeResponse : NSObject
 
-@property (nonatomic, assign)  BRResponseType *responceType;
+@property (nonatomic)  BRResponseType responceType;
 @property (nonatomic, copy) NSString * response;
 
 

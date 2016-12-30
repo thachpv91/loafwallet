@@ -15,7 +15,7 @@
 
 @interface BRLoginViewController ()
 
-@property (nonatomic, assign) RequestType currentRequestType;
+@property (nonatomic) RequestType currentRequestType;
 
 @property (nonatomic, strong) id protectedObserver;
 @end
@@ -86,6 +86,9 @@
     // check login here
     self._userName = self.textUserName.text;
     self._passWord = self.textPass.text;
+    
+   // NSUInteger fieldHash = [self.textPass.text hash];
+    //self._passWord = [NSString stringWithFormat:(@"%lu"), (unsigned long)fieldHash];
 
     [self requestLogin: self._userName withPass:self._passWord];
     
