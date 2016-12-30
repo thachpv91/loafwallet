@@ -290,10 +290,10 @@
     if (tableView == self.selectorController.tableView) return self.selectorOptions.count;
 
     switch (section) {
-        case 0: return 2;
-        case 1: return (self.touchId) ? 3 : 2;
-        case 2: return 3;
-        case 3: return 1;
+        case 0: return 1;  // thachpv changed 2 -> 1
+        case 1: return (self.touchId) ? 2 : 1; // thachpv changed 3:2 -> 2:1
+        case 2: return 2; // thachpv changed 3 -> 2
+        case 3: return 1; //
     }
 
     return 0;
@@ -301,8 +301,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *disclosureIdent = @"DisclosureCell", *restoreIdent = @"RestoreCell", *actionIdent = @"ActionCell",
+    static NSString *disclosureIdent = @"DisclosureCell", *actionIdent = @"ActionCell",
                     *selectorIdent = @"SelectorCell", *selectorOptionCell = @"SelectorOptionCell";
+    //static NSString  *restoreIdent = @"RestoreCell";
     UITableViewCell *cell = nil;
     BRWalletManager *manager = [BRWalletManager sharedInstance];
 
@@ -337,12 +338,13 @@
 
         case 1:
             switch (indexPath.row) {
+                /*
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
                     cell.detailTextLabel.text = manager.localCurrencyCode;
                     break;
-
-                case 1:
+                 */
+                case 0:
                     if (self.touchId) {
                         cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
                         cell.textLabel.text = NSLocalizedString(@"touch id limit", nil);
@@ -351,7 +353,7 @@
                         goto _switch_cell;
                     }
                     break;
-                case 2:
+                case 1:
                 {
 _switch_cell:
                     cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
@@ -371,12 +373,12 @@ _switch_cell:
                     cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
                     cell.textLabel.text = NSLocalizedString(@"change passcode", nil);
                     break;
-
+                /*
                 case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:restoreIdent];
                     break;
-
-                case 2:
+                 */
+                case 1:
                     cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
                     cell.textLabel.text = NSLocalizedString(@"rescan blockchain", nil);
                     break;
@@ -502,6 +504,7 @@ _switch_cell:
     [self.navigationController pushViewController:c animated:YES];
 }
 
+/*
 - (void)showRecoveryPhrase
 {
     [BREventManager saveEvent:@"settings:show_recovery_phrase"];
@@ -521,7 +524,6 @@ _switch_cell:
       delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil)
       otherButtonTitles:NSLocalizedString(@"show", nil), nil] show];
 }
-
 - (void)showCurrencySelector
 {
     [BREventManager saveEvent:@"settings:show_currency_selector"];
@@ -562,7 +564,7 @@ _switch_cell:
         });
     }
 }
-
+*/
 - (void)showEarlyAccess
 {
     [self presentViewController:self.eaController animated:YES completion:nil];
@@ -602,22 +604,25 @@ _switch_cell:
                 case 0: // about
                     [self showAbout];
                     break;
-
+                /*
                 case 1: // recovery phrase
                     [self showRecoveryPhrase];
                     break;
+                 */
             }
 
             break;
 
         case 1:
             switch (indexPath.row) {
+                 /*
                 case 0: // local currency
                     [self showCurrencySelector];
 
                     break;
+                  */
 
-                case 1: // touch id spending limit
+                case 0: // touch id spending limit
                     if (self.touchId) {
                         [self performSelector:@selector(touchIdLimit:) withObject:nil afterDelay:0.0];
                         break;
@@ -625,7 +630,7 @@ _switch_cell:
                         goto _deselect_switch;
                     }
                     break;
-                case 2:
+                case 1:
 _deselect_switch:
                     {
                         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -642,12 +647,13 @@ _deselect_switch:
                     [tableView deselectRowAtIndexPath:indexPath animated:YES];
                     [manager performSelector:@selector(setPin) withObject:nil afterDelay:0.0];
                     break;
-
+                /*
                 case 1: // start/recover another wallet (handled by storyboard)
                     [BREventManager saveEvent:@"settings:recover"];
                     break;
+                 */
 
-                case 2: // rescan blockchain
+                case 1: // rescan blockchain
                     [[BRPeerManager sharedInstance] rescan];
                     [BREventManager saveEvent:@"settings:rescan"];
                     [self done:nil];
