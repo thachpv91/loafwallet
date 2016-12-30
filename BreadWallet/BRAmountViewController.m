@@ -34,7 +34,7 @@
 @interface BRAmountViewController ()
 
 @property (nonatomic, strong) IBOutlet UITextField *amountField, *memoField;
-@property (nonatomic, strong) IBOutlet UILabel *localCurrencyLabel;
+//@property (nonatomic, strong) IBOutlet UILabel *localCurrencyLabel;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *payButton, *lock;
 @property (nonatomic, strong) IBOutlet UIButton *delButton, *decimalButton;
 @property (nonatomic, strong) IBOutlet UIImageView *wallpaper;
@@ -66,7 +66,7 @@
     self.amountField.placeholder = [manager stringForAmount:0];
     [self.decimalButton setTitle:manager.format.currencyDecimalSeparator forState:UIControlStateNormal];
 
-    [self updateLocalCurrencyLabel];
+  //  [self updateLocalCurrencyLabel];
     
     self.balanceObserver =
         [[NSNotificationCenter defaultCenter] addObserverForName:BRWalletBalanceChangedNotification object:nil queue:nil
@@ -120,7 +120,7 @@
 
     [super viewWillDisappear:animated];
 }
-
+/*
 - (void)updateLocalCurrencyLabel
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
@@ -134,6 +134,7 @@
                                     [manager localCurrencyStringForAmount:amount]];
     self.localCurrencyLabel.textColor = (amount > 0) ? [UIColor grayColor] : [UIColor colorWithWhite:0.75 alpha:1.0];
 }
+ */
 
 // MARK: - IBAction
 
@@ -189,7 +190,7 @@
     [BREventManager saveEvent:@"amount:dismiss"];
     [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
-
+/*
 - (IBAction)swapCurrency:(id)sender
 {
     self.swapped = ! self.swapped;
@@ -273,7 +274,8 @@
         } completion:nil];
     }];
 }
-
+*/
+/*
 - (IBAction)pressSwapButton:(id)sender
 {
     [BREventManager saveEvent:@"amount:press_swap"];
@@ -319,6 +321,7 @@
         self.localCurrencyLabel.hidden = self.amountField.hidden = NO;
     }];
 }
+ */
 
 // MARK: - UITextFieldDelegate
 
@@ -393,7 +396,7 @@ replacementString:(NSString *)string
 
     self.swapRightLabel.hidden = YES;
     textField.hidden = NO;
-    [self updateLocalCurrencyLabel];
+   // [self updateLocalCurrencyLabel];
 
     return NO;
 }
