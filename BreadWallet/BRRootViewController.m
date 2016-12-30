@@ -370,6 +370,9 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         self.splash.hidden = YES;
         self.navigationController.navigationBar.hidden = NO;
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    }else
+    {
+        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
     }
     
     if (jailbroken && manager.wallet.totalReceived + manager.wallet.totalSent > 0) {
@@ -446,73 +449,61 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         manager.format.maximumFractionDigits = 8;
         manager.format.maximum = @(MAX_MONEY/SATOSHIS);
     }
-    if (manager.noWallet) {
-        if (! manager.passcodeEnabled) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"turn device passcode on", nil)
-                                        message:NSLocalizedString(@"\nA device passcode is needed to safeguard your wallet. Go to settings and "
-                                                                  "turn passcode on to continue.", nil)
-                                       delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
-        }
-        else {
-                [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
-        }
+    
+    if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY]) self.balance = [defs doubleForKey:BALANCE_KEY];
+    self.splash.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
+    self.tabBarController.view.alpha = 1.0;
+    [self.receiveViewController updateAddress];
+    if (self.reachability.currentReachabilityStatus == NotReachable) [self showErrorBar];
+    
+    if (self.navigationController.visibleViewController == self) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     }
-    else {
-        if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY]) self.balance = [defs doubleForKey:BALANCE_KEY];
-        self.splash.hidden = YES;
-        self.navigationController.navigationBar.hidden = NO;
-        self.tabBarController.view.alpha = 1.0;
-        [self.receiveViewController updateAddress];
-        if (self.reachability.currentReachabilityStatus == NotReachable) [self showErrorBar];
+    if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
+        while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
+        [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
+        [self unlock:nil];
+    }
+    
+    if (self.navigationController.visibleViewController == self) {
+        if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
+    }
+    
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+        NSLog(@"BRRootViewController protectedViewDidApper ");
+        NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
+        [[BRPeerManager sharedInstance] connect];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
         
-        if (self.navigationController.visibleViewController == self) {
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-        }
-        if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
-            while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
-            [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
-            [self unlock:nil];
-        }
-        
-        if (self.navigationController.visibleViewController == self) {
-            if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
-        }
-        
-        if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
-            NSLog(@"BRRootViewController protectedViewDidApper ");
-            NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
-            [[BRPeerManager sharedInstance] connect];
-            [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
-            
-            if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
-            if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
-        }
-
-        
+        if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
+        if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
+    }
+    
+    
 #if SNAPSHOT
-        return;
+    return;
 #endif
+    
+    if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
+        while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
+        [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
+        [self unlock:nil];
+    }
+    
+    if (self.navigationController.visibleViewController == self) {
+        if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
+    }
+    
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+        NSLog(@"BRRootViewController protectedViewDidApper ");
+        NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
+        [[BRPeerManager sharedInstance] connect];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
         
-        if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
-            while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
-            [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
-            [self unlock:nil];
-        }
-        
-        if (self.navigationController.visibleViewController == self) {
-            if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
-        }
-        
-        if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
-            NSLog(@"BRRootViewController protectedViewDidApper ");
-            NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
-            [[BRPeerManager sharedInstance] connect];
-            [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
-            
-            if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
-            if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
-        }
+        if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
+        if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
     }
     
 }
