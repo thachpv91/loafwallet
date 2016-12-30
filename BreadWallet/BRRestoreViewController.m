@@ -174,7 +174,8 @@
             [self.textView resignFirstResponder];
             [self performSelector:@selector(wipeWithPhrase:) withObject:phrase afterDelay:0.0];
         }
-        else if (incorrect && noWallet && [textView.text hasPrefix:@"watch"]) { // address list watch only wallet
+        else if (incorrect && noWallet && [textView.text hasPrefix:@"watch"]) {
+            // address list watch only wallet
             manager.seedPhrase = @"wipe";
 
             [[NSManagedObject context] performBlockAndWait:^{

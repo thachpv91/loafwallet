@@ -6,8 +6,8 @@
 //  Copyright © 2016 Aaron Voisine. All rights reserved.
 //
 
-#ifndef BRResponseType_h
-#define BRResponseType_h
-
-
-#endif /* BRResponseType_h */
+typedef enum BRResponseTypes
+{
+    RESPONSE_TYPE_ERROR = 0,
+    RESPONSE_TYPE_SUCCESS
+} BRResponseType;

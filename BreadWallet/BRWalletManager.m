@@ -76,7 +76,7 @@
 #define USER_ACCOUNT_KEY    @"https://api.breadwallet.com"
 
 // thachpv added
-
+#define LOGIN_KEY  @"fistlogin"
 // thachpv
 
 static BOOL setKeychainData(NSData *data, NSString *key, BOOL authenticated)
@@ -245,7 +245,7 @@ static NSDictionary *getKeychainDict(NSString *key, NSError **error)
     self.format.negativeFormat = [self.format.positiveFormat
                                   stringByReplacingCharactersInRange:[self.format.positiveFormat rangeOfString:@"#"]
                                   withString:@"-#"];
-    self.format.currencyCode = @"LTC";
+    self.format.currencyCode = @"TC";
     self.format.currencySymbol = BITS NARROW_NBSP;
     self.format.maximumFractionDigits = 8;
     self.format.minimumFractionDigits = 0; // iOS 8 bug, minimumFractionDigits now has to be set after currencySymbol
@@ -424,7 +424,6 @@ static NSDictionary *getKeychainDict(NSString *key, NSError **error)
         [[NSNotificationCenter defaultCenter] postNotificationName:BRWalletBalanceChangedNotification object:nil];
     });
 }
-
 // interval since refrence date, 00:00:00 01/01/01 GMT
 - (NSTimeInterval)seedCreationTime
 {

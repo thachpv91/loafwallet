@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BRResponseType.h"
 
 @interface BRSaveMnemonicCodeResponse : NSObject
+
+@property (nonatomic, assign)  BRResponseType *responceType;
+@property (nonatomic, copy) NSString * response;
+
+
+- (instancetype)initWithDictionary:(NSDictionary *) dictionary;
 
 @end

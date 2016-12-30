@@ -46,7 +46,6 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotificatio
 @interface BRWalletManager : NSObject<UIAlertViewDelegate, UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, readonly) BRWallet * _Nullable wallet;
-@property (nonatomic, assign) BOOL logged; // thachpv added
 @property (nonatomic, readonly) BOOL noWallet; // true if keychain is available and we know that no wallet exists on it
 @property (nonatomic, readonly) BOOL watchOnly; // true if this is a "watch only" wallet with no signing ability
 @property (nonatomic, strong) id<BRKeySequence> _Nullable sequence;
@@ -68,7 +67,10 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotificatio
 @property (nonatomic, readonly) NSArray * _Nullable currencyCodes; // list of supported local currency codes
 @property (nonatomic, readonly) NSArray * _Nullable currencyNames; // names for local currency codes
 
-@property (nonatomic, assign) BOOL isFirtTimeLogin;
+// thachpv added
+@property (nonatomic, assign) BOOL isFirtLauch;
+@property (nonatomic, copy) NSString * _Nullable authenKey;
+// thach end
 
 + (instancetype _Nullable)sharedInstance;
 

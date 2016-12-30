@@ -46,15 +46,14 @@
 		22DC3A231D2C8DD100A72EA5 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DC3A221D2C8DD100A72EA5 /* PushKit.framework */; };
 		22DE8CF11D02407F007F07F3 /* BRWalletConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE8CF01D02407F007F07F3 /* BRWalletConstants.m */; };
 		22DE8CF31D02407F007F07F3 /* BRWalletConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE8CF01D02407F007F07F3 /* BRWalletConstants.m */; };
-		22DE8CF41D02407F007F07F3 /* BRWalletConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE8CF01D02407F007F07F3 /* BRWalletConstants.m */; };
 		22F04A001C9714EF00F137D8 /* BRUserDefaultsSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F45A0D1C3326CC00B07A15 /* BRUserDefaultsSwitchCell.m */; };
 		22F7B6D51D1479FA007CC848 /* BRBitID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7B6D41D1479FA007CC848 /* BRBitID.swift */; };
 		22F7B6DA1D14A665007CC848 /* BRActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7B6D91D14A665007CC848 /* BRActivityView.swift */; };
 		22FBC9701CE3A9D5009578B7 /* bread-buy.tar in Resources */ = {isa = PBXBuildFile; fileRef = 22FBC96F1CE3A9D5009578B7 /* bread-buy.tar */; };
 		22FCD22C1C0E68C80066D798 /* BRTarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCD22B1C0E68C80066D798 /* BRTarTests.swift */; };
 		22FF2C381BED381400B36384 /* BRAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF2C371BED381400B36384 /* BRAPIClient.swift */; };
-		31D68B531C23B6C10030FAAA /* BreadWalletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D68B521C23B6C10030FAAA /* BreadWalletUITests.swift */; };
-		31D68B5B1C23B6FD0030FAAA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D68B5A1C23B6FD0030FAAA /* SnapshotHelper.swift */; };
+		67722E641E1259CE00909F9F /* BRLoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67722E631E1259CE00909F9F /* BRLoginResponse.m */; };
+		67722E671E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */; };
 		67E744501E0BC99A00F8C0BE /* BRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E7444F1E0BC99A00F8C0BE /* BRLoginViewController.m */; };
 		751B2B5C1B68911700EA87FB /* BRTxHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751B2B5B1B68911700EA87FB /* BRTxHistoryViewController.m */; };
 		7525B619192453840041C0F2 /* BRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7525B618192453840041C0F2 /* BRNavigationBar.m */; };
@@ -121,13 +120,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		31D68B551C23B6C10030FAAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75D5F3B6191EC270004AB296 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75D5F3BD191EC270004AB296;
-			remoteInfo = breadwallet;
-		};
 		757FC2521ADA30D100A1FDF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75D5F3B6191EC270004AB296 /* Project object */;
@@ -220,10 +212,14 @@
 		22FCD22B1C0E68C80066D798 /* BRTarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRTarTests.swift; sourceTree = "<group>"; };
 		22FF2C361BED381400B36384 /* breadwallet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "breadwallet-Bridging-Header.h"; sourceTree = "<group>"; };
 		22FF2C371BED381400B36384 /* BRAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRAPIClient.swift; sourceTree = "<group>"; };
-		31D68B501C23B6C10030FAAA /* LoafWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoafWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D68B521C23B6C10030FAAA /* BreadWalletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadWalletUITests.swift; sourceTree = "<group>"; };
 		31D68B541C23B6C10030FAAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31D68B5A1C23B6FD0030FAAA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		67722E621E1259CE00909F9F /* BRLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRLoginResponse.h; sourceTree = "<group>"; };
+		67722E631E1259CE00909F9F /* BRLoginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginResponse.m; sourceTree = "<group>"; };
+		67722E651E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRSaveMnemonicCodeResponse.h; sourceTree = "<group>"; };
+		67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRSaveMnemonicCodeResponse.m; sourceTree = "<group>"; };
+		67722E6D1E14FF2F00909F9F /* BRResponseType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResponseType.h; sourceTree = "<group>"; };
 		67E7444E1E0BC99A00F8C0BE /* BRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRLoginViewController.h; sourceTree = "<group>"; };
 		67E7444F1E0BC99A00F8C0BE /* BRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginViewController.m; sourceTree = "<group>"; };
 		7509C10C1AF3076000D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -475,13 +471,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		31D68B4D1C23B6C10030FAAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75D5F3BB191EC270004AB296 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -559,6 +548,18 @@
 			path = BreadWalletUITests;
 			sourceTree = "<group>";
 		};
+		67722E611E12596B00909F9F /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				67722E621E1259CE00909F9F /* BRLoginResponse.h */,
+				67722E631E1259CE00909F9F /* BRLoginResponse.m */,
+				67722E651E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.h */,
+				67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */,
+				67722E6D1E14FF2F00909F9F /* BRResponseType.h */,
+			);
+			name = ResponseModels;
+			sourceTree = "<group>";
+		};
 		752E289B19234A3F00DB5A3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +588,7 @@
 		752E289C19234A4700DB5A3C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				67722E611E12596B00909F9F /* ResponseModels */,
 				752E289D19234A4E00DB5A3C /* Entities */,
 				752E28B619234C3600DB5A3C /* BRKey.h */,
 				752E28B719234C3600DB5A3C /* BRKey.m */,
@@ -789,7 +791,6 @@
 			children = (
 				75D5F3BE191EC270004AB296 /* breadwallet.app */,
 				75D5F3E5191EC270004AB296 /* LoafWalletTests.xctest */,
-				31D68B501C23B6C10030FAAA /* LoafWalletTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -987,24 +988,6 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		31D68B4F1C23B6C10030FAAA /* LoafWalletUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 31D68B591C23B6C10030FAAA /* Build configuration list for PBXNativeTarget "LoafWalletUITests" */;
-			buildPhases = (
-				31D68B4C1C23B6C10030FAAA /* Sources */,
-				31D68B4D1C23B6C10030FAAA /* Frameworks */,
-				31D68B4E1C23B6C10030FAAA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				31D68B561C23B6C10030FAAA /* PBXTargetDependency */,
-			);
-			name = LoafWalletUITests;
-			productName = BreadWalletUITests;
-			productReference = 31D68B501C23B6C10030FAAA /* LoafWalletTests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		75D5F3BD191EC270004AB296 /* breadwallet */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75D5F3F6191EC270004AB296 /* Build configuration list for PBXNativeTarget "breadwallet" */;
@@ -1054,12 +1037,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Aaron Voisine";
 				TargetAttributes = {
-					31D68B4F1C23B6C10030FAAA = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = H4T3K787ZT;
-						LastSwiftMigration = 0800;
-						TestTargetID = 75D5F3BD191EC270004AB296;
-					};
 					75001D3D1A1EE89500585F55 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -1119,20 +1096,12 @@
 			targets = (
 				75D5F3BD191EC270004AB296 /* breadwallet */,
 				75D5F3E4191EC270004AB296 /* LoafWalletTests */,
-				31D68B4F1C23B6C10030FAAA /* LoafWalletUITests */,
 				75001D3D1A1EE89500585F55 /* submodules */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		31D68B4E1C23B6C10030FAAA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75D5F3BC191EC270004AB296 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1161,16 +1130,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		31D68B4C1C23B6C10030FAAA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				31D68B531C23B6C10030FAAA /* BreadWalletUITests.swift in Sources */,
-				31D68B5B1C23B6FD0030FAAA /* SnapshotHelper.swift in Sources */,
-				22DE8CF41D02407F007F07F3 /* BRWalletConstants.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75D5F3BA191EC270004AB296 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1183,6 +1142,7 @@
 				2292799A1C695CAE00C98E78 /* BRHTTPFileMiddleware.swift in Sources */,
 				BA7B53501BDA9A2800355E8D /* BRAppleWatchData.m in Sources */,
 				752E28AC19234AE300DB5A3C /* BRPeerEntity.m in Sources */,
+				67722E641E1259CE00909F9F /* BRLoginResponse.m in Sources */,
 				752E28AD19234AE300DB5A3C /* BRTransactionEntity.m in Sources */,
 				752E28AE19234AE300DB5A3C /* BRTxInputEntity.m in Sources */,
 				752E28AF19234AE300DB5A3C /* BRTxOutputEntity.m in Sources */,
@@ -1209,6 +1169,7 @@
 				752E28CF19234C3600DB5A3C /* BRBIP39Mnemonic.m in Sources */,
 				229279A51C695DE700C98E78 /* BRAPIProxy.swift in Sources */,
 				752E28DA19234C3600DB5A3C /* BRWallet.m in Sources */,
+				67722E671E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m in Sources */,
 				229279981C695C4200C98E78 /* BRHTTPServer.swift in Sources */,
 				22BF17471CDF831800AA41C6 /* Extensions.swift in Sources */,
 				220128D91C77B3100001CAC1 /* BRHTTPIndexMiddleware.swift in Sources */,
@@ -1277,11 +1238,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		31D68B561C23B6C10030FAAA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75D5F3BD191EC270004AB296 /* breadwallet */;
-			targetProxy = 31D68B551C23B6C10030FAAA /* PBXContainerItemProxy */;
-		};
 		757FC2531ADA30D100A1FDF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75001D3D1A1EE89500585F55 /* submodules */;
@@ -1412,41 +1368,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		31D68B571C23B6C10030FAAA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				INFOPLIST_FILE = BreadWalletUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.breadwallet.BreadWalletUITests;
-				PRODUCT_NAME = LoafWalletTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "BreadWalletUITests/BreadWalletUITests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = breadwallet;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		31D68B581C23B6C10030FAAA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CODE_SIGN_ENTITLEMENTS = breadwallet/breadwallet.entitlements;
-				INFOPLIST_FILE = BreadWalletUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.breadwallet.BreadWalletUITests;
-				PRODUCT_NAME = LoafWalletTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "BreadWalletUITests/BreadWalletUITests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = breadwallet;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 		75001D3F1A1EE89500585F55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1662,15 +1583,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31D68B591C23B6C10030FAAA /* Build configuration list for PBXNativeTarget "LoafWalletUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				31D68B571C23B6C10030FAAA /* Debug */,
-				31D68B581C23B6C10030FAAA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		75001D3E1A1EE89500585F55 /* Build configuration list for PBXLegacyTarget "submodules" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

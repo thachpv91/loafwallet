@@ -76,6 +76,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 @property (nonatomic, assign) NSTimeInterval timeout, start;
 @property (nonatomic, assign) SystemSoundID pingsound;
 
+@property (nonatomic, strong) NSString *seedPhrase; // thachpv added
 
 @end
 
@@ -391,10 +392,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     self.navigationController.navigationBar.hidden = YES;
     
     // BRWalletManager *manager = [BRWalletManager sharedInstance];
-    if(!manager.logged)
-    {
-        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
-    }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -448,7 +446,6 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         manager.format.maximumFractionDigits = 8;
         manager.format.maximum = @(MAX_MONEY/SATOSHIS);
     }
-    
     if (manager.noWallet) {
         if (! manager.passcodeEnabled) {
             [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"turn device passcode on", nil)
@@ -457,20 +454,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
                                        delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
         }
         else {
-            [self.navigationController
-             presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"NewWalletNav"] animated:NO
-             completion:^{
-                 self.splash.hidden = YES;
-                 self.navigationController.navigationBar.hidden = NO;
-                 
-                 if ([self.tabBarController.viewControllers containsObject:self.receiveViewController]) {
-                     [self.tabBarController setSelectedViewController:self.receiveViewController];
-                 }
-             }];
-            
-            manager.didAuthenticate = YES;
-            self.showTips = YES;
-            [self unlock:nil];
+                [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
         }
     }
     else {
@@ -485,6 +469,26 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
         }
+        if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
+            while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
+            [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
+            [self unlock:nil];
+        }
+        
+        if (self.navigationController.visibleViewController == self) {
+            if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
+        }
+        
+        if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
+            NSLog(@"BRRootViewController protectedViewDidApper ");
+            NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
+            [[BRPeerManager sharedInstance] connect];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
+            
+            if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
+            if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
+        }
+
         
 #if SNAPSHOT
         return;
@@ -597,7 +601,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     [[NSUserDefaults standardUserDefaults] setDouble:balance forKey:BALANCE_KEY];
 
     if (self.percent.hidden) {
-        self.navigationItem.title = [NSString stringWithFormat:@"%@  LTC", [manager stringForAmount:balance]];
+        self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC", [manager stringForAmount:balance]];
     }
 }
 

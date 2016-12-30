@@ -532,7 +532,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
         }
         else amountController.to = address;
 
-        amountController.navigationItem.title = [NSString stringWithFormat:@"%@  LTC",
+        amountController.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
                                                  [manager stringForAmount:manager.wallet.balance]];
         [self.navigationController pushViewController:amountController animated:YES];
         return;
