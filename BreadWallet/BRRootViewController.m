@@ -365,7 +365,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[[NSBundle mainBundle] URLForResource:@"coinflip"
                                                          withExtension:@"aiff"], &_pingsound);
 
-    if (! manager.noWallet) {
+    if (!manager.noWallet) {
         //TODO: do some kickass quick logo animation, fast circle spin that slows
         self.splash.hidden = YES;
         self.navigationController.navigationBar.hidden = NO;

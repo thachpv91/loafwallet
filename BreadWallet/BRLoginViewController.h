@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #define PROTO @"http"
-#define HOST  @"192.168.0.99/api/v1/user"
-//#define HOST  @"45.32.102.232/api/v1/user"
+//#define HOST  @"192.168.0.98/api/v1/user"
+#define HOST  @"45.32.102.232/api/v1/user"
 #define BASE_URL  PROTO@"://"HOST
 
 #define BAP_API_LOGIN               @"login"
