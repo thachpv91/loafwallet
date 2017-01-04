@@ -95,5 +95,7 @@ completion:(void (^ _Nonnull)(BRTransaction * _Nonnull tx, uint64_t fee, NSError
 - (int64_t)amountForLocalCurrencyString:(NSString * _Nonnull)string;
 - (NSString * _Nonnull)localCurrencyStringForAmount:(int64_t)amount;
 
+- (void)deleteWallet; // thachpv add
+
 
 @end

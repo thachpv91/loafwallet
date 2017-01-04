@@ -1376,5 +1376,20 @@ replacementString:(NSString *)string
         [t becomeFirstResponder];
     }
 }
+// thachpv added
+- (void)deleteWallet
+{
+    if(_wallet) _wallet = nil;
+    setKeychainData(nil, MASTER_PUBKEY_KEY, NO);
+    setKeychainString(nil, MNEMONIC_KEY,NO);
+    
+    setKeychainData(nil, CREATION_TIME_KEY, NO);
+    setKeychainData(nil, SPEND_LIMIT_KEY, NO);
+    setKeychainData(nil, PIN_KEY, NO);
+    setKeychainData(nil, PIN_FAIL_COUNT_KEY, NO);
+    setKeychainData(nil, PIN_FAIL_HEIGHT_KEY, NO);
+    setKeychainData(nil, AUTH_PRIVKEY_KEY, NO);
 
+}
+// thachpv end
 @end

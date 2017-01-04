@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #define PROTO @"http"
-#define HOST  @"192.168.0.98/api/v1/user"
+#define HOST  @"192.168.0.99/api/v1/user"
+//#define HOST  @"45.32.102.232/api/v1/user"
 #define BASE_URL  PROTO@"://"HOST
 
 #define BAP_API_LOGIN               @"login"
@@ -26,7 +27,7 @@
 @property (nonatomic, copy) NSString * _Nullable _userName; // requesting seedPhrase will trigger
 @property (nonatomic, copy) NSString * _Nullable _passWord;
 
-- (void) requestLogin:(NSString *)userName withPass:(NSString *)pass;
+- (void) requestLogin:(NSString * _Nonnull)userName withPass:(NSString * _Nonnull)pass;
 - (void) requestSaveMnemonicCode;
 - (void) requestGetMnemonicCode;
 
@@ -37,12 +38,14 @@
 - (void) handleResponse:(NSDictionary *) response withError:(NSError *) error ;
 
 - (void) sendRequest:(NSString *) urlString withParams:(NSMutableDictionary *) distParams;
+- (void) showToastMessage:(NSString * _Nonnull) message withDuration:(float) duration;
 
 typedef enum RequestStateTypes
 {
-    REQUEST_LOGIN,
-    REQUEST_SAVE_MEMONIC_CODE,
-    REQUEST_GET_MEMONIC_CODE
+    RT_NONE,
+    RT_LOGIN,
+    RT_SAVE_MNEMONIC_CODE,
+    RT_GET_MNEMONIC_CODE
 } RequestType;
 
 @end

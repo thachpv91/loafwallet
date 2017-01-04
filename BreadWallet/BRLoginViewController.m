@@ -13,9 +13,14 @@
 #import "BRSettingsViewController.h"
 #import "BRPeerManager.h"
 
+#import "Reachability.h"
+
 @interface BRLoginViewController ()
 
 @property (nonatomic) RequestType currentRequestType;
+
+@property (nonatomic, strong) Reachability *reachability;
+@property (nonatomic, strong) id reachabilityObserver;
 
 @property (nonatomic, strong) id protectedObserver;
 @end
@@ -27,6 +32,24 @@
     
     self.textPass.delegate = self;
     self.textUserName.delegate = self;
+    
+    _currentRequestType = RT_NONE;
+    
+    self.reachabilityObserver =
+    [[NSNotificationCenter defaultCenter] addObserverForName:kReachabilityChangedNotification object:nil queue:nil
+            usingBlock:^(NSNotification *note) {
+                if (self.reachability.currentReachabilityStatus == NotReachable)
+                {
+                    [self showToastMessage:@"No connection" withDuration:0.5f];
+                }
+                else if ( [UIApplication sharedApplication].applicationState != UIApplicationStateBackground)
+                {
+                    [self showToastMessage:@"Connected" withDuration:0.5f];
+                }
+            }];
+    
+    self.reachability = [Reachability reachabilityForInternetConnection];
+    [self.reachability startNotifier];
 
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -83,6 +106,12 @@
 }
 - (IBAction)loginClick:(id)sender {
     
+    NSLog(@"loginClick self.reachability.currentReachabilityStatus = %ld", (long)self.reachability.currentReachabilityStatus);
+    if(self.reachability.currentReachabilityStatus == NotReachable)
+    {
+        [self showToastMessage:@"No connection" withDuration:0.5f];
+        return;
+    }
     // check login here
     self._userName = self.textUserName.text;
     self._passWord = self.textPass.text;
@@ -95,7 +124,7 @@
 }
 - (void) requestLogin:(NSString *)userName withPass:(NSString *)pass
 {
-    _currentRequestType = REQUEST_LOGIN;
+    _currentRequestType = RT_LOGIN;
 
     NSMutableDictionary *postDict = [NSMutableDictionary dictionary];
     postDict[@"email"] = userName;
@@ -108,7 +137,7 @@
 }
 - (void) requestSaveMnemonicCode:(NSString *) mnemonicCode
 {
-    _currentRequestType = REQUEST_SAVE_MEMONIC_CODE;
+    _currentRequestType = RT_SAVE_MNEMONIC_CODE;
     
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     
@@ -126,18 +155,18 @@
 }
 - (void) requestGetMemonicCode
 {
-   _currentRequestType = REQUEST_GET_MEMONIC_CODE;
+   _currentRequestType = RT_GET_MNEMONIC_CODE;
 }
 - (void) handleResponse:(NSDictionary *) response withError:(NSError *) error
 {
     switch (_currentRequestType) {
-        case REQUEST_LOGIN:
+        case RT_LOGIN:
              [self handleLoginResponse:response withError:error];
             break;
-        case REQUEST_GET_MEMONIC_CODE:
-            [self handleGetMemonicCodeResponse:response withError:error];
-            break;
-        case REQUEST_SAVE_MEMONIC_CODE:
+//        case RT_GET_MEMONIC_CODE:
+//            [self handleGetMemonicCodeResponse:response withError:error];
+//            break;
+        case RT_SAVE_MNEMONIC_CODE:
             [self handleSaveMemonicCodeResponse:response withError:error];
             break;
         default:
@@ -159,7 +188,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:requestBodyData];
-    //request.timeoutInterval = 10.0;
+    request.timeoutInterval = 10.0;
     
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     [connection start];
@@ -175,6 +204,8 @@
     NSLog(@"handleLoginResponse: Login isSuccess = %d", (int)loginResponse.responceType);
     if(loginResponse.responceType == RESPONSE_TYPE_SUCCESS)
     {
+        [self showToastMessage:@"Login successful" withDuration:2.5f];
+        
         manager.authenKey = loginResponse.authenKey;
         if(loginResponse.isFirstLogin)
         {
@@ -221,7 +252,7 @@
         }
     }else
     {
-        self.textUserName.text = @"";
+        [self showToastMessage:@"login failed" withDuration:2.5f];
         self.textPass.text = @"";
         
         [self.textUserName becomeFirstResponder];
@@ -242,9 +273,19 @@
             [self.navigationController popViewControllerAnimated:NO];
         }else
         {
-             // Try to save Mnemonic code again
-             NSLog(@" handleSaveMemonicCodeResponse isSuccess = false");
-             NSLog(@" handleSaveMemonicCodeResponse ErrMesssage = %@", saveMCResponse.response);
+            // Try to save Mnemonic code again
+            [self showToastMessage:saveMCResponse.response withDuration:2.5f];
+            
+            NSLog(@" handleSaveMemonicCodeResponse isSuccess = false");
+            NSLog(@" handleSaveMemonicCodeResponse ErrMesssage = %@", saveMCResponse.response);
+            static int count = 0;
+            if(count++ < 3)
+            {
+                BRWalletManager *manager = [BRWalletManager sharedInstance];
+                NSString * mnemonicCode = manager.seedPhrase;
+            
+                [self requestSaveMnemonicCode:mnemonicCode];
+            }
         }
 
     }
@@ -260,6 +301,25 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError %@", error);
+    if(error.code == NSURLErrorTimedOut)
+    {
+        [[[UIAlertView alloc]
+          initWithTitle:NSLocalizedString(@"WARNING", nil)
+          message:NSLocalizedString(@"Connect timeout!", nil)
+          delegate:self
+          cancelButtonTitle:NSLocalizedString(@"try again", nil)
+          otherButtonTitles:NSLocalizedString(@"close app", nil), nil]
+          show];
+        return;
+    }
+    
+    
+    
+    
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -290,13 +350,45 @@
 }
 - (void)dealloc
 {
+    [self.reachability stopNotifier];
+    
     if (self.protectedObserver) [[NSNotificationCenter defaultCenter] removeObserver:self.protectedObserver];
+    if (self.reachabilityObserver) [[NSNotificationCenter defaultCenter] removeObserver:self.reachabilityObserver];
+
 }
 // MARK: - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == alertView.cancelButtonIndex) return;
+    BRWalletManager *manager = [BRWalletManager sharedInstance];
+    if (buttonIndex == alertView.cancelButtonIndex)
+    {
+        if(_currentRequestType == RT_SAVE_MNEMONIC_CODE)
+        {
+            // Try request to save mnemonic Code
+            NSString * mnemonicCode = manager.seedPhrase;
+            [self requestSaveMnemonicCode:mnemonicCode];
+        }
+        return;
+    }
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"close app", nil)])
+    {
+        [manager deleteWallet];
+        exit(0);
+    }
+}
+- (void) showToastMessage:(NSString *) message withDuration:(float) duration
+{
+    UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil, nil];
+    [toast show];
     
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"close app", nil)]) exit(0);
+    int64_t time = duration * NSEC_PER_SEC;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, time), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
 }
 @end

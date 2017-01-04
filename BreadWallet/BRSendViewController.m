@@ -265,14 +265,14 @@ static NSString *sanitizeString(NSString *s)
                                              manager.wallet.receiveAddress]];
         }
         else if (([url.host isEqual:@"litecoin-uri"] || [url.path isEqual:@"/litecoin-uri"]) && uri &&
-                 [[NSURL URLWithString:uri].scheme isEqual:@"litecoin"]) {
+                 [[NSURL URLWithString:uri].scheme isEqual:@"hanhcoin"]) {
             if (xsuccess) self.callback = [NSURL URLWithString:xsuccess];
             [self handleURL:[NSURL URLWithString:uri]];
         }
         
         if (callback) [[UIApplication sharedApplication] openURL:callback];
     }
-    else if ([url.scheme isEqual:@"litecoin"]) {
+    else if ([url.scheme isEqual:@"hanhcoin"]) {
         [self confirmRequest:[BRPaymentRequest requestWithURL:url]];
     } else if ([BRBitID isBitIDURL:url]) {
         [self handleBitIDURL:url];
@@ -918,7 +918,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
                 text = (req.label.length > 0) ? sanitizeString(req.label) : req.paymentAddress;
                 break;
             }
-            else if ([s hasPrefix:@"litecoin:"]) {
+            else if ([s hasPrefix:@"hanhcoin:"]) {
                 text = sanitizeString(s);
                 break;
             }
@@ -951,7 +951,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
         if (data.length == sizeof(UInt256) && [manager.wallet transactionForHash:*(UInt256 *)data.bytes]) continue;
         
         if ([req.paymentAddress isValidBitcoinAddress] || [str isValidBitcoinPrivateKey] ||
-            [str isValidBitcoinBIP38Key] || (req.r.length > 0 && [req.scheme isEqual:@"litecoin"])) {
+            [str isValidBitcoinBIP38Key] || (req.r.length > 0 && [req.scheme isEqual:@"hanhcoin"])) {
             [self performSelector:@selector(confirmRequest:) withObject:req afterDelay:0.1];// delayed to show highlight
             return;
         }
@@ -961,7 +961,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
                     if (error) { // don't try any more BIP73 urls
                         [self payFirstFromArray:[array objectsAtIndexes:[array
                         indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-                            return (idx >= i && ([obj hasPrefix:@"litecoin:"] || ! [NSURL URLWithString:obj]));
+                            return (idx >= i && ([obj hasPrefix:@"hanhcoin:"] || ! [NSURL URLWithString:obj]));
                         }]]];
                     }
                     else [self confirmProtocolRequest:req];
@@ -1112,7 +1112,7 @@ fromConnection:(AVCaptureConnection *)connection
                 [self handleBitIDURL:request.url];
                 [self resetQRGuide];
             }];
-        } else if ((request.isValid && [request.scheme isEqual:@"litecoin"]) || [addr isValidBitcoinPrivateKey] ||
+        } else if ((request.isValid && [request.scheme isEqual:@"hanhcoin"]) || [addr isValidBitcoinPrivateKey] ||
                    [addr isValidBitcoinBIP38Key]) {
             self.scanController.cameraGuide.image = [UIImage imageNamed:@"cameraguide-green"];
             [self.scanController stop];
@@ -1179,7 +1179,7 @@ fromConnection:(AVCaptureConnection *)connection
                     else {
                         self.scanController.cameraGuide.image = [UIImage imageNamed:@"cameraguide-red"];
                         
-                        if (([request.scheme isEqual:@"litecoin"] && request.paymentAddress.length > 1) ||
+                        if (([request.scheme isEqual:@"hanhcoin"] && request.paymentAddress.length > 1) ||
                             [request.paymentAddress hasPrefix:@"L"] || [request.paymentAddress hasPrefix:@"3"]) {
                             self.scanController.message.text = [NSString stringWithFormat:@"%@:\n%@",
                                                                 NSLocalizedString(@"not a valid bitcoin address", nil),
