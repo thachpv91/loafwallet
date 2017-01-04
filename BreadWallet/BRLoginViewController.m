@@ -305,6 +305,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"didFailWithError %@", error);
+
     if(error.code == NSURLErrorTimedOut)
     {
         [[[UIAlertView alloc]
@@ -317,7 +318,11 @@
         return;
     }
     
-    
+    if(_currentRequestType == RT_LOGIN)
+    {
+        [self showToastMessage: error.userInfo[@"NSLocalizedDescription"]
+                  withDuration: 1.5f];
+    }
     
     
 }
