@@ -372,7 +372,19 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
     }else
     {
-        [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:NO];
+        [self.navigationController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"] animated:NO completion:^{
+            self.splash.hidden = YES;
+            self.navigationController.navigationBar.hidden = NO;
+            
+            if ([self.tabBarController.viewControllers containsObject:self.receiveViewController]) {
+                [self.tabBarController setSelectedViewController:self.receiveViewController];
+            }
+        }];
+        
+        manager.didAuthenticate = YES;
+        self.showTips = YES;
+        [self unlock:nil];
+
     }
     
     if (jailbroken && manager.wallet.totalReceived + manager.wallet.totalSent > 0) {
@@ -449,7 +461,10 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         manager.format.maximumFractionDigits = 8;
         manager.format.maximum = @(MAX_MONEY/SATOSHIS);
     }
-    
+    if(manager.noWallet) return;
+#if SNAPSHOT
+    return;
+#endif
     if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY]) self.balance = [defs doubleForKey:BALANCE_KEY];
     self.splash.hidden = YES;
     self.navigationController.navigationBar.hidden = NO;
@@ -468,7 +483,8 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     }
     
     if (self.navigationController.visibleViewController == self) {
-        if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
+        if (self.showTips)
+        [self performSelector:@selector(tip:) withObject:nil afterDelay:0.0];
     }
     
     if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
@@ -481,30 +497,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
     }
     
-    
-#if SNAPSHOT
-    return;
-#endif
-    
-    if (! [defs boolForKey:HAS_AUTHENTICATED_KEY]) {
-        while (! [manager authenticateWithPrompt:nil andTouchId:NO]) { }
-        [defs setBool:YES forKey:HAS_AUTHENTICATED_KEY];
-        [self unlock:nil];
-    }
-    
-    if (self.navigationController.visibleViewController == self) {
-        if (self.showTips) [self performSelector:@selector(tip:) withObject:nil afterDelay:0.3];
-    }
-    
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
-        NSLog(@"BRRootViewController protectedViewDidApper ");
-        NSLog(@"BRRootViewController protectedViewDidApper BRPeerManager.connect");
-        [[BRPeerManager sharedInstance] connect];
-        [UIApplication sharedApplication].applicationIconBadgeNumber = 0; // reset app badge number
-        
-        if (self.url) [self.sendViewController handleURL:self.url], self.url = nil;
-        if (self.file) [self.sendViewController handleFile:self.file], self.file = nil;
-    }
+
     
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

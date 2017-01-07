@@ -23,6 +23,10 @@
 @property (nonatomic, strong) id reachabilityObserver;
 
 @property (nonatomic, strong) id protectedObserver;
+
+@property (nonatomic, strong) IBOutlet UIButton *resetPassButton;
+@property (nonatomic, strong) IBOutlet UITextField *emailTextField;
+
 @end
 
 @implementation BRLoginViewController
@@ -33,6 +37,20 @@
     self.textPass.delegate = self;
     self.textUserName.delegate = self;
     
+    
+    self.forgotPassViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPassViewController"];
+    UIViewController *c = (UIViewController *)self.forgotPassViewController;
+    
+    self.emailTextField  = (id)[c.view viewWithTag:1];
+    self.emailTextField.delegate = self;
+    
+    self.resetPassButton = (id)[c.view viewWithTag:2];
+    [self.resetPassButton addTarget:self action:@selector(requestResetPass:) forControlEvents:UIControlEventTouchUpInside];
+    self.resetPassButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    
+    
+    
+    
     _currentRequestType = RT_NONE;
     
     self.reachabilityObserver =
@@ -40,11 +58,11 @@
             usingBlock:^(NSNotification *note) {
                 if (self.reachability.currentReachabilityStatus == NotReachable)
                 {
-                    [self showToastMessage:@"No connection" withDuration:0.5f];
+                  //  [self showToastMessage:@"No connection" withDuration:1.0f];
                 }
                 else if ( [UIApplication sharedApplication].applicationState != UIApplicationStateBackground)
                 {
-                    [self showToastMessage:@"Connected" withDuration:0.5f];
+                   // [self showToastMessage:@"Connected" withDuration:1.0f];
                 }
             }];
     
@@ -64,6 +82,9 @@
     if ([UIApplication sharedApplication].protectedDataAvailable) {
         [self performSelector:@selector(protectedViewDidAppear) withObject:nil afterDelay:0.0];
     }
+    
+    self.resetPassButton.enabled = YES;
+    self.resetPassButton.alpha = 1.0f;
     [super viewDidAppear:animated];
 }
 - (void)protectedViewDidAppear
@@ -107,11 +128,14 @@
 - (IBAction)loginClick:(id)sender {
     
     NSLog(@"loginClick self.reachability.currentReachabilityStatus = %ld", (long)self.reachability.currentReachabilityStatus);
-    if(self.reachability.currentReachabilityStatus == NotReachable)
-    {
-        [self showToastMessage:@"No connection" withDuration:0.5f];
-        return;
-    }
+    self.loginButton.enabled = NO;
+    self.loginButton.alpha = 0.5f;
+    
+//    if(self.reachability.currentReachabilityStatus == NotReachable)
+//    {
+//        [self showToastMessage:@"No connection" withDuration:0.5f];
+//        return;
+//    }
     // check login here
     self._userName = self.textUserName.text;
     self._passWord = self.textPass.text;
@@ -122,6 +146,16 @@
     [self requestLogin: self._userName withPass:self._passWord];
     
 }
+- (IBAction)forgotPasswordClick:(id)sender {
+    
+
+    if(self.textUserName.text.length > 0) self.emailTextField.text = self.textUserName.text;
+    [self.emailTextField becomeFirstResponder];
+    
+    [self.navigationController pushViewController:self.forgotPassViewController animated:YES];
+ 
+}
+
 - (void) requestLogin:(NSString *)userName withPass:(NSString *)pass
 {
     _currentRequestType = RT_LOGIN;
@@ -153,9 +187,26 @@
     [self sendRequest:urlString withParams:postDict];
     
 }
-- (void) requestGetMemonicCode
+- (void) requestResetPass:(id)sender
 {
-   _currentRequestType = RT_GET_MNEMONIC_CODE;
+    [self.emailTextField resignFirstResponder];
+    NSString * email = self.emailTextField.text;
+    if(email.length > 0)
+    {
+        _currentRequestType = RT_RESET_PASSWORD;
+        
+        NSMutableDictionary *postDict = [NSMutableDictionary dictionary];
+        postDict[@"email"] = email;
+        
+        NSString *urlString =  [NSString stringWithFormat:BASE_URL@"/%@", BAP_API_RESET_PASS];//
+        
+        [self sendRequest:urlString withParams:postDict];
+        
+        self.resetPassButton.enabled = NO;
+        self.resetPassButton.alpha = 0.5f;
+
+        
+    }
 }
 - (void) handleResponse:(NSDictionary *) response withError:(NSError *) error
 {
@@ -163,12 +214,12 @@
         case RT_LOGIN:
              [self handleLoginResponse:response withError:error];
             break;
-//        case RT_GET_MEMONIC_CODE:
-//            [self handleGetMemonicCodeResponse:response withError:error];
-//            break;
         case RT_SAVE_MNEMONIC_CODE:
             [self handleSaveMemonicCodeResponse:response withError:error];
             break;
+        case RT_RESET_PASSWORD:
+             [self handleResetPassResponse:response withError:error];
+             break;
         default:
             break;
     }
@@ -178,8 +229,6 @@
     NSError *error;
     
     NSData *requestBodyData = [NSJSONSerialization dataWithJSONObject:distParams options:NSJSONWritingPrettyPrinted error:&error];
-    
-    NSLog(@"sendRequest: error = %@", error);
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -201,14 +250,28 @@
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     BRLoginResponse * loginResponse = [[BRLoginResponse alloc] initWithDictionary:response];
     
-    NSLog(@"handleLoginResponse: Login isSuccess = %d", (int)loginResponse.responceType);
-    if(loginResponse.responceType == RESPONSE_TYPE_SUCCESS)
+    if(error || loginResponse.responseType == RESPONSE_TYPE_ERROR)
     {
-        [self showToastMessage:@"Login successful" withDuration:2.5f];
         
-        manager.authenKey = loginResponse.authenKey;
-        if(loginResponse.isFirstLogin)
-        {
+        [[[UIAlertView alloc]
+          initWithTitle:NSLocalizedString(@"Login failed!", nil)
+          message:error?error.userInfo[@"NSDebugDescription"]:
+          loginResponse.response
+          delegate:self
+          cancelButtonTitle:NSLocalizedString(@"ok", nil)
+          otherButtonTitles:Nil, nil]
+         show];
+        self.textPass.text = @"";
+        self.loginButton.enabled = YES;
+        self.loginButton.alpha = 1.0f;
+        return;
+    }
+    
+    [self showToastMessage:@"Login successful" withDuration:0.5f];
+        
+    manager.authenKey = loginResponse.authenKey;
+    if(loginResponse.isFirstLogin)
+    {
             NSLog(@"handleLoginResponse: Login isFirstLogin = TRUE --> Create Wallet ");
              // create wallet
             NSString * seedPhrase = [manager generateRandomSeed];
@@ -225,10 +288,10 @@
             
             // Todo: While response here
             // Todo: Show loading animation
-        }else
+    }else
+    {
+        if(manager.isFirtLauch)
         {
-            if(manager.isFirtLauch)
-            {
                 NSLog(@"handleLoginResponse: Restore from Server`s MnenicCode ");
                 // Resore wallet
                 @autoreleasepool {  // @autoreleasepool ensures sensitive data will be deallocated immediately
@@ -239,60 +302,84 @@
                     
                     manager.seedPhrase = phrase;
                     
-                    [self.navigationController popViewControllerAnimated:NO];
+
                 }
            
-            }else
-            {
+        }else
+        {
                  NSLog(@"handleLoginResponse: Login ok, show Wallet");
-                // Show wallet
-                // Todo: pop view here
-                 [self.navigationController popViewControllerAnimated:NO];
-            }
-        }
-    }else
-    {
-        [self showToastMessage:@"login failed" withDuration:2.5f];
-        self.textPass.text = @"";
-        
-        [self.textUserName becomeFirstResponder];
-    }
 
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self.navigationController.presentingViewController
+             dismissViewControllerAnimated:NO completion:nil];
+        });
+        
+     
+    }
 }
 - (void) handleSaveMemonicCodeResponse:(NSDictionary *) response withError:(NSError *) error
 {
     NSLog(@"\nhandleSaveMemonicCodeResponse %@ %@", response, error);
     
-    if(!error)
+     BRSaveMnemonicCodeResponse * saveMCResponse = [[BRSaveMnemonicCodeResponse alloc] initWithDictionary:response];
+    
+    if(error || saveMCResponse.responseType == RESPONSE_TYPE_ERROR)
     {
-        BRSaveMnemonicCodeResponse * saveMCResponse = [[BRSaveMnemonicCodeResponse alloc] initWithDictionary:response];
-        NSLog(@"handleSaveMemonicCodeResponse %d  %@", saveMCResponse.responceType, saveMCResponse.response);
-        
-        if(saveMCResponse.responceType == RESPONSE_TYPE_SUCCESS)
-        {
-            [self.navigationController popViewControllerAnimated:NO];
-        }else
-        {
-            // Try to save Mnemonic code again
-            [self showToastMessage:saveMCResponse.response withDuration:2.5f];
-            
-            NSLog(@" handleSaveMemonicCodeResponse isSuccess = false");
-            NSLog(@" handleSaveMemonicCodeResponse ErrMesssage = %@", saveMCResponse.response);
-            static int count = 0;
-            if(count++ < 3)
-            {
-                BRWalletManager *manager = [BRWalletManager sharedInstance];
-                NSString * mnemonicCode = manager.seedPhrase;
-            
-                [self requestSaveMnemonicCode:mnemonicCode];
-            }
-        }
-
+        [[[UIAlertView alloc]
+          initWithTitle:NSLocalizedString(@"Syncing account failed!", nil)
+          message:error?error.userInfo[@"NSDebugDescription"]:saveMCResponse.response
+          delegate:self
+          cancelButtonTitle:NSLocalizedString(@"ok", nil)
+          otherButtonTitles:Nil, nil]
+         show];
+    }else
+    {
+        [self.navigationController popViewControllerAnimated:NO];
     }
+
 }
-- (void) handleGetMemonicCodeResponse:(NSDictionary *) response withError:(NSError *) error
+- (void) handleResetPassResponse:(NSDictionary *) response withError:(NSError *) error
 {
-    NSLog(@"\nhandleGetMemonicCodeResponse %@ %@", response, error);
+    NSLog(@"\n handleResetPassResponse %@ %@", response, error);
+    
+    BRResponse * resetPassResponse = [[BRResponse alloc] initWithDictionary:response];
+    
+    if(error || resetPassResponse.responseType == RESPONSE_TYPE_ERROR)
+    {
+        [[[UIAlertView alloc]
+          initWithTitle:NSLocalizedString(@"Failed!", nil)
+          message:error?error.userInfo[@"NSDebugDescription"]:resetPassResponse.response
+          delegate:self
+          cancelButtonTitle:NSLocalizedString(@"try again", nil)
+          otherButtonTitles:Nil, nil]
+         show];
+        
+        [self.emailTextField becomeFirstResponder];
+        self.resetPassButton.enabled = YES;
+        self.resetPassButton.alpha = 1.0f;
+        
+        
+        return;
+    }
+
+    //  [self showToastMessage:resetPassResponse.response withDuration:0.5f];
+            
+    [[[UIAlertView alloc]
+              initWithTitle:NSLocalizedString(@"Successful!", nil)
+              message:resetPassResponse.response
+              delegate:self
+              cancelButtonTitle:NSLocalizedString(@"ok", nil)
+              otherButtonTitles:Nil, nil]
+             show];
+    
+    [self.textPass becomeFirstResponder];
+    self.textPass.text = @"";
+    self.loginButton.enabled = YES;
+    self.loginButton.alpha = 1.0f;
+    
+    // [self.navigationController popViewControllerAnimated:NO];
+
 }
 /*
 #pragma mark - Navigation
@@ -318,13 +405,16 @@
         return;
     }
     
-    if(_currentRequestType == RT_LOGIN)
+    if(_currentRequestType == RT_LOGIN || _currentRequestType == RT_RESET_PASSWORD)
     {
         [self showToastMessage: error.userInfo[@"NSLocalizedDescription"]
                   withDuration: 1.5f];
+        self.loginButton.enabled = YES;
+        self.loginButton.alpha = 1.0f;
+        
+        self.resetPassButton.enabled = YES;
+        self.resetPassButton.alpha = 1.0f;
     }
-    
-    
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -365,21 +455,48 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
-    if (buttonIndex == alertView.cancelButtonIndex)
+
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"ok", nil)])
     {
+
+        if(_currentRequestType == RT_LOGIN || _currentRequestType == RT_SAVE_MNEMONIC_CODE)
+        {
+            [self.textUserName becomeFirstResponder];
+            self.loginButton.enabled = YES;
+            self.loginButton.alpha = 1.0f;
+        }
+        else if (_currentRequestType == RT_RESET_PASSWORD )
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+        return;
+    }
+    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"try again", nil)])
+    {
+        
         if(_currentRequestType == RT_SAVE_MNEMONIC_CODE)
         {
             // Try request to save mnemonic Code
             NSString * mnemonicCode = manager.seedPhrase;
             [self requestSaveMnemonicCode:mnemonicCode];
         }
+        else if (_currentRequestType == RT_RESET_PASSWORD)
+        {
+            self.resetPassButton.enabled = YES;
+            self.resetPassButton.alpha = 1.0f;
+        }
         return;
     }
+    
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"close app", nil)])
     {
         [manager deleteWallet];
         exit(0);
     }
+
+
+
 }
 - (void) showToastMessage:(NSString *) message withDuration:(float) duration
 {
@@ -397,3 +514,8 @@
     });
 }
 @end
+
+//if (self.navigationController.presentingViewController) {
+//    [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//}
+//else [self.navigationController popViewControllerAnimated:NO];

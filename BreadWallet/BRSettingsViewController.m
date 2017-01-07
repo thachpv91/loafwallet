@@ -34,6 +34,9 @@
 #import "breadwallet-Swift.h"
 #include <WebKit/WebKit.h>
 #include <asl.h>
+#ifdef DEBUG
+#import "BRWalletManager.h"
+#endif
 
 @interface BRSettingsViewController ()
 
@@ -292,7 +295,11 @@
     switch (section) {
         case 0: return 1;  // thachpv changed 2 -> 1
         case 1: return (self.touchId) ? 2 : 1; // thachpv changed 3:2 -> 2:1
+#ifdef DEBUG
+        case 2: return 3;  // thachpv added for debug
+#else
         case 2: return 2; // thachpv changed 3 -> 2
+#endif
         case 3: return 1; //
     }
 
@@ -382,6 +389,12 @@ _switch_cell:
                     cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
                     cell.textLabel.text = NSLocalizedString(@"rescan blockchain", nil);
                     break;
+#ifdef DEBUG
+                case 2:
+                    cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
+                    cell.textLabel.text = NSLocalizedString(@"delete wallet && exit", nil);
+                    break;
+#endif
 
             }
             break;
@@ -658,6 +671,15 @@ _deselect_switch:
                     [BREventManager saveEvent:@"settings:rescan"];
                     [self done:nil];
                     break;
+#ifdef  DEBUG
+                case 2: // rescan blockchain
+                    if(!manager.noWallet) {
+                        [manager deleteWallet];
+                        exit(0);
+                    }
+                   [self done:nil];
+                    break;
+#endif
             }
 
             break;

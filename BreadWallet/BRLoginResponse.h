@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "BRResponseType.h"
+#import "BRResponse.h"
+//@class BRResponse;
 
-@interface BRLoginResponse : NSObject
+@interface BRLoginResponse : BRResponse
 
-@property (nonatomic)  BRResponseType responceType;
-@property (nonatomic, copy) NSString * response;
 @property (nonatomic) BOOL isFirstLogin;
 @property (nonatomic, copy) NSString * authenKey;
 
-- (instancetype)initWithDictionary:(NSDictionary *) dictionary;
+- (void) initAttributeWithDictionaty:(NSDictionary *) dictionary;
 
 @end

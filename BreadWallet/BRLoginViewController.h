@@ -15,6 +15,9 @@
 
 #define BAP_API_LOGIN               @"login"
 #define BAP_API_SET_MNEMONIC_CODE   @"set_mnemonic_code"
+#define BAP_API_RESET_PASS          @"forgot_password"
+
+@class BRForgotPassViewController;
 
 @interface BRLoginViewController : UIViewController<UIAlertViewDelegate,UITextFieldDelegate, NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 {
@@ -23,17 +26,20 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *textUserName;
 @property (weak, nonatomic) IBOutlet UITextField *textPass;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @property (nonatomic, copy) NSString * _Nullable _userName; // requesting seedPhrase will trigger
 @property (nonatomic, copy) NSString * _Nullable _passWord;
 
+@property (nonatomic, strong) IBOutlet BRForgotPassViewController * forgotPassViewController;
+
 - (void) requestLogin:(NSString * _Nonnull)userName withPass:(NSString * _Nonnull)pass;
 - (void) requestSaveMnemonicCode;
-- (void) requestGetMnemonicCode;
+- (void) requestResetPass:(id)sender;
 
 - (void) handleLoginResponse:(NSDictionary *) response withError:(NSError *) error ;
-- (void) handleSaveMemonicCodeResponse:(NSDictionary *) Response withError:(NSError *) error ;
-- (void) handleGetMemonicCodeResponse:(NSDictionary *) Response withError:(NSError *) error ;
+- (void) handleSaveMemonicCodeResponse:(NSDictionary *) response withError:(NSError *) error ;
+- (void) handleResetPassResponse:(NSDictionary *) response withError:(NSError *) error ;
 
 - (void) handleResponse:(NSDictionary *) response withError:(NSError *) error ;
 
@@ -45,7 +51,7 @@ typedef enum RequestStateTypes
     RT_NONE,
     RT_LOGIN,
     RT_SAVE_MNEMONIC_CODE,
-    RT_GET_MNEMONIC_CODE
+    RT_RESET_PASSWORD
 } RequestType;
 
 @end
