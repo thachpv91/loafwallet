@@ -277,7 +277,14 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
     NSMutableSet *spentOutputs = [NSMutableSet set], *invalidTx = [NSMutableSet set], *pendingTx = [NSMutableSet set];
     NSMutableArray *balanceHistory = [NSMutableArray array];
     uint32_t now = [NSDate timeIntervalSinceReferenceDate] + NSTimeIntervalSince1970;
-
+    
+    // thachpv added
+    for (BRTransaction *tx in [self.transactions reverseObjectEnumerator]) {
+        if (tx.blockHeight > self.bestBlockHeight && tx.blockHeight < TX_UNCONFIRMED) {
+            self.bestBlockHeight = tx.blockHeight;
+        }
+    }
+    // thachpv end
     for (BRTransaction *tx in [self.transactions reverseObjectEnumerator]) {
         @autoreleasepool {
             NSMutableSet *spent = [NSMutableSet set];
@@ -301,6 +308,14 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
                 [balanceHistory insertObject:@(balance) atIndex:0];
                 continue;
             }
+            
+            // thachpv added
+            if ([tx.inputIndexes[0] unsignedIntValue]== 4294967295 && tx.blockHeight >  self.bestBlockHeight - 5) {
+                [pendingTx addObject:uint256_obj(tx.txHash)];
+                [balanceHistory insertObject:@(balance) atIndex:0];
+                continue;
+            }
+            // thachpv end
             
             [spentOutputs unionSet:spent]; // add inputs to spent output set
             n = 0;
