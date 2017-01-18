@@ -275,11 +275,8 @@
             NSLog(@" Login: handleLoginResponse: Login isFirstLogin = TRUE --> Create Wallet ");
              // create wallet
             NSString * seedPhrase = [manager generateRandomSeed];
-            
-            
+        
             [[BRPeerManager sharedInstance] connect];
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:WALLET_NEEDS_BACKUP_KEY];
-            [[NSUserDefaults standardUserDefaults] synchronize];
             
             // save MnemonicCode to server
             NSLog(@" Login: handleLoginResponse: Request to save Mnemonic Code");
@@ -289,6 +286,7 @@
     {
         if(manager.isFirtLauch)
         {
+                [manager setServerSaveMnemonic:YES];
                 NSLog(@"Login: handleLoginResponse: Restore from Server`s MnenicCode ");
                 // Resore wallet
                 @autoreleasepool {  // @autoreleasepool ensures sensitive data will be deallocated immediately
@@ -298,6 +296,8 @@
                     phrase = [manager.mnemonic normalizePhrase:phrase];
                     
                     manager.seedPhrase = phrase;
+                    
+                    [[BRPeerManager sharedInstance] connect];
 
                 }
            

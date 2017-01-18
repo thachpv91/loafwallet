@@ -72,8 +72,7 @@ static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t 
 };
 
 static const char *dns_seeds[] = {
-"192.168.0.67"
-    
+//"192.168.0.67"
 //"117.2.125.115"
 };
 
