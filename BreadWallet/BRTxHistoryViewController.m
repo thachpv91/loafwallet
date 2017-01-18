@@ -28,7 +28,7 @@
 #import "BRRootViewController.h"
 #import "BRSettingsViewController.h"
 #import "BRTxDetailViewController.h"
-#import "BRSeedViewController.h"
+//#import "BRSeedViewController.h"
 #import "BRWalletManager.h"
 #import "BRPeerManager.h"
 #import "BRTransaction.h"
@@ -256,19 +256,19 @@ static NSString *dateFormat(NSString *template)
 }
 
 - (BRWebViewController *)buyController {
-    if (_buyController) {
-        return _buyController;
-    }
-    if ([WKWebView class] && [[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsBuyBitcoin]) { // only available on iOS 8 and above
-#if DEBUG
-        _buyController = [[BRWebViewController alloc] initWithBundleName:@"bread-buy-staging" mountPoint:@"/buy"];
-        //        self.buyController.debugEndpoint = @"http://localhost:8080";
-#else
-        _buyController = [[BRWebViewController alloc] initWithBundleName:@"bread-buy" mountPoint:@"/buy"];
-#endif
-        [_buyController startServer];
-        [_buyController preload];
-    }
+//    if (_buyController) {
+//        return _buyController;
+//    }
+//    if ([WKWebView class] && [[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsBuyBitcoin]) { // only available on iOS 8 and above
+//#if DEBUG
+//        _buyController = [[BRWebViewController alloc] initWithBundleName:@"bread-buy-staging" mountPoint:@"/buy"];
+//        //        self.buyController.debugEndpoint = @"http://localhost:8080";
+//#else
+//        _buyController = [[BRWebViewController alloc] initWithBundleName:@"bread-buy" mountPoint:@"/buy"];
+//#endif
+//        [_buyController startServer];
+//        [_buyController preload];
+//    }
     return _buyController;
 }
 
@@ -351,7 +351,7 @@ static NSString *dateFormat(NSString *template)
 
 - (IBAction)done:(id)sender
 {
-    [BREventManager saveEvent:@"tx_history:dismiss"];
+//    [BREventManager saveEvent:@"tx_history:dismiss"];
     [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -359,9 +359,9 @@ static NSString *dateFormat(NSString *template)
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
 
-    if (sender) [BREventManager saveEvent:@"tx_history:unlock"];
+//    if (sender) [BREventManager saveEvent:@"tx_history:unlock"];
     if (! manager.didAuthenticate && ! [manager authenticateWithPrompt:nil andTouchId:YES]) return;
-    if (sender) [BREventManager saveEvent:@"tx_history:unlock_success"];
+//    if (sender) [BREventManager saveEvent:@"tx_history:unlock_success"];
     
     self.navigationItem.titleView = nil;
     [self.navigationItem setRightBarButtonItem:nil animated:(sender) ? YES : NO];
@@ -382,7 +382,7 @@ static NSString *dateFormat(NSString *template)
 - (IBAction)scanQR:(id)sender
 {
     //TODO: show scanner in settings rather than dismissing
-    [BREventManager saveEvent:@"tx_history:scan_qr"];
+//    [BREventManager saveEvent:@"tx_history:scan_qr"];
     UINavigationController *nav = (id)self.navigationController.presentingViewController;
 
     nav.view.alpha = 0.0;
@@ -405,7 +405,7 @@ static NSString *dateFormat(NSString *template)
 
 - (IBAction)more:(id)sender
 {
-    [BREventManager saveEvent:@"tx_history:more"];
+//    [BREventManager saveEvent:@"tx_history:more"];
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSUInteger txCount = self.transactions.count;
     
@@ -432,7 +432,7 @@ static NSString *dateFormat(NSString *template)
 
 - (void)showBuy
 {
-    [self presentViewController:self.buyController animated:YES completion:nil];
+//    [self presentViewController:self.buyController animated:YES completion:nil];
 }
 
 // MARK: - UITableViewDataSource
@@ -703,18 +703,18 @@ static NSString *dateFormat(NSString *template)
             long adjustedRow = !buyEnabled ? indexPath.row + 1 : indexPath.row;
             switch (adjustedRow) {
                 case 0: // buy bitcoin
-                    [BREventManager saveEvent:@"tx_history:buy_btc"];
+//                    [BREventManager saveEvent:@"tx_history:buy_btc"];
                     [tableView deselectRowAtIndexPath:indexPath animated:YES];
                     [self showBuy];
                     break;
                     
                 case 1: // import private key
-                    [BREventManager saveEvent:@"tx_history:import_priv_key"];
+//                    [BREventManager saveEvent:@"tx_history:import_priv_key"];
                     [self scanQR:nil];
                     break;
 
                 case 2: // settings
-                    [BREventManager saveEvent:@"tx_history:settings"];
+//                    [BREventManager saveEvent:@"tx_history:settings"];
                     destinationController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
                     [self.navigationController pushViewController:destinationController animated:YES];
                     break;
@@ -733,13 +733,13 @@ static NSString *dateFormat(NSString *template)
         [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
         return;
     }
-
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"show", nil)]) {
-        BRSeedViewController *seedController =
-            [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
-    
-        if (seedController.authSuccess) [self.navigationController pushViewController:seedController animated:YES];
-    }    
+//
+//    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"show", nil)]) {
+//        BRSeedViewController *seedController =
+//            [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
+//    
+//        if (seedController.authSuccess) [self.navigationController pushViewController:seedController animated:YES];
+//    }    
 }
 
 // MARK: - UIViewControllerAnimatedTransitioning

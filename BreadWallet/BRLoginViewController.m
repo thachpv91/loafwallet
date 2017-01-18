@@ -226,8 +226,8 @@
 }
 - (void) sendRequest:(NSString *) urlString withParams:(NSMutableDictionary *) distParams
 {
+    [self.spiner startAnimating];
     NSError *error;
-    
     NSData *requestBodyData = [NSJSONSerialization dataWithJSONObject:distParams options:NSJSONWritingPrettyPrinted error:&error];
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -245,7 +245,7 @@
 }
 - (void) handleLoginResponse:(NSDictionary *) response withError:(NSError *) error
 {
-    NSLog(@"\nhandleLoginResponse %@ %@", response, error);
+    NSLog(@"\n Login: handleLoginResponse %@ %@", response, error);
 
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     BRLoginResponse * loginResponse = [[BRLoginResponse alloc] initWithDictionary:response];
@@ -267,32 +267,29 @@
         return;
     }
     
-    [self showToastMessage:@"Login successful" withDuration:0.5f];
-        
+//    [self showToastMessage:@"Login successful" withDuration:0.5f];
+    
     manager.authenKey = loginResponse.authenKey;
     if(loginResponse.isFirstLogin)
     {
-            NSLog(@"handleLoginResponse: Login isFirstLogin = TRUE --> Create Wallet ");
+            NSLog(@" Login: handleLoginResponse: Login isFirstLogin = TRUE --> Create Wallet ");
              // create wallet
             NSString * seedPhrase = [manager generateRandomSeed];
             
             
-            NSLog(@"BRSeedViewController customInit .. [BRPeerManager sharedInstance] connect");
             [[BRPeerManager sharedInstance] connect];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:WALLET_NEEDS_BACKUP_KEY];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             // save MnemonicCode to server
-            NSLog(@"handleLoginResponse: Request to save Mnemonic Code");
-            [self requestSaveMnemonicCode:seedPhrase];
-            
-            // Todo: While response here
-            // Todo: Show loading animation
+            NSLog(@" Login: handleLoginResponse: Request to save Mnemonic Code");
+             [self requestSaveMnemonicCode:seedPhrase];
+        
     }else
     {
         if(manager.isFirtLauch)
         {
-                NSLog(@"handleLoginResponse: Restore from Server`s MnenicCode ");
+                NSLog(@"Login: handleLoginResponse: Restore from Server`s MnenicCode ");
                 // Resore wallet
                 @autoreleasepool {  // @autoreleasepool ensures sensitive data will be deallocated immediately
                     NSString * mnemonicCode = loginResponse.response;
@@ -301,13 +298,12 @@
                     phrase = [manager.mnemonic normalizePhrase:phrase];
                     
                     manager.seedPhrase = phrase;
-                    
 
                 }
            
         }else
         {
-                 NSLog(@"handleLoginResponse: Login ok, show Wallet");
+                 NSLog(@" Login: handleLoginResponse: Login ok, show Wallet");
 
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -320,7 +316,7 @@
 }
 - (void) handleSaveMemonicCodeResponse:(NSDictionary *) response withError:(NSError *) error
 {
-    NSLog(@"\nhandleSaveMemonicCodeResponse %@ %@", response, error);
+    NSLog(@"\n Login: handleSaveMemonicCodeResponse %@ %@", response, error);
     
      BRSaveMnemonicCodeResponse * saveMCResponse = [[BRSaveMnemonicCodeResponse alloc] initWithDictionary:response];
     
@@ -335,13 +331,17 @@
          show];
     }else
     {
-        [self.navigationController popViewControllerAnimated:NO];
+         BRWalletManager *manager = [BRWalletManager sharedInstance];
+        [manager setServerSaveMnemonic:YES];
+        
+        [self.navigationController.presentingViewController
+         dismissViewControllerAnimated:NO completion:nil];
     }
 
 }
 - (void) handleResetPassResponse:(NSDictionary *) response withError:(NSError *) error
 {
-    NSLog(@"\n handleResetPassResponse %@ %@", response, error);
+    NSLog(@"\n Login: handleResetPassResponse %@ %@", response, error);
     
     BRResponse * resetPassResponse = [[BRResponse alloc] initWithDictionary:response];
     
@@ -391,8 +391,8 @@
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError %@", error);
-
+    NSLog(@" Login: didFailWithError %@", error);
+    [self.spiner stopAnimating];
     if(error.code == NSURLErrorTimedOut)
     {
         [[[UIAlertView alloc]
@@ -426,9 +426,8 @@
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSError *error;
     
-
+    NSError *error;
     NSDictionary *receivedDictionary = [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingAllowFragments error:&error];
     if ([receivedDictionary isKindOfClass:[NSString class]]) {
         NSString * receivedString = [NSString stringWithFormat:@"%@", receivedDictionary];
@@ -436,12 +435,13 @@
         NSError *e;
         receivedDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
     }
-    NSLog(@"%@",receivedDictionary);
+    NSLog(@"Login: %@",receivedDictionary);
     
     [self handleResponse:receivedDictionary withError:error];
     
     connection = nil;
     _responseData = nil;
+    [self.spiner stopAnimating];
 }
 - (void)dealloc
 {

@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 #import "BRSettingsViewController.h"
-#import "BRSeedViewController.h"
+//#import "BRSeedViewController.h"
 #import "BRWalletManager.h"
 #import "BRBubbleView.h"
 #import "BRPeerManager.h"
@@ -77,10 +77,10 @@
             [[NSNotificationCenter defaultCenter] addObserverForName:BRWalletBalanceChangedNotification object:nil
             queue:nil usingBlock:^(NSNotification *note) {
                 if (self.selectorType == 0) {
-                    self.selectorController.title =
-                        [NSString stringWithFormat:@"%@ = %@",
-                         [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
-                         [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice]];
+//                    self.selectorController.title =
+//                        [NSString stringWithFormat:@"%@ = %@",
+//                         [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
+//                         [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice]];
                 }
             }];
     }
@@ -163,10 +163,10 @@
         fmt.dateFormat = [NSDateFormatter dateFormatFromTemplate:@"Mdjma" options:0 locale:[NSLocale currentLocale]];
     }
 
-   return [NSString stringWithFormat:NSLocalizedString(@"rate: %@ = %@\nupdated: %@\nblock #%d of %d\n"
+   return [NSString stringWithFormat:NSLocalizedString(@"updated: %@\nblock #%d of %d\n"
                                                        "connected peers: %d\ndl peer: %@", NULL),
-           [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
-           [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice],
+//           [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
+//           [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice],
            [fmt stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:manager.secureTime]].lowercaseString,
            [BRPeerManager sharedInstance].lastBlockHeight,
            [BRPeerManager sharedInstance].estimatedBlockHeight,
@@ -178,7 +178,7 @@
 
 - (IBAction)done:(id)sender
 {
-    [BREventManager saveEvent:@"settings:dismiss"];
+//    [BREventManager saveEvent:@"settings:dismiss"];
     [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -203,10 +203,10 @@
         [self.navigationController presentViewController:composeController animated:YES completion:nil];
         composeController.view.backgroundColor =
             [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper-default"]];
-        [BREventManager saveEvent:@"about:send_email"];
+//        [BREventManager saveEvent:@"about:send_email"];
     }
     else {
-        [BREventManager saveEvent:@"about:email_not_configured"];
+//        [BREventManager saveEvent:@"about:email_not_configured"];
         [[[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"email not configured", nil) delegate:nil
           cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
     }
@@ -215,7 +215,7 @@
 #if DEBUG
 - (IBAction)copyLogs:(id)sender
 {
-    [BREventManager saveEvent:@"settings:copy_logs"];
+//    [BREventManager saveEvent:@"settings:copy_logs"];
     aslmsg q = asl_new(ASL_TYPE_QUERY), m;
     aslresponse r = asl_search(NULL, q);
     NSMutableString *s = [NSMutableString string];
@@ -241,7 +241,7 @@
 
 - (IBAction)touchIdLimit:(id)sender
 {
-    [BREventManager saveEvent:@"settings:touch_id_limit"];
+//    [BREventManager saveEvent:@"settings:touch_id_limit"];
     BRWalletManager *manager = [BRWalletManager sharedInstance];
 
     if ([manager authenticateWithPrompt:nil andTouchId:NO]) {
@@ -264,7 +264,7 @@
 
 - (IBAction)navBarSwipe:(id)sender
 {
-    [BREventManager saveEvent:@"settings:nav_bar_swipe"];
+//    [BREventManager saveEvent:@"settings:nav_bar_swipe"];
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSUInteger digits = (((manager.format.maximumFractionDigits - 2)/3 + 1) % 3)*3 + 2;
 
@@ -274,9 +274,9 @@
     manager.format.maximum = @(MAX_MONEY/(int64_t)pow(10.0, manager.format.maximumFractionDigits));
     [[NSUserDefaults standardUserDefaults] setInteger:digits forKey:SETTINGS_MAX_DIGITS_KEY];
     manager.localCurrencyCode = manager.localCurrencyCode; // force balance notification
-    self.selectorController.title = [NSString stringWithFormat:@"%@ = %@",
-                                     [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
-                                     [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice]];
+//    self.selectorController.title = [NSString stringWithFormat:@"%@ = %@",
+//                                     [manager localCurrencyStringForAmount:SATOSHIS/manager.localCurrencyPrice],
+//                                     [manager stringForAmount:SATOSHIS/manager.localCurrencyPrice]];
     [self.tableView reloadData];
 }
 
@@ -488,7 +488,7 @@ _switch_cell:
 
 - (void)showAbout
 {
-    [BREventManager saveEvent:@"settings:show_about"];
+//    [BREventManager saveEvent:@"settings:show_about"];
     UIViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
     UILabel *l = (id)[c.view viewWithTag:411];
     NSMutableAttributedString *s = [[NSMutableAttributedString alloc] initWithAttributedString:l.attributedText];
@@ -656,7 +656,7 @@ _deselect_switch:
         case 2:
             switch (indexPath.row) {
                 case 0: // change passcode
-                    [BREventManager saveEvent:@"settings:change_pin"];
+//                    [BREventManager saveEvent:@"settings:change_pin"];
                     [tableView deselectRowAtIndexPath:indexPath animated:YES];
                     [manager performSelector:@selector(setPin) withObject:nil afterDelay:0.0];
                     break;
@@ -668,16 +668,16 @@ _deselect_switch:
 
                 case 1: // rescan blockchain
                     [[BRPeerManager sharedInstance] rescan];
-                    [BREventManager saveEvent:@"settings:rescan"];
+//                    [BREventManager saveEvent:@"settings:rescan"];
                     [self done:nil];
                     break;
 #ifdef  DEBUG
-                case 2: // rescan blockchain
+                case 2:
                     if(!manager.noWallet) {
                         [manager deleteWallet];
                         exit(0);
                     }
-                   [self done:nil];
+                    [self done:nil];
                     break;
 #endif
             }
@@ -706,14 +706,14 @@ error:(NSError *)error
         return;
     }
 
-    BRSeedViewController *seedController
-        = [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
-
-    if (seedController.authSuccess) {
-        [self.navigationController pushViewController:seedController animated:YES];
-    } else {
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-    }
+//    BRSeedViewController *seedController
+//        = [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
+//
+//    if (seedController.authSuccess) {
+//        [self.navigationController pushViewController:seedController animated:YES];
+//    } else {
+//        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+//    }
 }
 
 @end

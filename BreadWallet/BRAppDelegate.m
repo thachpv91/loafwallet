@@ -79,7 +79,7 @@
     }
 
     // start the event manager
-    [[BREventManager sharedEventManager] up];
+//    [[BREventManager sharedEventManager] up];
 
     //TODO: bitcoin protocol/payment protocol over multipeer connectivity
 
@@ -113,12 +113,22 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    BRAPIClient *client = [BRAPIClient sharedClient];
-    [client.kv sync:^(NSError *err) {
-        NSLog(@"Finished syncing. err=%@", err);
-    }];
-}
+//    BRAPIClient *client = [BRAPIClient sharedClient];
+//    [client.kv sync:^(NSError *err) {
+//        NSLog(@"Finished syncing. err=%@", err);
+//    }];
 
+    
+}
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    BRWalletManager * manager = [BRWalletManager sharedInstance];
+    if(!manager.noWallet && !manager.isServerSaveMnemonic)
+    {
+        NSLog(@"Not yet save mnemonic code, delete Wallet");
+        [manager deleteWallet];
+    }
+}
 // Applications may reject specific types of extensions based on the extension point identifier.
 // Constants representing common extension point identifiers are provided further down.
 // If unimplemented, the default behavior is to allow the extension point identifier.
@@ -131,8 +141,8 @@ shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
 annotation:(id)annotation
 {
-    if (! [url.scheme isEqual:@"hanhcoin"] && ! [url.scheme isEqual:@"loaf"]) {
-        [[[UIAlertView alloc] initWithTitle:@"Not a bitcoin URL" message:url.absoluteString delegate:nil
+    if (! [url.scheme isEqual:@"hanhcoin"] && ! [url.scheme isEqual:@"hanhcoin"]) {
+        [[[UIAlertView alloc] initWithTitle:@"Not a hanhcoin URL" message:url.absoluteString delegate:nil
           cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
     }
@@ -203,7 +213,7 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
     [[BRPeerManager sharedInstance] connect];
 
     // sync events to the server
-    [[BREventManager sharedEventManager] sync];
+//    [[BREventManager sharedEventManager] sync];
 }
 
 - (void)setupBalanceNotification:(UIApplication *)application
@@ -258,47 +268,47 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
 }
 
 - (void)updatePlatform {
-    if ([WKWebView class]) { // platform features are only available on iOS 8.0+
-        BRAPIClient *client = [BRAPIClient sharedClient];
-        
+//    if ([WKWebView class]) { // platform features are only available on iOS 8.0+
+//        BRAPIClient *client = [BRAPIClient sharedClient];
+//        
         // set up bundles
-#if DEBUG
-        NSArray *bundles = @[@"bread-buy-staging"];
-#else
-        NSArray *bundles = @[@"bread-buy"];
-#endif
-        [bundles enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [client updateBundle:(NSString *)obj handler:^(NSString * _Nullable error) {
-                if (error != nil) {
-                    NSLog(@"error updating bundle %@: %@", obj, error);
-                } else {
-                    NSLog(@"successfully updated bundle %@", obj);
-                }
-            }];
-        }];
-        
-        // set up feature flags
-        [client updateFeatureFlags];
-        
-        // set up the kv store
-        BRKVStoreObject *obj;
-        NSError *kvErr = nil;
-        // store a sentinel so we can be sure the kv store replication is functioning properly
-        obj = [client.kv get:@"sentinel" error:&kvErr];
-        if (kvErr != nil) {
-            NSLog(@"Error getting sentinel, trying again. err=%@", kvErr);
-            obj = [[BRKVStoreObject alloc] initWithKey:@"sentinel" version:0 lastModified:[NSDate date]
-                                               deleted:false data:[NSData data]];
-        }
-        [client.kv set:obj error:&kvErr];
-        if (kvErr != nil) {
-            NSLog(@"Error setting kv object err=%@", kvErr);
-        }
-        
-        [client.kv sync:^(NSError * _Nullable err) {
-            NSLog(@"Finished syncing: error=%@", err);
-        }];
-    }
+//#if DEBUG
+//        NSArray *bundles = @[@"bread-buy-staging"];
+//#else
+//        NSArray *bundles = @[@"bread-buy"];
+//#endif
+//        [bundles enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            [client updateBundle:(NSString *)obj handler:^(NSString * _Nullable error) {
+//                if (error != nil) {
+//                    NSLog(@"error updating bundle %@: %@", obj, error);
+//                } else {
+//                    NSLog(@"successfully updated bundle %@", obj);
+//                }
+//            }];
+//        }];
+//        
+//        // set up feature flags
+//        [client updateFeatureFlags];
+//        
+//        // set up the kv store
+//        BRKVStoreObject *obj;
+//        NSError *kvErr = nil;
+//        // store a sentinel so we can be sure the kv store replication is functioning properly
+//        obj = [client.kv get:@"sentinel" error:&kvErr];
+//        if (kvErr != nil) {
+//            NSLog(@"Error getting sentinel, trying again. err=%@", kvErr);
+//            obj = [[BRKVStoreObject alloc] initWithKey:@"sentinel" version:0 lastModified:[NSDate date]
+//                                               deleted:false data:[NSData data]];
+//        }
+//        [client.kv set:obj error:&kvErr];
+//        if (kvErr != nil) {
+//            NSLog(@"Error setting kv object err=%@", kvErr);
+//        }
+//        
+//        [client.kv sync:^(NSError * _Nullable err) {
+//            NSLog(@"Finished syncing: error=%@", err);
+//        }];
+//    }
 }
 
 - (void)registerForPushNotifications {
@@ -343,8 +353,8 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
 #endif
     
     NSLog(@"Push registry did update push credentials: %@", credentials);
-    BRAPIClient *client = [BRAPIClient sharedClient];
-    [client savePushNotificationToken:credentials.token pushNotificationType:svcType];
+//    BRAPIClient *client = [BRAPIClient sharedClient];
+//    [client savePushNotificationToken:credentials.token pushNotificationType:svcType];
 }
 
 - (void)pushRegistry:(PKPushRegistry *)registry didInvalidatePushTokenForType:(NSString *)type

@@ -898,19 +898,21 @@ masterPublicKey:(NSData *)masterPublicKey seed:(NSData *(^)(NSString *authprompt
 - (uint64_t)feeForTxSize:(NSUInteger)size
 {
     uint64_t standardFee = ((size + 999)/1000)*TX_FEE_PER_KB; // standard fee based on tx size rounded up to nearest kb
-//             fee = (((size*self.feePerKb/1000) + 99)/100)*100; // fee using feePerKb, rounded up to nearest 100 satoshi
     
-    return standardFee;
+    uint64_t fee = (((size*self.feePerKb/1000) + 99)/100)*100; // fee using feePerKb, rounded up to nearest 100 satoshi
+    return (standardFee > fee)? standardFee : fee;
+    
+//    return standardFee;
 }
 
 // outputs below this amount are uneconomical due to fees
 - (uint64_t)minOutputAmount
 {
-//    uint64_t amount = (TX_MIN_OUTPUT_AMOUNT*self.feePerKb + MIN_FEE_PER_KB - 1)/MIN_FEE_PER_KB;
+    uint64_t amount = (TX_MIN_OUTPUT_AMOUNT*self.feePerKb + MIN_FEE_PER_KB - 1)/MIN_FEE_PER_KB;
     
-//    return (amount > TX_MIN_OUTPUT_AMOUNT) ? amount : TX_MIN_OUTPUT_AMOUNT;
+    return (amount > TX_MIN_OUTPUT_AMOUNT) ? amount : TX_MIN_OUTPUT_AMOUNT;
     
-    return TX_MIN_OUTPUT_AMOUNT;
+//    return TX_MIN_OUTPUT_AMOUNT;
 }
 
 - (uint64_t)maxOutputAmount

@@ -202,14 +202,14 @@ static NSString *sanitizeString(NSString *s)
 
 - (void)handleURL:(NSURL *)url
 {
-    [BREventManager saveEvent:@"send:handle_url"
-               withAttributes:@{@"scheme": (url.scheme ? url.scheme : @"(null)"),
-                                @"host": (url.host ? url.host : @"(null)"),
-                                @"path": (url.path ? url.path : @"(null)")}];
+//    [BREventManager saveEvent:@"send:handle_url"
+//               withAttributes:@{@"scheme": (url.scheme ? url.scheme : @"(null)"),
+//                                @"host": (url.host ? url.host : @"(null)"),
+//                                @"path": (url.path ? url.path : @"(null)")}];
     
     //TODO: XXX custom url splash image per: "Providing Launch Images for Custom URL Schemes."
     BRWalletManager *manager = [BRWalletManager sharedInstance];
-    if ([url.scheme isEqual:@"loaf"]) { // x-callback-url handling: http://x-callback-url.com/specifications/
+    if ([url.scheme isEqual:@"hanhcoin"]) { // x-callback-url handling: http://x-callback-url.com/specifications/
         NSString *xsource = nil, *xsuccess = nil, *xerror = nil, *uri = nil;
         NSURL *callback = nil;
 
@@ -565,14 +565,26 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
               toOutputScripts:@[protoReq.details.outputScripts.firstObject] withFee:YES];
     }
     
+    uint64_t fee1 = 0, fee2 = 0;
+    
+    fee2 = [manager.wallet feeForTxSize:[manager.wallet transactionFor:manager.wallet.balance
+                                                            to:address withFee:YES].size];
+    fee2 += (manager.wallet.balance - amount) % 100;
+    
+    fee1 = [manager.wallet feeForTransaction:tx];
+    
+    NSLog(@"\n fee1: %d  fee2:%d", fee1, fee2);
     if (tx) {
         amount = [manager.wallet amountSentByTransaction:tx] - [manager.wallet amountReceivedFromTransaction:tx];
-        fee = [manager.wallet feeForTransaction:tx];
+//        fee = [manager.wallet feeForTransaction:tx];
+        fee = fee1;
+        
     }
     else {
-        fee = [manager.wallet feeForTxSize:[manager.wallet transactionFor:manager.wallet.balance
-                                            to:address withFee:NO].size];
-        fee += (manager.wallet.balance - amount) % 100;
+        fee = fee2;
+//        fee = [manager.wallet feeForTxSize:[manager.wallet transactionFor:manager.wallet.balance
+//                                            to:address withFee:YES].size];
+//        fee += (manager.wallet.balance - amount) % 100;
         amount += fee;
     }
 
@@ -1000,7 +1012,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
 - (IBAction)scanQR:(id)sender
 {
     if ([self nextTip]) return;
-    [BREventManager saveEvent:@"send:scan_qr"];
+//    [BREventManager saveEvent:@"send:scan_qr"];
     if (! [sender isEqual:self.scanButton]) self.showBalance = YES;
     [sender setEnabled:NO];
     self.scanController.delegate = self;
@@ -1020,12 +1032,12 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
         self.amount = [manager amountForString:self.amountField.text];
         
         if (self.amount == 0){
-            [BREventManager saveEvent:@"amount:pay_zero"];
+//            [BREventManager saveEvent:@"amount:pay_zero"];
             return;
         }
         
-        [BREventManager saveEvent:@"amount:pay"];
-        [BREventManager saveEvent:@"send:pay_clipboard"];
+//        [BREventManager saveEvent:@"amount:pay"];
+//        [BREventManager saveEvent:@"send:pay_clipboard"];
         
         NSString *str = [[UIPasteboard generalPasteboard].string
                          stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -1065,7 +1077,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
     if (self.navigationController.topViewController != self.parentViewController.parentViewController) {
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    [BREventManager saveEvent:@"send:reset"];
+//    [BREventManager saveEvent:@"send:reset"];
 
     if (self.clearClipboard) [UIPasteboard generalPasteboard].string = @"";
     self.request = nil;
@@ -1074,7 +1086,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
 
 - (IBAction)cancel:(id)sender
 {
-    [BREventManager saveEvent:@"send:cancel"];
+//    [BREventManager saveEvent:@"send:cancel"];
     self.url = self.callback = nil;
     self.sweepTx = nil;
     self.amount = 0;
@@ -1101,7 +1113,7 @@ fromConnection:(AVCaptureConnection *)connection
     for (AVMetadataMachineReadableCodeObject *codeObject in metadataObjects) {
         if (! [codeObject.type isEqual:AVMetadataObjectTypeQRCode]) continue;
         
-        [BREventManager saveEvent:@"send:scanned_qr"];
+//        [BREventManager saveEvent:@"send:scanned_qr"];
         
         NSString *addr = [codeObject.stringValue stringByTrimmingCharactersInSet:
                           [NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -1116,7 +1128,7 @@ fromConnection:(AVCaptureConnection *)connection
                    [addr isValidBitcoinBIP38Key]) {
             self.scanController.cameraGuide.image = [UIImage imageNamed:@"cameraguide-green"];
             [self.scanController stop];
-            [BREventManager saveEvent:@"send:valid_qr_scan"];
+//            [BREventManager saveEvent:@"send:valid_qr_scan"];
 
             if (request.r.length > 0) { // start fetching payment protocol request right away
                 [BRPaymentRequest fetch:request.r timeout:5.0
@@ -1137,11 +1149,11 @@ fromConnection:(AVCaptureConnection *)connection
                         }];
                         
                         if (error) {
-                            [BREventManager saveEvent:@"send:unsuccessful_qr_payment_protocol_fetch"];
+//                            [BREventManager saveEvent:@"send:unsuccessful_qr_payment_protocol_fetch"];
                             [self confirmRequest:request]; // payment protocol fetch failed, so use standard request
                         }
                         else {
-                            [BREventManager saveEvent:@"send:successful_qr_payment_protocol_fetch"];
+//                            [BREventManager saveEvent:@"send:successful_qr_payment_protocol_fetch"];
                             [self confirmProtocolRequest:req];
                         }
                     });
@@ -1173,7 +1185,7 @@ fromConnection:(AVCaptureConnection *)connection
                             [self resetQRGuide];
                         }];
                         
-                        [BREventManager saveEvent:@"send:successful_bip73"];
+//                        [BREventManager saveEvent:@"send:successful_bip73"];
                         [self confirmProtocolRequest:req];
                     }
                     else {
@@ -1188,7 +1200,7 @@ fromConnection:(AVCaptureConnection *)connection
                         else self.scanController.message.text = NSLocalizedString(@"not a bitcoin QR code", nil);
                         
                         [self performSelector:@selector(resetQRGuide) withObject:nil afterDelay:0.35];
-                        [BREventManager saveEvent:@"send:unsuccessful_bip73"];
+//                        [BREventManager saveEvent:@"send:unsuccessful_bip73"];
                     }
                 });
             }];

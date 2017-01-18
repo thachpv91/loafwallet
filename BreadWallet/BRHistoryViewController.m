@@ -28,7 +28,7 @@
 #import "BRRootViewController.h"
 #import "BRSettingsViewController.h"
 #import "BRTxDetailViewController.h"
-#import "BRSeedViewController.h"
+//#import "BRSeedViewController.h"
 #import "BRWalletManager.h"
 #import "BRPeerManager.h"
 #import "BRTransaction.h"
@@ -310,9 +310,9 @@ static NSString *dateFormat(NSString *template)
 
     dispatch_once(&onceToken, ^{ // BUG: need to watch for NSCurrentLocaleDidChangeNotification
         monthDayHourFormatter = [NSDateFormatter new];
-        monthDayHourFormatter.dateFormat = dateFormat(@"Mdja");
+        monthDayHourFormatter.dateFormat = dateFormat(@"HH:mm MMdd");
         yearMonthDayHourFormatter = [NSDateFormatter new];
-        yearMonthDayHourFormatter.dateFormat = dateFormat(@"yyMdja");
+        yearMonthDayHourFormatter.dateFormat = dateFormat(@"HH:mm yyyyMMdd");
     });
 
     NSString *date = self.txDates[uint256_obj(tx.txHash)];
@@ -341,7 +341,7 @@ static NSString *dateFormat(NSString *template)
 
 - (IBAction)done:(id)sender
 {
-    [BREventManager saveEvent:@"tx_history:dismiss"];
+//    [BREventManager saveEvent:@"tx_history:dismiss"];
     [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -349,9 +349,9 @@ static NSString *dateFormat(NSString *template)
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
 
-    if (sender) [BREventManager saveEvent:@"tx_history:unlock"];
+//    if (sender) [BREventManager saveEvent:@"tx_history:unlock"];
     if (! manager.didAuthenticate && ! [manager authenticateWithPrompt:nil andTouchId:YES]) return;
-    if (sender) [BREventManager saveEvent:@"tx_history:unlock_success"];
+//    if (sender) [BREventManager saveEvent:@"tx_history:unlock_success"];
 
     self.navigationItem.titleView = nil;
     [self.navigationItem setRightBarButtonItem:nil animated:(sender) ? YES : NO];
@@ -373,7 +373,7 @@ static NSString *dateFormat(NSString *template)
 - (IBAction)scanQR:(id)sender
 {
     //TODO: show scanner in settings rather than dismissing
-    [BREventManager saveEvent:@"tx_history:scan_qr"];
+//    [BREventManager saveEvent:@"tx_history:scan_qr"];
     UINavigationController *nav = (id)self.navigationController.presentingViewController;
 
     nav.view.alpha = 0.0;
@@ -386,7 +386,7 @@ static NSString *dateFormat(NSString *template)
 
 - (IBAction)showTx:(id)sender
 {
-    [BREventManager saveEvent:@"tx_history:show_tx"];
+//    [BREventManager saveEvent:@"tx_history:show_tx"];
     BRTxDetailViewController *detailController
     = [self.storyboard instantiateViewControllerWithIdentifier:@"TxDetailViewController"];
     detailController.transaction = sender;
@@ -396,7 +396,7 @@ static NSString *dateFormat(NSString *template)
 
 - (IBAction)more:(id)sender
 {
-    [BREventManager saveEvent:@"tx_history:more"];
+//    [BREventManager saveEvent:@"tx_history:more"];
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSUInteger txCount;
 
@@ -435,14 +435,14 @@ static NSString *dateFormat(NSString *template)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    bool buyEnabled = [[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsBuyBitcoin];
+   bool buyEnabled = NO;//[[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsBuyBitcoin];
     switch (section) {
         case 0:
             if (self.transactions.count == 0) return 1;
             return (self.moreTx) ? self.transactions.count + 1 : self.transactions.count;
 
-//        case 1:
-//            return (buyEnabled ? 3 : 2);
+        case 1:
+            return (buyEnabled ? 3 : 2);
     }
 
     return 0;
@@ -723,12 +723,12 @@ static NSString *dateFormat(NSString *template)
         return;
     }
 
-    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"show", nil)]) {
-        BRSeedViewController *seedController =
-        [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
-
-        if (seedController.authSuccess) [self.navigationController pushViewController:seedController animated:YES];
-    }
+//    if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"show", nil)]) {
+//        BRSeedViewController *seedController =
+//        [self.storyboard instantiateViewControllerWithIdentifier:@"SeedViewController"];
+//
+//        if (seedController.authSuccess) [self.navigationController pushViewController:seedController animated:YES];
+//    }
 }
 
 #pragma mark - UIViewControllerAnimatedTransitioning

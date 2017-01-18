@@ -242,7 +242,7 @@ int tapCount = 0;
         [self.progessButton setTitle:@"→" forState:UIControlStateNormal];
     } else if (tapCount == 3) {
         
-        [BREventManager saveEvent:@"seed:toggle_write"];
+//        [BREventManager saveEvent:@"seed:toggle_write"];
         NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
         
         if ([defs boolForKey:WALLET_NEEDS_BACKUP_KEY]) {
@@ -254,7 +254,7 @@ int tapCount = 0;
         
         [defs synchronize];
         
-        [BREventManager saveEvent:@"seed:dismiss"];
+//        [BREventManager saveEvent:@"seed:dismiss"];
         if (self.navigationController.viewControllers.firstObject != self) return;
         
         self.navigationController.presentingViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;

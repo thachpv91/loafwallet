@@ -28,7 +28,7 @@
 
 #define PARALAX_RATIO    0.25
 
-@class BRReceiveViewController, BRSendViewController, BRHistoryViewController;
+@class BRReceiveViewController, BRSendViewController, BRHistoryViewController, BRLoginViewController;
 
 @interface BRRootViewController : UIViewController <UIAlertViewDelegate, UITabBarControllerDelegate, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 

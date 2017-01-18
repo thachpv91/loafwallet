@@ -551,7 +551,7 @@ static const char *dns_seeds[] = {
     NSLog(@"[BRPeerManager] publish transaction %@", transaction);
     if (! transaction.isSigned) {
         if (completion) {
-            [[BREventManager sharedEventManager] saveEvent:@"peer_manager:not_signed"];
+//            [[BREventManager sharedEventManager] saveEvent:@"peer_manager:not_signed"];
             completion([NSError errorWithDomain:@"LoafWallet" code:401 userInfo:@{NSLocalizedDescriptionKey:
                         NSLocalizedString(@"bitcoin transaction not signed", nil)}]);
         }
@@ -560,7 +560,7 @@ static const char *dns_seeds[] = {
     }
     else if (! self.connected && self.connectFailures >= MAX_CONNECT_FAILURES) {
         if (completion) {
-            [[BREventManager sharedEventManager] saveEvent:@"peer_manager:not_connected"];
+//            [[BREventManager sharedEventManager] saveEvent:@"peer_manager:not_connected"];
             completion([NSError errorWithDomain:@"LoafWallet" code:-1009 userInfo:@{NSLocalizedDescriptionKey:
                         NSLocalizedString(@"not connected to the bitcoin network", nil)}]);
         }
@@ -658,10 +658,10 @@ static const char *dns_seeds[] = {
         BRTxMetadataObject *txm;
         UInt256 h;
         
-        [hash getValue:&h];
-        txm = [[BRTxMetadataObject alloc] initWithTxHash:h store:[BRAPIClient sharedClient].kv];
-        txm.blockHeight = height;
-        if (txm) [[BRAPIClient sharedClient].kv set:txm error:&kvErr];
+//        [hash getValue:&h];
+//        txm = [[BRTxMetadataObject alloc] initWithTxHash:h store:[BRAPIClient sharedClient].kv];
+//        txm.blockHeight = height;
+//        if (txm) [[BRAPIClient sharedClient].kv set:txm error:&kvErr];
     }
 }
 
@@ -674,7 +674,7 @@ static const char *dns_seeds[] = {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(txTimeout:) object:txHash];
 
     if (callback) {
-        [[BREventManager sharedEventManager] saveEvent:@"peer_manager:tx_canceled_timeout"];
+//        [[BREventManager sharedEventManager] saveEvent:@"peer_manager:tx_canceled_timeout"];
         callback([NSError errorWithDomain:@"LoafWallet" code:BITCOIN_TIMEOUT_CODE userInfo:@{NSLocalizedDescriptionKey:
                   NSLocalizedString(@"transaction canceled, network timeout", nil)}]);
     }
@@ -802,7 +802,7 @@ static const char *dns_seeds[] = {
     if (notify) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (rescan) {
-                [[BREventManager sharedEventManager] saveEvent:@"peer_manager:tx_rejected_rescan"];
+//                [[BREventManager sharedEventManager] saveEvent:@"peer_manager:tx_rejected_rescan"];
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"transaction rejected", nil)
                   message:NSLocalizedString(@"Your wallet may be out of sync.\n"
                                             "This can often be fixed by rescanning the blockchain.", nil) delegate:self
@@ -810,7 +810,7 @@ static const char *dns_seeds[] = {
                   otherButtonTitles:NSLocalizedString(@"rescan", nil), nil] show];
             }
             else {
-                [[BREventManager sharedEventManager] saveEvent:@"peer_manager_tx_rejected"];
+//                [[BREventManager sharedEventManager] saveEvent:@"peer_manager_tx_rejected"];
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"transaction rejected", nil)
                   message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
             }
@@ -1139,10 +1139,11 @@ static const char *dns_seeds[] = {
             [[NSNotificationCenter defaultCenter] postNotificationName:BRPeerManagerTxStatusNotification object:nil];
             if (callback) callback(nil);
             
-            [[BRAPIClient sharedClient].kv
-             set:[[BRTxMetadataObject alloc] initWithTransaction:transaction exchangeRate:manager.localCurrencyPrice
-                  exchangeRateCurrency:manager.localCurrencyCode feeRate:manager.wallet.feePerKb
-                  deviceId:[BRAPIClient sharedClient].deviceId] error:&kvErr];
+            // thachpv note : need to review this code
+//            [[BRAPIClient sharedClient].kv
+//             set:[[BRTxMetadataObject alloc] initWithTransaction:transaction exchangeRate:manager.localCurrencyPrice
+//                  exchangeRateCurrency:manager.localCurrencyCode feeRate:manager.wallet.feePerKb
+//                  deviceId:[BRAPIClient sharedClient].deviceId] error:&kvErr];
         });
     }
     
@@ -1199,10 +1200,11 @@ static const char *dns_seeds[] = {
             [[NSNotificationCenter defaultCenter] postNotificationName:BRPeerManagerTxStatusNotification object:nil];
             if (callback) callback(nil);
 
-            [[BRAPIClient sharedClient].kv
-             set:[[BRTxMetadataObject alloc] initWithTransaction:tx exchangeRate:manager.localCurrencyPrice
-                  exchangeRateCurrency:manager.localCurrencyCode feeRate:manager.wallet.feePerKb
-                  deviceId:[BRAPIClient sharedClient].deviceId] error:&kvErr];
+            // thachpv note : need to review this code
+//            [[BRAPIClient sharedClient].kv
+//             set:[[BRTxMetadataObject alloc] initWithTransaction:tx exchangeRate:manager.localCurrencyPrice
+//                  exchangeRateCurrency:manager.localCurrencyCode feeRate:manager.wallet.feePerKb
+//                  deviceId:[BRAPIClient sharedClient].deviceId] error:&kvErr];
         });
     }
     

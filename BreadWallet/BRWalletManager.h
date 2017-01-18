@@ -68,6 +68,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotificatio
 @property (nonatomic, readonly) NSArray * _Nullable currencyNames; // names for local currency codes
 
 // thachpv added
+@property (nonatomic, readonly, getter=isServerSaveMnemonic) BOOL serverSaveMnemonic;
 @property (nonatomic, assign) BOOL isFirtLauch;
 @property (nonatomic, copy) NSString * _Nullable authenKey;
 // thach end
@@ -96,6 +97,7 @@ completion:(void (^ _Nonnull)(BRTransaction * _Nonnull tx, uint64_t fee, NSError
 - (NSString * _Nonnull)localCurrencyStringForAmount:(int64_t)amount;
 
 - (void)deleteWallet; // thachpv add
+- (void)setServerSaveMnemonic:(BOOL) isSaved;
 
 
 @end

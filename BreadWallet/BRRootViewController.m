@@ -29,7 +29,7 @@
 #import "BRSendViewController.h"
 #import "BRHistoryViewController.h"
 #import "BRSettingsViewController.h"
-#import "BRRestoreViewController.h"
+//#import "BRRestoreViewController.h"
 #import "BRAppDelegate.h"
 #import "BRBubbleView.h"
 #import "BRBouncyBurgerButton.h"
@@ -181,12 +181,12 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             if (! manager.noWallet) {
+                // thachpv note: need to review this code
                 BREventManager *eventMan = [BREventManager sharedEventManager];
                 NSLog(@"BRRootViewController viewDidLoad self.foregroundObserver = ...");
                 NSLog(@"BRRootViewController viewDidLoad BRPeerManager.connect()");
                 [[BRPeerManager sharedInstance] connect];
                 [self.sendViewController updateClipboardText];
-
                 if (eventMan.isInSampleGroup && ! eventMan.hasAskedForPermission) {
                     [eventMan acquireUserPermissionInViewController:self.navigationController withCallback:nil];
                 }
@@ -507,25 +507,25 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     (segue.destinationViewController).transitioningDelegate = self;
     (segue.destinationViewController).modalPresentationStyle = UIModalPresentationCustom;
     [self hideErrorBar];
-    
-    if ([sender isEqual:NSLocalizedString(@"show phrase", nil)]) { // show recovery phrase
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
-                                    message:[NSString stringWithFormat:@"\n%@\n\n%@\n\n%@\n",
-                                             [NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
-                                                                "phrase or they can spend your bitcoins.\n", nil)
-                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
-                                             [NSLocalizedString(@"\nNEVER type your recovery phrase into\n"
-                                                                "password managers or elsewhere.\n"
-                                                                "Other devices may be infected.\n", nil)
-                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
-                                             [NSLocalizedString(@"\nDO NOT take a screenshot.\n"
-                                                                "Screenshots are visible to other apps\n"
-                                                                "and devices.\n", nil)
-                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]]
-                                   delegate:[(id)segue.destinationViewController viewControllers].firstObject
-                          cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"show", nil), nil]
-         show];
-    }
+//    
+//    if ([sender isEqual:NSLocalizedString(@"show phrase", nil)]) { // show recovery phrase
+//        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
+//                                    message:[NSString stringWithFormat:@"\n%@\n\n%@\n\n%@\n",
+//                                             [NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
+//                                                                "phrase or they can spend your bitcoins.\n", nil)
+//                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
+//                                             [NSLocalizedString(@"\nNEVER type your recovery phrase into\n"
+//                                                                "password managers or elsewhere.\n"
+//                                                                "Other devices may be infected.\n", nil)
+//                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
+//                                             [NSLocalizedString(@"\nDO NOT take a screenshot.\n"
+//                                                                "Screenshots are visible to other apps\n"
+//                                                                "and devices.\n", nil)
+//                                              stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]]
+//                                   delegate:[(id)segue.destinationViewController viewControllers].firstObject
+//                          cancelButtonTitle:NSLocalizedString(@"cancel", nil) otherButtonTitles:NSLocalizedString(@"show", nil), nil]
+//         show];
+//    }
 
 
 }
@@ -753,25 +753,25 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 
 - (void)showBackupDialogIfNeeded
 {
-    BRWalletManager *manager = [BRWalletManager sharedInstance];
-    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-    
-    if (self.navigationController.visibleViewController != self || ! [defs boolForKey:WALLET_NEEDS_BACKUP_KEY] ||
-        manager.wallet.balance == 0 || [defs doubleForKey:BACKUP_DIALOG_TIME_KEY] > now - 36*60*60) return;
-    
-    BOOL first = ([defs doubleForKey:BACKUP_DIALOG_TIME_KEY] < 1.0) ? YES : NO;
-    
-    [defs setDouble:now forKey:BACKUP_DIALOG_TIME_KEY];
-    
-    [[[UIAlertView alloc]
-      initWithTitle:(first) ? NSLocalizedString(@"you received bitcoin!", nil) : NSLocalizedString(@"IMPORTANT", nil)
-      message:[NSString stringWithFormat:NSLocalizedString(@"\n%@\n\nif you ever lose your phone, you will need it to "
-                                                           "recover your wallet", nil),
-               (first) ? NSLocalizedString(@"next, write down your recovery phrase", nil) :
-               NSLocalizedString(@"WRITE DOWN YOUR RECOVERY PHRASE", nil)] delegate:self
-      cancelButtonTitle:NSLocalizedString(@"do it later", nil)
-      otherButtonTitles:NSLocalizedString(@"show phrase", nil), nil] show];
+//    BRWalletManager *manager = [BRWalletManager sharedInstance];
+//    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+//    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+//    
+//    if (self.navigationController.visibleViewController != self || ! [defs boolForKey:WALLET_NEEDS_BACKUP_KEY] ||
+//        manager.wallet.balance == 0 || [defs doubleForKey:BACKUP_DIALOG_TIME_KEY] > now - 36*60*60) return;
+//    
+//    BOOL first = ([defs doubleForKey:BACKUP_DIALOG_TIME_KEY] < 1.0) ? YES : NO;
+//    
+//    [defs setDouble:now forKey:BACKUP_DIALOG_TIME_KEY];
+//
+//    [[[UIAlertView alloc]
+//      initWithTitle:(first) ? NSLocalizedString(@"you received bitcoin!", nil) : NSLocalizedString(@"IMPORTANT", nil)
+//      message:[NSString stringWithFormat:NSLocalizedString(@"\n%@\n\nif you ever lose your phone, you will need it to "
+//                                                           "recover your wallet", nil),
+//               (first) ? NSLocalizedString(@"next, write down your recovery phrase", nil) :
+//               NSLocalizedString(@"WRITE DOWN YOUR RECOVERY PHRASE", nil)] delegate:self
+//      cancelButtonTitle:NSLocalizedString(@"do it later", nil)
+//      otherButtonTitles:NSLocalizedString(@"show phrase", nil), nil] show];
 }
 
 - (void)hideTips
@@ -864,11 +864,11 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 
 - (IBAction)unlock:(id)sender
 {
-    [BREventManager saveEvent:@"root:unlock"];
+//    [BREventManager saveEvent:@"root:unlock"];
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     
     if (sender && ! manager.didAuthenticate && ! [manager authenticateWithPrompt:nil andTouchId:YES]) return;
-    [BREventManager saveEvent:@"root:unlock_success"];
+//    [BREventManager saveEvent:@"root:unlock_success"];
     
     self.navigationItem.titleView = nil;
     [self.navigationItem setRightBarButtonItem:nil animated:(sender) ? YES : NO];
@@ -876,12 +876,12 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 
 - (IBAction)connect:(id)sender
 {
-    [BREventManager saveEvent:@"root:connect"];
+//    [BREventManager saveEvent:@"root:connect"];
     if (! sender && [self.reachability currentReachabilityStatus] == NotReachable) return;
     NSLog(@"(IBAction)connect:(id)sender.  -> BRPeerManager.connect");
     
     [[BRPeerManager sharedInstance] connect];
-    [BREventManager saveEvent:@"root:connect_success"];
+//    [BREventManager saveEvent:@"root:connect_success"];
     if (self.reachability.currentReachabilityStatus == NotReachable) [self showErrorBar];
 }
 
@@ -980,10 +980,11 @@ viewControllerAfterViewController:(UIViewController *)viewController
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"close app", nil)]) exit(0);
 
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"wipe", nil)]) {
-        BRRestoreViewController *restoreController =
-            [self.storyboard instantiateViewControllerWithIdentifier:@"WipeViewController"];
+        BRLoginViewController *loginController =
+            [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+
             
-        [self.navigationController pushViewController:restoreController animated:NO];
+        [self.navigationController pushViewController:loginController animated:NO];
         return;
     }
     

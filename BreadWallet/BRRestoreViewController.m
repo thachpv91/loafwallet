@@ -101,7 +101,7 @@
 
 - (void)wipeWithPhrase:(NSString *)phrase
 {
-    [BREventManager saveEvent:@"restore:wipe"];
+//    [BREventManager saveEvent:@"restore:wipe"];
     
     @autoreleasepool {
         BRWalletManager *manager = [BRWalletManager sharedInstance];
@@ -110,13 +110,13 @@
         
         if ([[manager.sequence masterPublicKeyFromSeed:[manager.mnemonic deriveKeyFromPhrase:phrase withPassphrase:nil]]
              isEqual:manager.masterPublicKey] || [phrase isEqual:@"wipe"]) {
-            [BREventManager saveEvent:@"restore:wipe_good_recovery_phrase"];
+//            [BREventManager saveEvent:@"restore:wipe_good_recovery_phrase"];
             [[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", nil)
               destructiveButtonTitle:NSLocalizedString(@"wipe", nil) otherButtonTitles:nil]
              showInView:[UIApplication sharedApplication].keyWindow];
         }
         else if (phrase) {
-            [BREventManager saveEvent:@"restore:wipe_bad_recovery_phrase"];
+//            [BREventManager saveEvent:@"restore:wipe_bad_recovery_phrase"];
             [[[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"recovery phrase doesn't match", nil)
               delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
         }
@@ -128,7 +128,7 @@
 
 - (IBAction)cancel:(id)sender
 {
-    [BREventManager saveEvent:@"restore:cancel"];
+//    [BREventManager saveEvent:@"restore:cancel"];
     
     if (self.navigationController.presentingViewController) {
         [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -198,7 +198,7 @@
             [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }
         else if (incorrect) {
-            [BREventManager saveEvent:@"restore:invalid_word"];
+//            [BREventManager saveEvent:@"restore:invalid_word"];
             textView.selectedRange = [textView.text.lowercaseString rangeOfString:incorrect];
         
             [[[UIAlertView alloc] initWithTitle:@""
@@ -207,14 +207,14 @@
              show];
         }
         else if (a.count != PHRASE_LENGTH) {
-            [BREventManager saveEvent:@"restore:invalid_num_words"];
+//            [BREventManager saveEvent:@"restore:invalid_num_words"];
             [[[UIAlertView alloc] initWithTitle:@""
               message:[NSString stringWithFormat:NSLocalizedString(@"recovery phrase must have %d words", nil),
                        PHRASE_LENGTH] delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil)
               otherButtonTitles:nil] show];
         }
         else if (isLocal && ! [manager.mnemonic phraseIsValid:phrase]) {
-            [BREventManager saveEvent:@"restore:bad_phrase"];
+//            [BREventManager saveEvent:@"restore:bad_phrase"];
             [[[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"bad recovery phrase", nil) delegate:nil
               cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
         }

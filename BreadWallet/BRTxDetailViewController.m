@@ -120,7 +120,7 @@
 
     if (self.sent > 0 && fee > 0 && fee != UINT64_MAX) {
         [text addObject:@""];
-        [detail addObject:NSLocalizedString(@"bitcoin network fee", nil)];
+        [detail addObject:NSLocalizedString(@"hanhcoin network fee", nil)];
         [amount addObject:@(-fee)];
     }
     
@@ -360,7 +360,7 @@
     NSUInteger i = [self.tableView.indexPathsForVisibleRows indexOfObject:indexPath];
     UITableViewCell *cell = (i < self.tableView.visibleCells.count) ? self.tableView.visibleCells[i] : nil;
     BRCopyLabel *copyLabel = (id)[cell viewWithTag:2];
-    [BREventManager saveEvent:@"tx_detail:copy_label"];
+//    [BREventManager saveEvent:@"tx_detail:copy_label"];
     
     copyLabel.selectedColor = [UIColor clearColor];
     if (cell.selectionStyle != UITableViewCellSelectionStyleNone) [copyLabel toggleCopyMenu];

@@ -141,10 +141,10 @@
 - (IBAction)unlock:(id)sender
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
-    [BREventManager saveEvent:@"amount:unlock"];
+//    [BREventManager saveEvent:@"amount:unlock"];
     
     if (sender && ! manager.didAuthenticate && ! [manager authenticateWithPrompt:nil andTouchId:YES]) return;
-    [BREventManager saveEvent:@"amount:successful_unlock"];
+//    [BREventManager saveEvent:@"amount:successful_unlock"];
     
     self.navigationItem.titleView = nil;
     [self.navigationItem setRightBarButtonItem:self.payButton animated:(sender) ? YES : NO];
@@ -176,18 +176,18 @@
                   [manager amountForString:self.amountField.text];
 
     if (self.amount == 0){
-        [BREventManager saveEvent:@"amount:pay_zero"];
+//        [BREventManager saveEvent:@"amount:pay_zero"];
         return;
     }
     
-    [BREventManager saveEvent:@"amount:pay"];
+//    [BREventManager saveEvent:@"amount:pay"];
     
     [self.delegate amountViewController:self selectedAmount:self.amount];
 }
 
 - (IBAction)done:(id)sender
 {
-    [BREventManager saveEvent:@"amount:dismiss"];
+//    [BREventManager saveEvent:@"amount:dismiss"];
     [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 /*

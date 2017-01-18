@@ -113,7 +113,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [BREventManager saveEvent:@"welcome:shown"];
+//    [BREventManager saveEvent:@"welcome:shown"];
 
     dispatch_async(dispatch_get_main_queue(), ^{ // animation sometimes doesn't work if run directly in viewDidAppear
 #if SNAPSHOT
@@ -189,7 +189,7 @@
 
 - (IBAction)start:(id)sender
 {
-    [BREventManager saveEvent:@"welcome:new_wallet"];
+//    [BREventManager saveEvent:@"welcome:new_wallet"];
     
     UIViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"GenerateViewController"];
     
@@ -236,7 +236,7 @@
 
 - (IBAction)recover:(id)sender
 {
-    [BREventManager saveEvent:@"welcome:recover_wallet"];
+//    [BREventManager saveEvent:@"welcome:recover_wallet"];
 
     UIViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"RecoverViewController"];
 
@@ -245,10 +245,10 @@
 
 - (IBAction)generate:(id)sender
 {
-    [BREventManager saveEvent:@"welcome:generate"];
+//    [BREventManager saveEvent:@"welcome:generate"];
     
     if (! [BRWalletManager sharedInstance].passcodeEnabled) {
-        [BREventManager saveEvent:@"welcome:passcode_disabled"];
+//        [BREventManager saveEvent:@"welcome:passcode_disabled"];
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"turn device passcode on", nil)
           message:NSLocalizedString(@"\nA device passcode is needed to safeguard your wallet. Go to settings and turn "
                                     "passcode on to continue.", nil)
@@ -272,7 +272,7 @@
 
 - (IBAction)show:(id)sender
 {
-    [BREventManager saveEvent:@"welcome:show"];
+//    [BREventManager saveEvent:@"welcome:show"];
     
     [self.navigationController presentViewController:self.seedNav animated:YES completion:^{
         self.warningLabel.hidden = self.showButton.hidden = YES;
