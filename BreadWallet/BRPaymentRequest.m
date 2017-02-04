@@ -81,7 +81,7 @@
     NSURL *url = [NSURL URLWithString:s];
 
     if (! url || ! url.scheme) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"hanhcoin://%@", s]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"clovercoin://%@", s]];
     }
     else if (! url.host && url.resourceSpecifier) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", url.scheme, url.resourceSpecifier]];
@@ -89,7 +89,7 @@
 
     self.scheme = url.scheme;
 
-    if ([url.scheme isEqual:@"hanhcoin"]) {
+    if ([url.scheme isEqual:@"clovercoin"]) {
         self.paymentAddress = url.host;
 
         //TODO: correctly handle unknown but required url arguments (by reporting the request invalid)
@@ -124,9 +124,9 @@
 
 - (NSString *)string
 {
-    if (! [self.scheme isEqual:@"hanhcoin"]) return self.r;
+    if (! [self.scheme isEqual:@"clovercoin"]) return self.r;
 
-    NSMutableString *s = [NSMutableString stringWithString:@"hanhcoin:"];
+    NSMutableString *s = [NSMutableString stringWithString:@"clovercoin:"];
     NSMutableArray *q = [NSMutableArray array];
     NSMutableCharacterSet *charset = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
 

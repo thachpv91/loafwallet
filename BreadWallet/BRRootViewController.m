@@ -76,8 +76,6 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 @property (nonatomic, assign) NSTimeInterval timeout, start;
 @property (nonatomic, assign) SystemSoundID pingsound;
 
-@property (nonatomic, strong) NSString *seedPhrase; // thachpv added
-
 @end
 
 @implementation BRRootViewController
@@ -262,6 +260,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
                 [UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
                 NSLog(@"self.reachabilityObserver = .. [BRPeerManager sharedInstance] connect");
                 [[BRPeerManager sharedInstance] connect];
+                 [self showErrorBar];
             }
             else if (! manager.noWallet && self.reachability.currentReachabilityStatus == NotReachable) {
                 [self showErrorBar];
@@ -278,7 +277,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
                 return;
             }
             
-            [self showBackupDialogIfNeeded];
+            //[self showBackupDialogIfNeeded];
             [self.receiveViewController updateAddress];
             self.balance = manager.wallet.balance;
         }];
@@ -303,7 +302,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         [[NSNotificationCenter defaultCenter] addObserverForName:BRPeerManagerSyncFinishedNotification object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             if (self.timeout < 1.0) [self stopActivityWithSuccess:YES];
-            [self showBackupDialogIfNeeded];
+//            [self showBackupDialogIfNeeded];
             if (! self.percent.hidden) [self hideTips];
             self.percent.hidden = YES;
             if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
@@ -315,7 +314,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         [[NSNotificationCenter defaultCenter] addObserverForName:BRPeerManagerSyncFailedNotification object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             if (self.timeout < 1.0) [self stopActivityWithSuccess:YES];
-            [self showBackupDialogIfNeeded];
+//            [self showBackupDialogIfNeeded];
             [self.receiveViewController updateAddress];
             [self showErrorBar];
         }];
@@ -465,7 +464,8 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 #if SNAPSHOT
     return;
 #endif
-    if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY]) self.balance = [defs doubleForKey:BALANCE_KEY];
+    if (_balance == UINT64_MAX && [defs objectForKey:BALANCE_KEY])
+        self.balance = [defs doubleForKey:BALANCE_KEY];
     self.splash.hidden = YES;
     self.navigationController.navigationBar.hidden = NO;
     self.tabBarController.view.alpha = 1.0;
@@ -578,7 +578,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
          popOutAfterDelay:3.0]];
         [self ping];
     }
-
+    
     _balance = balance;
 
     // use setDouble since setInteger won't hold a uint64_t

@@ -24,8 +24,9 @@
 
 @property (nonatomic, strong) id protectedObserver;
 
-@property (nonatomic, strong) IBOutlet UIButton *resetPassButton;
-@property (nonatomic, strong) IBOutlet UITextField *emailTextField;
+@property (nonatomic, weak) IBOutlet UIButton *resetPassButton;
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerForgotPass;
 
 @end
 
@@ -48,7 +49,7 @@
     [self.resetPassButton addTarget:self action:@selector(requestResetPass:) forControlEvents:UIControlEventTouchUpInside];
     self.resetPassButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     
-    
+    self.spinnerForgotPass =  (id)[c.view viewWithTag:3];
     
     
     _currentRequestType = RT_NONE;
@@ -226,7 +227,8 @@
 }
 - (void) sendRequest:(NSString *) urlString withParams:(NSMutableDictionary *) distParams
 {
-    [self.spiner startAnimating];
+    [self showSpinnerLoading];
+    
     NSError *error;
     NSData *requestBodyData = [NSJSONSerialization dataWithJSONObject:distParams options:NSJSONWritingPrettyPrinted error:&error];
     
@@ -392,7 +394,7 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@" Login: didFailWithError %@", error);
-    [self.spiner stopAnimating];
+    [self showSpinnerLoading];
     if(error.code == NSURLErrorTimedOut)
     {
         [[[UIAlertView alloc]
@@ -441,7 +443,7 @@
     
     connection = nil;
     _responseData = nil;
-    [self.spiner stopAnimating];
+    [self hideSpinnerLoading];
 }
 - (void)dealloc
 {
@@ -512,6 +514,27 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, time), dispatch_get_main_queue(), ^{
         [toast dismissWithClickedButtonIndex:0 animated:YES];
     });
+}
+
+-(void) showSpinnerLoading
+{
+    if(self.currentRequestType == RT_RESET_PASSWORD)
+    {
+        [self.spinnerForgotPass startAnimating];
+    }else
+    {
+        [self.spinner startAnimating];
+    }
+}
+-(void) hideSpinnerLoading
+{
+    if(self.currentRequestType == RT_RESET_PASSWORD)
+    {
+        [self.spinnerForgotPass stopAnimating];
+    }else
+    {
+        [self.spinner stopAnimating];
+    }
 }
 @end
 

@@ -29,8 +29,8 @@
 #import "UIImage+Utils.h"
 #import <NotificationCenter/NotificationCenter.h>
 
-#define SCAN_URL @"hanhcoin://x-callback-url/scanqr"
-#define OPEN_URL @"hanhcoin://"
+#define SCAN_URL @"clovercoin://x-callback-url/scanqr"
+#define OPEN_URL @"clovercoin://"
 
 @interface BRTodayViewController () <NCWidgetProviding>
 

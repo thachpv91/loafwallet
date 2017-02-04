@@ -30,7 +30,7 @@
 #if BITCOIN_TESTNET
 #define BITCOIN_STANDARD_PORT 19333
 #else
-#define BITCOIN_STANDARD_PORT 29333 // thachpv mod
+#define BITCOIN_STANDARD_PORT 29335 // thachpv mod
 #endif
 
 #define BITCOIN_TIMEOUT_CODE  1001

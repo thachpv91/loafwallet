@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textUserName;
 @property (weak, nonatomic) IBOutlet UITextField *textPass;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spiner;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (nonatomic, copy) NSString * _Nullable _userName; // requesting seedPhrase will trigger
 @property (nonatomic, copy) NSString * _Nullable _passWord;
@@ -46,6 +46,9 @@
 
 - (void) sendRequest:(NSString *) urlString withParams:(NSMutableDictionary *) distParams;
 - (void) showToastMessage:(NSString * _Nonnull) message withDuration:(float) duration;
+
+-(void) showSpinnerLoading;
+-(void) hideSpinnerLoading;
 
 typedef enum RequestStateTypes
 {

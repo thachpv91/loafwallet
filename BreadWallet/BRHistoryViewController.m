@@ -515,8 +515,7 @@ static NSString *dateFormat(NSString *template)
                 else if (confirms < 6) {
                     if (confirms == 0) unconfirmedLabel.text = NSLocalizedString(@"0 confirmations", nil);
                     else if (confirms == 1) unconfirmedLabel.text = NSLocalizedString(@"1 confirmation", nil);
-                    else unconfirmedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d confirmations", nil),
-                                                  (int)confirms];
+                    else unconfirmedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"%d confirmations", nil), (int)confirms];
                 }
                 else {
                     unconfirmedLabel.text = nil;

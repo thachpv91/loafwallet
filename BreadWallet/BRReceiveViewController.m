@@ -395,7 +395,7 @@ error:(NSError *)error
     
     if (amount < manager.wallet.minOutputAmount) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"amount too small", nil)
-          message:[NSString stringWithFormat:NSLocalizedString(@"hanhcoin payments can't be less than %@", nil),
+          message:[NSString stringWithFormat:NSLocalizedString(@"clovercoin payments can't be less than %@", nil),
                    [manager stringForAmount:manager.wallet.minOutputAmount]]
           delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
 //        [BREventManager saveEvent:@"receive:amount_too_small"];

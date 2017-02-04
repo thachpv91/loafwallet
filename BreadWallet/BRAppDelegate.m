@@ -141,8 +141,8 @@ shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
 annotation:(id)annotation
 {
-    if (! [url.scheme isEqual:@"hanhcoin"] && ! [url.scheme isEqual:@"hanhcoin"]) {
-        [[[UIAlertView alloc] initWithTitle:@"Not a hanhcoin URL" message:url.absoluteString delegate:nil
+    if (! [url.scheme isEqual:@"clovercoin"] && ! [url.scheme isEqual:@"clovercoin"]) {
+        [[[UIAlertView alloc] initWithTitle:@"Not a clovercoin URL" message:url.absoluteString delegate:nil
           cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
     }
