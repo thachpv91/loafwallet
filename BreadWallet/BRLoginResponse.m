@@ -11,7 +11,7 @@
 @implementation BRLoginResponse
 
 @synthesize responseType;
-@synthesize  response;
+@synthesize  responseCode;
 @synthesize  isFirstLogin;
 @synthesize  authenKey;
 

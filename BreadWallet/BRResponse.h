@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BRResponseType.h"
+#import "BRResponseEnum.h"
 
 @interface BRResponse : NSObject
 
 @property (nonatomic)  BRResponseType responseType;
 @property (nonatomic, copy) NSString * response;
+@property (nonatomic)  BRResponseCode responseCode;
 
 - (instancetype)initWithDictionary:(NSDictionary *) dictionary;
 - (void) initAttributeWithDictionaty:(NSDictionary *) dictionary;
++ (NSString*) getResponseErrorMessage:(BRResponseCode) resposeCode;
 @end

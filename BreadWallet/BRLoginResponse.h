@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BRResponseType.h"
 #import "BRResponse.h"
 //@class BRResponse;
 

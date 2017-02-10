@@ -226,7 +226,7 @@
 		67722E631E1259CE00909F9F /* BRLoginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginResponse.m; sourceTree = "<group>"; };
 		67722E651E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRSaveMnemonicCodeResponse.h; sourceTree = "<group>"; };
 		67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRSaveMnemonicCodeResponse.m; sourceTree = "<group>"; };
-		67722E6D1E14FF2F00909F9F /* BRResponseType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResponseType.h; sourceTree = "<group>"; };
+		67722E6D1E14FF2F00909F9F /* BRResponseEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResponseEnum.h; sourceTree = "<group>"; };
 		67E7444E1E0BC99A00F8C0BE /* BRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRLoginViewController.h; sourceTree = "<group>"; };
 		67E7444F1E0BC99A00F8C0BE /* BRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginViewController.m; sourceTree = "<group>"; };
 		7509C10E1AF3076100D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -542,7 +542,7 @@
 				67722E631E1259CE00909F9F /* BRLoginResponse.m */,
 				67722E651E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.h */,
 				67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */,
-				67722E6D1E14FF2F00909F9F /* BRResponseType.h */,
+				67722E6D1E14FF2F00909F9F /* BRResponseEnum.h */,
 				67073E1D1E1F566B00B63E85 /* BRResponse.h */,
 				67073E1E1E1F566B00B63E85 /* BRResponse.m */,
 			);
