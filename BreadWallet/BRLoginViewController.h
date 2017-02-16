@@ -50,6 +50,9 @@
 -(void) showSpinnerLoading;
 -(void) hideSpinnerLoading;
 
+-(bool)checkLoginField;
+-(bool)checkResetPassField;
+
 typedef enum RequestStateTypes
 {
     RT_NONE,

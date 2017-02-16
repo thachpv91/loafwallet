@@ -62,8 +62,8 @@
     // use background fetch to stay synced with the blockchain
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 
-    UIPageControl.appearance.pageIndicatorTintColor = [UIColor lightGrayColor];
-    UIPageControl.appearance.currentPageIndicatorTintColor = [UIColor blackColor];
+    UIPageControl.appearance.pageIndicatorTintColor = [UIColor lightTextColor];
+    UIPageControl.appearance.currentPageIndicatorTintColor = [UIColor whiteColor];
 
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
      setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0]}
@@ -77,7 +77,6 @@
              userInfo:@{@"file":file}];
         }
     }
-
     // start the event manager
 //    [[BREventManager sharedEventManager] up];
 

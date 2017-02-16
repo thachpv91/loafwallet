@@ -588,6 +588,7 @@ static NSString *dateFormat(NSString *template)
     }
 
     [self setBackgroundForCell:cell tableView:tableView indexPath:indexPath];
+    
     return cell;
 }
 
@@ -792,5 +793,14 @@ static NSString *dateFormat(NSString *template)
 {
     return NO;
 }
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row % 2 == 0)
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.54 blue:0.38 alpha:1.0];
+    }else
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.69 blue:0.49 alpha:1.0];
+    }
+}
 @end

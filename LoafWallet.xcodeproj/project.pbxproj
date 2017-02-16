@@ -53,10 +53,12 @@
 		22FCD22C1C0E68C80066D798 /* BRTarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FCD22B1C0E68C80066D798 /* BRTarTests.swift */; };
 		22FF2C381BED381400B36384 /* BRAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FF2C371BED381400B36384 /* BRAPIClient.swift */; };
 		67073E141E1F4A7600B63E85 /* BRForgotPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67073E131E1F4A7600B63E85 /* BRForgotPassViewController.m */; };
-		67073E1A1E1F4D2900B63E85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67073E181E1F4D2900B63E85 /* Main.storyboard */; };
 		67073E1F1E1F566B00B63E85 /* BRResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67073E1E1E1F566B00B63E85 /* BRResponse.m */; };
+		670A9BAE1E5565F800853C5B /* NSString+EmailValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 670A9BAD1E5565F800853C5B /* NSString+EmailValidation.m */; };
+		67452B171E5416EC00FE8F03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D5F3DF191EC270004AB296 /* Images.xcassets */; };
 		67722E641E1259CE00909F9F /* BRLoginResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67722E631E1259CE00909F9F /* BRLoginResponse.m */; };
 		67722E671E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */; };
+		67D168301E52F1FF0082B011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67D1682E1E52F1FF0082B011 /* Main.storyboard */; };
 		67E744501E0BC99A00F8C0BE /* BRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E7444F1E0BC99A00F8C0BE /* BRLoginViewController.m */; };
 		751B2B5C1B68911700EA87FB /* BRTxHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751B2B5B1B68911700EA87FB /* BRTxHistoryViewController.m */; };
 		7525B619192453840041C0F2 /* BRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7525B618192453840041C0F2 /* BRNavigationBar.m */; };
@@ -103,7 +105,6 @@
 		75C0E3BF1B1BA294007BC531 /* BIP39Words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75C0E3C11B1BA294007BC531 /* BIP39Words.plist */; };
 		75D5F3CE191EC270004AB296 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F3CD191EC270004AB296 /* main.m */; };
 		75D5F3D2191EC270004AB296 /* BRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F3D1191EC270004AB296 /* BRAppDelegate.m */; };
-		75D5F3E0191EC270004AB296 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D5F3DF191EC270004AB296 /* Images.xcassets */; };
 		75D5F3F3191EC270004AB296 /* BreadWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D5F3F2191EC270004AB296 /* BreadWalletTests.m */; };
 		75E83CF61B5F997A0038FB70 /* coinflip.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 75E83CF51B5F997A0038FB70 /* coinflip.aiff */; };
 		75F2E0D31BE9803900EAE861 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F2E0D21BE9803900EAE861 /* Launch Screen.storyboard */; };
@@ -219,16 +220,37 @@
 		31D68B5A1C23B6FD0030FAAA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		67073E121E1F4A7600B63E85 /* BRForgotPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRForgotPassViewController.h; sourceTree = "<group>"; };
 		67073E131E1F4A7600B63E85 /* BRForgotPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRForgotPassViewController.m; sourceTree = "<group>"; };
-		67073E191E1F4D2900B63E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BreadWallet/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67073E1D1E1F566B00B63E85 /* BRResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRResponse.h; sourceTree = "<group>"; };
 		67073E1E1E1F566B00B63E85 /* BRResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRResponse.m; sourceTree = "<group>"; };
+		670A9BAC1E5565F800853C5B /* NSString+EmailValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EmailValidation.h"; sourceTree = "<group>"; };
+		670A9BAD1E5565F800853C5B /* NSString+EmailValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailValidation.m"; sourceTree = "<group>"; };
 		67722E621E1259CE00909F9F /* BRLoginResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRLoginResponse.h; sourceTree = "<group>"; };
 		67722E631E1259CE00909F9F /* BRLoginResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginResponse.m; sourceTree = "<group>"; };
 		67722E651E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRSaveMnemonicCodeResponse.h; sourceTree = "<group>"; };
 		67722E661E14A6CE00909F9F /* BRSaveMnemonicCodeResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRSaveMnemonicCodeResponse.m; sourceTree = "<group>"; };
 		67722E6D1E14FF2F00909F9F /* BRResponseEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRResponseEnum.h; sourceTree = "<group>"; };
+		67CA176B1E52F4E400F3BAFB /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA176C1E52F4E700F3BAFB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA176D1E52F4E900F3BAFB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA176E1E52F4EE00F3BAFB /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA176F1E52F4F100F3BAFB /* sq */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sq; path = sq.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17701E52F4F400F3BAFB /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17711E52F4F700F3BAFB /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17721E52F4F900F3BAFB /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17731E52F4FC00F3BAFB /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17741E52F4FE00F3BAFB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		67CA17751E52F50100F3BAFB /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17761E52F50400F3BAFB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17771E52F50700F3BAFB /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA17781E52F50900F3BAFB /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA177A1E52F50F00F3BAFB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA177B1E52F51200F3BAFB /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Main.strings; sourceTree = "<group>"; };
+		67CA177C1E52F51500F3BAFB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		67D1682F1E52F1FF0082B011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67E7444E1E0BC99A00F8C0BE /* BRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRLoginViewController.h; sourceTree = "<group>"; };
 		67E7444F1E0BC99A00F8C0BE /* BRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRLoginViewController.m; sourceTree = "<group>"; };
+		67F861CF1E52F61D00B00CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		67F861D11E52F6AF00B00CC2 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		7509C10E1AF3076100D03FD5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7509C1121AF3720100D03FD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		750BF6C91AEB2417004D9893 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -656,6 +678,8 @@
 				BAA4843B1B3EFFAF0075C749 /* UIImage+Utils.m */,
 				BA7B535A1BDBC36700355E8D /* BRTransaction+Utils.h */,
 				BA7B535B1BDBC36700355E8D /* BRTransaction+Utils.m */,
+				670A9BAC1E5565F800853C5B /* NSString+EmailValidation.h */,
+				670A9BAD1E5565F800853C5B /* NSString+EmailValidation.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -766,7 +790,6 @@
 		75D5F3B5191EC270004AB296 = {
 			isa = PBXGroup;
 			children = (
-				67073E181E1F4D2900B63E85 /* Main.storyboard */,
 				75D5F3C7191EC270004AB296 /* LoafWallet */,
 				BAE12BE81B2DEE7F00895CC5 /* TodayExtension */,
 				75D5F3EC191EC270004AB296 /* BreadWalletTests */,
@@ -810,6 +833,7 @@
 		75D5F3C7191EC270004AB296 /* LoafWallet */ = {
 			isa = PBXGroup;
 			children = (
+				67D1682E1E52F1FF0082B011 /* Main.storyboard */,
 				DFC59EDD1D29384500D3C74E /* Assets */,
 				BAC7B6BF1BD9C2B500165B84 /* AppleWatch */,
 				752E289C19234A4700DB5A3C /* Models */,
@@ -1097,12 +1121,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D5F3E0191EC270004AB296 /* Images.xcassets in Resources */,
 				22FBC9701CE3A9D5009578B7 /* bread-buy.tar in Resources */,
 				DFC59EDA1D29372C00D3C74E /* send.mp4 in Resources */,
 				757E09991ADB8EEB006FD352 /* Localizable.strings in Resources */,
 				DFC59ED91D29372C00D3C74E /* receive.mp4 in Resources */,
-				67073E1A1E1F4D2900B63E85 /* Main.storyboard in Resources */,
+				67452B171E5416EC00FE8F03 /* Images.xcassets in Resources */,
+				67D168301E52F1FF0082B011 /* Main.storyboard in Resources */,
 				75F2E0D31BE9803900EAE861 /* Launch Screen.storyboard in Resources */,
 				75C0E3BF1B1BA294007BC531 /* BIP39Words.plist in Resources */,
 				75E83CF61B5F997A0038FB70 /* coinflip.aiff in Resources */,
@@ -1204,6 +1228,7 @@
 				759FBB36193290F600AB4465 /* BRRootViewController.m in Sources */,
 				752E289A192349CE00DB5A3C /* BreadWallet.xcdatamodeld in Sources */,
 				759FBB37193290F600AB4465 /* BRSendViewController.m in Sources */,
+				670A9BAE1E5565F800853C5B /* NSString+EmailValidation.m in Sources */,
 				67073E141E1F4A7600B63E85 /* BRForgotPassViewController.m in Sources */,
 				752E28F119234E8100DB5A3C /* Reachability.m in Sources */,
 				22FF2C381BED381400B36384 /* BRAPIClient.swift in Sources */,
@@ -1244,10 +1269,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		67073E181E1F4D2900B63E85 /* Main.storyboard */ = {
+		67D1682E1E52F1FF0082B011 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				67073E191E1F4D2900B63E85 /* Base */,
+				67D1682F1E52F1FF0082B011 /* Base */,
+				67CA176B1E52F4E400F3BAFB /* fr */,
+				67CA176C1E52F4E700F3BAFB /* ja */,
+				67CA176D1E52F4E900F3BAFB /* ko */,
+				67CA176E1E52F4EE00F3BAFB /* nb */,
+				67CA176F1E52F4F100F3BAFB /* sq */,
+				67CA17701E52F4F400F3BAFB /* nl */,
+				67CA17711E52F4F700F3BAFB /* da */,
+				67CA17721E52F4F900F3BAFB /* de */,
+				67CA17731E52F4FC00F3BAFB /* hu */,
+				67CA17741E52F4FE00F3BAFB /* zh-Hans */,
+				67CA17751E52F50100F3BAFB /* es */,
+				67CA17761E52F50400F3BAFB /* it */,
+				67CA17771E52F50700F3BAFB /* sv */,
+				67CA17781E52F50900F3BAFB /* tr */,
+				67CA177A1E52F50F00F3BAFB /* ru */,
+				67CA177B1E52F51200F3BAFB /* el */,
+				67CA177C1E52F51500F3BAFB /* pt */,
+				67F861CF1E52F61D00B00CC2 /* en */,
+				67F861D11E52F6AF00B00CC2 /* pl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

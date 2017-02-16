@@ -197,7 +197,7 @@ static NSString *sanitizeString(NSString *s)
     self.localCurrencyLabel.hidden = NO;
     self.localCurrencyLabel.text = [NSString stringWithFormat:@"%@",
                                     [manager localCurrencyStringForAmount:amount]];
-    self.localCurrencyLabel.textColor = (amount > 0) ? [UIColor blackColor] : [UIColor grayColor];
+    self.localCurrencyLabel.textColor = (amount > 0) ? [UIColor whiteColor] : [UIColor whiteColor];
 }
 
 - (void)handleURL:(NSURL *)url

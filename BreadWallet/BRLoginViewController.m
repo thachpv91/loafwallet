@@ -14,6 +14,9 @@
 #import "BRPeerManager.h"
 
 #import "Reachability.h"
+#import "NSString+EmailValidation.h"
+#define MIN_PASS_LENGTH 4
+#define MIN_USER_NAME_LENGTH 4
 
 @interface BRLoginViewController ()
 
@@ -128,6 +131,7 @@
 }
 - (IBAction)loginClick:(id)sender {
     
+    
     NSLog(@"loginClick self.reachability.currentReachabilityStatus = %ld", (long)self.reachability.currentReachabilityStatus);
     self.loginButton.enabled = NO;
     self.loginButton.alpha = 0.5f;
@@ -141,10 +145,13 @@
     self._userName = self.textUserName.text;
     self._passWord = self.textPass.text;
     
-   // NSUInteger fieldHash = [self.textPass.text hash];
+    if( [self checkLoginField])
+        [self requestLogin: self._userName withPass:self._passWord];
+    
+    
+    // NSUInteger fieldHash = [self.textPass.text hash];
     //self._passWord = [NSString stringWithFormat:(@"%lu"), (unsigned long)fieldHash];
 
-    [self requestLogin: self._userName withPass:self._passWord];
     
 }
 - (IBAction)forgotPasswordClick:(id)sender {
@@ -192,22 +199,21 @@
 {
     [self.emailTextField resignFirstResponder];
     NSString * email = self.emailTextField.text;
-    if(email.length > 0)
-    {
-        _currentRequestType = RT_RESET_PASSWORD;
-        
-        NSMutableDictionary *postDict = [NSMutableDictionary dictionary];
-        postDict[@"email"] = email;
-        
-        NSString *urlString =  [NSString stringWithFormat:BASE_URL@"/%@", BAP_API_RESET_PASS];//
-        
-        [self sendRequest:urlString withParams:postDict];
-        
-        self.resetPassButton.enabled = NO;
-        self.resetPassButton.alpha = 0.5f;
+    
+    if(![self checkResetPassField]) return;
+    
+    _currentRequestType = RT_RESET_PASSWORD;
+    
+    NSMutableDictionary *postDict = [NSMutableDictionary dictionary];
+    postDict[@"email"] = email;
+    
+    NSString *urlString =  [NSString stringWithFormat:BASE_URL@"/%@", BAP_API_RESET_PASS];//
+    
+    [self sendRequest:urlString withParams:postDict];
+    
+    self.resetPassButton.enabled = NO;
+    self.resetPassButton.alpha = 0.5f;
 
-        
-    }
 }
 - (void) handleResponse:(NSDictionary *) response withError:(NSError *) error
 {
@@ -409,6 +415,7 @@
     
     if(_currentRequestType == RT_LOGIN || _currentRequestType == RT_RESET_PASSWORD)
     {
+        [self hideSpinnerLoading];
         [self showToastMessage: error.userInfo[@"NSLocalizedDescription"]
                   withDuration: 1.5f];
         self.loginButton.enabled = YES;
@@ -460,12 +467,11 @@
 
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"ok", nil)])
     {
-
+        self.loginButton.enabled = YES;
+        self.loginButton.alpha = 1.0f;
         if(_currentRequestType == RT_LOGIN || _currentRequestType == RT_SAVE_MNEMONIC_CODE)
         {
             [self.textUserName becomeFirstResponder];
-            self.loginButton.enabled = YES;
-            self.loginButton.alpha = 1.0f;
         }
         else if (_currentRequestType == RT_RESET_PASSWORD )
         {
@@ -476,7 +482,7 @@
     }
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"try again", nil)])
     {
-        
+        [self hideSpinnerLoading];
         if(_currentRequestType == RT_SAVE_MNEMONIC_CODE)
         {
             // Try request to save mnemonic Code
@@ -535,6 +541,59 @@
     {
         [self.spinner stopAnimating];
     }
+}
+-(bool)checkLoginField
+{
+    bool result = true;
+    NSString * message;
+    if(self._userName.length <= MIN_USER_NAME_LENGTH)
+    {
+        result = false;
+        message = NSLocalizedString(@"UserName too short", nil);
+    }else if(self._passWord.length <= MIN_PASS_LENGTH)
+    {
+        result = false;
+        message = NSLocalizedString(@"Pass too short", nil);
+    }
+    if(!result)
+    {
+        [[[UIAlertView alloc]
+                initWithTitle:NSLocalizedString(@"Warning", nil)
+                      message:message
+                     delegate:self
+            cancelButtonTitle:NSLocalizedString(@"ok", nil)
+            otherButtonTitles:Nil, nil]
+            show];
+    }
+    
+    return result;
+}
+-(bool)checkResetPassField
+{
+    bool result = true;
+    NSString * email = self.emailTextField.text;
+    NSString * message;
+    if(email.length <=0)
+    {
+        result = false;
+        message = NSLocalizedString(@"email empty", nil);
+    }else if(![email isValidEmail])
+    {
+        result = false;
+        message = NSLocalizedString(@"invalid email!", nil);
+    }
+    if(!result)
+    {
+        [[[UIAlertView alloc]
+          initWithTitle:NSLocalizedString(@"Warning", nil)
+          message:message
+          delegate:self
+          cancelButtonTitle:NSLocalizedString(@"ok", nil)
+          otherButtonTitles:Nil, nil]
+         show];
+    }
+    
+    return result;
 }
 @end
 

@@ -42,7 +42,7 @@
         if(self.responseType == RESPONSE_TYPE_SUCCESS)
         {
             self.responseCode = RESPONSE_CODE_None;
-            self.response = [[dictionary objectForKey:@"response"] stringValue];
+            self.response = [dictionary objectForKey:@"response"];
         }else
         {
             self.responseCode = [[dictionary objectForKey:@"response"] intValue];

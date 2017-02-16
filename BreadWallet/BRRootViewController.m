@@ -117,8 +117,6 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 	[self addChildViewController:self.tabBarController];
 	[self.view insertSubview:self.tabBarController.view belowSubview:self.splash];
 	[self.tabBarController didMoveToParentViewController:self];
-	
-	[[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
 
 
     BRWalletManager *manager = [BRWalletManager sharedInstance];
@@ -416,6 +414,19 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"burger"];
 	self.tabBarController.view.alpha = 1.0;
     if ([BRWalletManager sharedInstance].didAuthenticate) [self unlock:nil];
+    
+//    
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]
+//                                             forState:UIControlStateNormal];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil]
+//                                             forState:UIControlStateHighlighted];
+    [[UITabBarItem appearance]  setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:14.0f], NSFontAttributeName,  [UIColor whiteColor], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance]  setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:14.0f], NSFontAttributeName,  [UIColor whiteColor], NSForegroundColorAttributeName,nil] forState:UIControlStateHighlighted];
+//    //[[UITabBar appearance] setTintColor:[UIColor colorWithRed:13.0/255.0 green:116.0/255.0 blue:128.0/255.0 alpha:1.0]];
+//
+//    [self.navigationController.navigationBar
+//     setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
+//    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateNormal];  /// set all barButton item color
 
 }
 
@@ -585,7 +596,9 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     [[NSUserDefaults standardUserDefaults] setDouble:balance forKey:BALANCE_KEY];
 
     if (self.percent.hidden) {
+        self.navigationItem.titleView = nil;
         self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC", [manager stringForAmount:balance]];
+        
     }
 }
 
@@ -1051,6 +1064,7 @@ viewControllerAfterViewController:(UIViewController *)viewController
         self.burger.center = CGPointMake(26.0, 40.0);
         self.burger.hidden = NO;
         [self.burger setX:YES completion:nil];
+        item.leftBarButtonItem.tintColor = [UIColor whiteColor]; // Thach added
 
         [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 usingSpringWithDamping:0.8
         initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -1093,6 +1107,7 @@ viewControllerAfterViewController:(UIViewController *)viewController
         item.leftBarButtonItem.image = [UIImage imageNamed:@"none"];
         item.titleView = nil;
         item.rightBarButtonItem = nil;
+        item.leftBarButtonItem.tintColor = [UIColor whiteColor];
         self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"none"];
         self.burger.hidden = NO;
         [containerView layoutIfNeeded];

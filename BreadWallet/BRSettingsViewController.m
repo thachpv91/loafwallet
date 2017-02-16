@@ -201,8 +201,8 @@
         [composeController setMessageBody:msg isHTML:NO];
         composeController.mailComposeDelegate = self;
         [self.navigationController presentViewController:composeController animated:YES completion:nil];
-        composeController.view.backgroundColor =
-            [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper-default"]];
+//        composeController.view.backgroundColor =
+//            [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper-default"]];
 //        [BREventManager saveEvent:@"about:send_email"];
     }
     else {
@@ -448,7 +448,7 @@ _switch_cell:
 
     CGRect textRect = [sectionTitle boundingRectWithSize:CGSizeMake(self.view.frame.size.width - 20.0, CGFLOAT_MAX)
                 options:NSStringDrawingUsesLineFragmentOrigin
-                attributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:13]} context:nil];
+                attributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:17]} context:nil];
 
     return textRect.size.height + 22.0 + 10.0;
 }
@@ -462,9 +462,9 @@ _switch_cell:
 
     titleLabel.text = [self tableView:tableView titleForHeaderInSection:section];
     titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
-    titleLabel.textColor = [UIColor grayColor];
-    titleLabel.shadowColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:13];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.shadowColor = [UIColor colorWithRed:0.00 green:0.54 blue:0.38 alpha:1.0]; // Thach changed color
     titleLabel.shadowOffset = CGSizeMake(0.0, 1.0);
     titleLabel.numberOfLines = 0;
     sectionHeader.backgroundColor = [UIColor clearColor];
