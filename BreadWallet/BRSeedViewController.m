@@ -28,7 +28,7 @@
 #import "BRWalletManager.h"
 #import "BRPeerManager.h"
 #import "NSMutableData+Bitcoin.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 #import "BRTutorial.h"
 
 #define LABEL_MARGIN       20.0

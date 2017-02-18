@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 #import "BRScanViewController.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 
 
 @interface BRScanViewController ()

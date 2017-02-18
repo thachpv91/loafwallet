@@ -90,7 +90,7 @@
     else [self.addressButton setTitle:nil forState:UIControlStateNormal];
     
     if (req.amount > 0) {
-        self.label.text = [NSString stringWithFormat:@"%@", [manager stringForAmount:req.amount]];
+        self.label.text = [NSString stringWithFormat:@"%@ CLO", [manager stringForAmount:req.amount]];
     }
 
     self.addressButton.titleLabel.adjustsFontSizeToFitWidth = YES;
@@ -140,7 +140,7 @@
             [self.addressButton setTitle:self.paymentAddress forState:UIControlStateNormal];
             
             if (req.amount > 0) {
-                self.label.text = [NSString stringWithFormat:@"%@", [manager stringForAmount:req.amount]];
+                self.label.text = [NSString stringWithFormat:@"%@ CLO", [manager stringForAmount:req.amount]];
                 
                 if (! self.balanceObserver) {
                     self.balanceObserver =
@@ -285,7 +285,7 @@
     if (! req) [actionSheet addButtonWithTitle:NSLocalizedString(@"request an amount", nil)];
     [actionSheet addButtonWithTitle:NSLocalizedString(@"cancel", nil)];
     actionSheet.cancelButtonIndex = actionSheet.numberOfButtons - 1;
-    
+
     [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
 }
 
@@ -370,7 +370,6 @@
 //        [BREventManager saveEvent:@"receive:request_amount"];
     }
 }
-
 // MARK: - MFMessageComposeViewControllerDelegate
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller

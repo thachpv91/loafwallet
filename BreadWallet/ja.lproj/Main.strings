@@ -1,29 +1,117 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "00M-e1-IWY"; */
+"00M-e1-IWY.text" = "Detail";
+
+/* Class = "UILabel"; text = "ƀ 1,000,000"; ObjectID = "0ui-yr-JjJ"; */
+"0ui-yr-JjJ.text" = "ƀ 1,000,000";
+
+/* Class = "UILabel"; text = "User Name"; ObjectID = "1vy-hq-mD3"; */
+"1vy-hq-mD3.text" = "ユーザー名";
+
 /* Class = "UIButton"; normalTitle = "recover wallet"; ObjectID = "4w7-k8-9wY"; */
-"4w7-k8-9wY.normalTitle" = "ウォレットを復元";
+"4w7-k8-9wY.normalTitle" = "財布を復元";
+
+/* Class = "UILabel"; text = "subtitle"; ObjectID = "55a-IW-IjK"; */
+"55a-IW-IjK.text" = "subtitle";
+
+/* Class = "UILabel"; text = "contact@clovercoin.org"; ObjectID = "5OA-tB-Exg"; */
+"5OA-tB-Exg.text" = "contact@clovercoin.org";
+
+/* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."; ObjectID = "84P-qS-Apm"; */
+"84P-qS-Apm.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 /* Class = "UILabel"; text = "local currency"; ObjectID = "8e2-ar-Ehc"; */
 "8e2-ar-Ehc.text" = "通貨表示";
 
-/* Class = "UIButton"; normalTitle = "generate recovery phrase"; ObjectID = "A4M-yq-26d"; */
-"A4M-yq-26d.normalTitle" = "新規復元フレーズを作る";
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "9L3-gM-TgP"; */
+"9L3-gM-TgP.title" = " ";
+
+/* Class = "UITextField"; text = "to: 1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"; ObjectID = "9T2-dq-yVS"; */
+"9T2-dq-yVS.text" = "に: 1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+
+/* Class = "UIButton"; normalTitle = "continue"; ObjectID = "A4M-yq-26d"; */
+"A4M-yq-26d.normalTitle" = "接続する";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "A9w-fv-a5B"; */
+"A9w-fv-a5B.normalTitle" = "次に";
+
+/* Class = "UILabel"; text = "USD"; ObjectID = "CsQ-fq-mfQ"; */
+"CsQ-fq-mfQ.text" = "USD";
 
 /* Class = "UILabel"; text = "start/recover another wallet"; ObjectID = "D1b-HB-lKH"; */
-"D1b-HB-lKH.text" = "ウォレットの新規作成及び復元";
+"D1b-HB-lKH.text" = "start/recover another wallet";
 
-/* Class = "UILabel"; text = "exchange rate data provided by\nbitpay.com/rates"; ObjectID = "D4H-hd-LsX"; */
-"D4H-hd-LsX.text" = "為替データ提供：\nbitpay.com/rates";
+/* Class = "UILabel"; text = "Exchange Rate Data provided by\nclovercoin.com"; ObjectID = "D4H-hd-LsX"; */
+"D4H-hd-LsX.text" = "Exchange Rate Data provided by\nclovercoin.com";
 
-/* Class = "UILabel"; text = "if you ever lose your phone, you will need this phrase to recover your wallet"; ObjectID = "EQG-Km-ZKY"; */
+/* Class = "UITextField"; placeholder = "ƀ 0.00"; ObjectID = "DLS-lz-uxJ"; */
+"DLS-lz-uxJ.placeholder" = "ƀ 0.00";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "E2i-Cd-bly"; */
+"E2i-Cd-bly.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "ELF-Iu-W3n"; */
+"ELF-Iu-W3n.normalTitle" = "サイン";
+
+/* Class = "UILabel"; text = "If you ever lose your phone, you will need this phrase to recover your wallet. Please write it down and keep it secure."; ObjectID = "EQG-Km-ZKY"; */
 "EQG-Km-ZKY.text" = "携帯電話を紛失した場合、このフレーズでウォレットが復元できます。";
 
-/* Class = "UILabel"; text = "sent"; ObjectID = "FjB-H2-BnK"; */
-"FjB-H2-BnK.text" = "送信済み";
+/* Class = "UILabel"; text = "Detail"; ObjectID = "GAm-wQ-UwG"; */
+"GAm-wQ-UwG.text" = "Detail";
 
-/* Class = "UIBarButtonItem"; title = "remind me later"; ObjectID = "QQS-Me-RNh"; */
-"QQS-Me-RNh.title" = "後で通知して下さい";
+/* Class = "UILabel"; text = "Title"; ObjectID = "GWf-4e-jTu"; */
+"GWf-4e-jTu.text" = "Title";
 
-/* Class = "UILabel"; text = "please write it down"; ObjectID = "Td7-xP-kmB"; */
-"Td7-xP-kmB.text" = "紙に書き留めて下さい";
+/* Class = "UILabel"; text = "CloverWallet will send an email containing a one-off verification link to your email"; ObjectID = "GiD-lN-HbN"; */
+"GiD-lN-HbN.text" = "クローバーウォレットはあなたのメールへリンク含むメールを送信します";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "GtB-QA-MmI"; */
+"GtB-QA-MmI.text" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "HrP-wv-Y1B"; */
+"HrP-wv-Y1B.text" = "Detail";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Huq-Vk-LaF"; */
+"Huq-Vk-LaF.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "copy logs"; ObjectID = "Irz-6P-zvD"; */
+"Irz-6P-zvD.normalTitle" = "copy logs";
+
+/* Class = "UIButton"; normalTitle = "."; ObjectID = "Ktu-9p-xOl"; */
+"Ktu-9p-xOl.normalTitle" = ".";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "Lbu-bB-iV8"; */
+"Lbu-bB-iV8.normalTitle" = "1";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "LgR-qo-dYy"; */
+"LgR-qo-dYy.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "MOQ-nc-fFL"; */
+"MOQ-nc-fFL.normalTitle" = "8";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "Mt8-yX-D7H"; */
+"Mt8-yX-D7H.text" = "金額:";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "Mvz-cZ-Yby"; */
+"Mvz-cZ-Yby.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "ƀ 1,000,000"; ObjectID = "N6a-t6-1jK"; */
+"N6a-t6-1jK.text" = "ƀ 1,000,000";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "NyY-8N-uhK"; */
+"NyY-8N-uhK.normalTitle" = "5";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "OBr-C7-abe"; */
+"OBr-C7-abe.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Send email"; ObjectID = "QWn-Vq-Tda"; */
+"QWn-Vq-Tda.normalTitle" = "メールを送信します";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "RBk-Ju-5IV"; */
+"RBk-Ju-5IV.text" = "Detail";
+
+/* Class = "UITextField"; placeholder = "user@yahoo.com"; ObjectID = "TXh-9Z-Nhs"; */
+"TXh-9Z-Nhs.placeholder" = "user@yahoo.com";
 
 /* Class = "UILabel"; text = "not connected"; ObjectID = "UyF-OV-QVY"; */
 "UyF-OV-QVY.text" = "接続されていません。";
@@ -31,56 +119,149 @@
 /* Class = "UINavigationItem"; title = "settings"; ObjectID = "W8m-Eh-Nf9"; */
 "W8m-Eh-Nf9.title" = "設定";
 
+/* Class = "UILabel"; text = "subtitle"; ObjectID = "WHQ-zW-IjD"; */
+"WHQ-zW-IjD.text" = "subtitle";
+
+/* Class = "UIButton"; normalTitle = "1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"; ObjectID = "WSe-0v-Fha"; */
+"WSe-0v-Fha.normalTitle" = "1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+
+/* Class = "UILabel"; text = "id:"; ObjectID = "WsQ-ej-Wh4"; */
+"WsQ-ej-Wh4.text" = "id:";
+
 /* Class = "UILabel"; text = "amount:"; ObjectID = "XJu-9x-HqQ"; */
 "XJu-9x-HqQ.text" = "金額:";
 
+/* Class = "UIButton"; normalTitle = "1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"; ObjectID = "XV7-2s-hZs"; */
+"XV7-2s-hZs.normalTitle" = "1WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW";
+
+/* Class = "UILabel"; text = "unconfirmed"; ObjectID = "Y15-sw-t5q"; */
+"Y15-sw-t5q.text" = "未承認";
+
 /* Class = "UILabel"; text = "Enter this wallet's recovery phrase to wipe it and start/recover another. Your current balance remains on this phrase."; ObjectID = "YC6-rN-4P5"; */
-"YC6-rN-4P5.text" = "このウォレットを完全削除するには、このウォレットの復元フレーズを\nご入力下さい。\nその後、新規作成またはウォレットの\n復元ができます。\n現在のウォレットとその残高は\n復元フレーズに残ります。";
+"YC6-rN-4P5.text" = "Enter this wallet's recovery phrase to wipe it and start/recover another. Your current balance remains on this phrase.";
 
-/* Class = "UIButton"; normalTitle = "pay address from clipboard"; ObjectID = "bfj-xS-5rN"; */
-"bfj-xS-5rN.normalTitle" = "コピーしたアドレスへ送金";
+/* Class = "UILabel"; text = "CLO"; ObjectID = "YjE-W8-yAb"; */
+"YjE-W8-yAb.text" = "CLO";
 
-/* Class = "UIButton"; normalTitle = "scan QR code"; ObjectID = "ce6-Wi-wk4"; */
-"ce6-Wi-wk4.normalTitle" = "QR コードをスキャン";
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "b8y-tJ-xAB"; */
+"b8y-tJ-xAB.normalTitle" = "4";
 
-/* Class = "UILabel"; text = "I wrote it down:"; ObjectID = "cyp-mV-Bhd"; */
-"cyp-mV-Bhd.text" = "紙に書き留めました：";
+/* Class = "UILabel"; text = "0.00 ($0.00)"; ObjectID = "cRT-Sr-x6R"; */
+"cRT-Sr-x6R.text" = "0.00 ($0.00)";
 
-/* Class = "UIButton"; normalTitle = "new wallet"; ObjectID = "dOa-zm-TDG"; */
-"dOa-zm-TDG.normalTitle" = "新規ウォレット";
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "crD-Yc-EK9"; */
+"crD-Yc-EK9.normalTitle" = "送る";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "dBP-3X-1o6"; */
+"dBP-3X-1o6.normalTitle" = "9";
+
+/* Class = "UIButton"; normalTitle = "create wallet"; ObjectID = "dOa-zm-TDG"; */
+"dOa-zm-TDG.normalTitle" = "create wallet";
 
 /* Class = "UILabel"; text = "if you ever lose your phone, you will need this phrase to recover your wallet"; ObjectID = "dX6-jg-5IA"; */
-"dX6-jg-5IA.text" = "携帯電話を失くされた場合、このフレーズでウォレットが復元できます。";
-
-/* Class = "UILabel"; text = "unconfirmed"; ObjectID = "eJ2-5h-DO2"; */
-"eJ2-5h-DO2.text" = "未承認";
+"dX6-jg-5IA.text" = "if you ever lose your phone, you will need this phrase to recover your wallet";
 
 /* Class = "UIButton"; normalTitle = "show"; ObjectID = "efL-Cj-Aho"; */
-"efL-Cj-Aho.normalTitle" = "表示";
+"efL-Cj-Aho.normalTitle" = "show";
+
+/* Class = "UINavigationController"; title = "Login"; ObjectID = "epW-7p-8gb"; */
+"epW-7p-8gb.title" = "ログイン";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "fF1-Fa-cdu"; */
+"fF1-Fa-cdu.text" = "パスワード";
 
 /* Class = "UINavigationItem"; title = "confirm:"; ObjectID = "fQN-xb-SYb"; */
-"fQN-xb-SYb.title" = "意思の再確認：";
+"fQN-xb-SYb.title" = "確認:";
 
-/* Class = "UILabel"; text = "send money:"; ObjectID = "l5l-JR-LKA"; */
-"l5l-JR-LKA.text" = "送金する:";
+/* Class = "UILabel"; text = "Title"; ObjectID = "fVX-tM-tZx"; */
+"fVX-tM-tZx.text" = "Title";
+
+/* Class = "UILabel"; text = "subtitle"; ObjectID = "gZx-fI-siU"; */
+"gZx-fI-siU.text" = "subtitle";
+
+/* Class = "UIViewController"; title = "Forgot Password"; ObjectID = "gtJ-v4-IbN"; */
+"gtJ-v4-IbN.title" = "パスワードスワードを忘れます";
+
+/* Class = "UILabel"; text = "ƀ 1,000,000"; ObjectID = "hJG-af-ws1"; */
+"hJG-af-ws1.text" = "ƀ 1,000,000";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "hWS-2G-hHE"; */
+"hWS-2G-hHE.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "i5F-px-gfX"; */
+"i5F-px-gfX.normalTitle" = "パスワードスワードを忘れます";
+
+/* Class = "UILabel"; text = "no transactions"; ObjectID = "iV4-R4-e53"; */
+"iV4-R4-e53.text" = "取引がありません";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "jGg-9z-XEe"; */
+"jGg-9z-XEe.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "k8O-8O-Md6"; */
+"k8O-8O-Md6.text" = "タイトル";
+
+/* Class = "UILabel"; text = "Pay To"; ObjectID = "l5l-JR-LKA"; */
+"l5l-JR-LKA.text" = "受取人アドレス:";
+
+/* Class = "UITextField"; placeholder = "0.00"; ObjectID = "mIE-Mf-HG3"; */
+"mIE-Mf-HG3.placeholder" = "0.00";
+
+/* Class = "UILabel"; text = "1,000,000"; ObjectID = "mdF-Na-3wW"; */
+"mdF-Na-3wW.text" = "1,000,000";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "mpz-vn-jZ1"; */
+"mpz-vn-jZ1.text" = "タイトル";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "mxS-i4-y1n"; */
+"mxS-i4-y1n.text" = "タイトル";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ncN-gc-vpQ"; */
+"ncN-gc-vpQ.text" = "タイトル";
 
 /* Class = "UINavigationItem"; title = "recovery phrase:"; ObjectID = "ooJ-EA-DFl"; */
-"ooJ-EA-DFl.title" = "復元フレーズ:";
+"ooJ-EA-DFl.title" = "recovery phrase:";
 
-/* Class = "UILabel"; text = "receive money:"; ObjectID = "qel-3J-2VC"; */
-"qel-3J-2VC.text" = "受け取る:";
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "p8P-3o-INx"; */
+"p8P-3o-INx.normalTitle" = "7";
+
+/* Class = "UILabel"; text = "Receive Address"; ObjectID = "qel-3J-2VC"; */
+"qel-3J-2VC.text" = "受け取りアドレス";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "qxy-3E-CUA"; */
+"qxy-3E-CUA.text" = "Title";
 
 /* Class = "UITableViewController"; title = "transaction details"; ObjectID = "s4T-yd-VfX"; */
-"s4T-yd-VfX.title" = "取引詳細";
+"s4T-yd-VfX.title" = "詳しく取引";
 
 /* Class = "UILabel"; text = "no transactions"; ObjectID = "t1j-JZ-FW0"; */
 "t1j-JZ-FW0.text" = "取引がありません";
 
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "t9D-ef-z2z"; */
+"t9D-ef-z2z.normalTitle" = "Skip";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "thG-bx-kgm"; */
+"thG-bx-kgm.text" = "メール";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "uZM-l8-Aa9"; */
+"uZM-l8-Aa9.title" = "Item";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "uaG-gX-Ias"; */
+"uaG-gX-Ias.text" = "Title";
+
+/* Class = "UILabel"; text = "CloverWallet v%ver%%net%\n© 2016 Clovercoin Association\n\nBased on BreadWallet\n© BreadWallet LLC"; ObjectID = "uvz-hk-Nr4"; */
+"uvz-hk-Nr4.text" = "CloverWallet v%ver%%net%\n© 2016 Clovercoin Association\n\nに基づいて BreadWallet\n© BreadWallet LLC";
+
 /* Class = "UILabel"; text = "start a new wallet by generating a wallet recovery phrase"; ObjectID = "wDZ-DN-szv"; */
-"wDZ-DN-szv.text" = "新しい復元フレーズを生成し、\n新規ウォレットを作ります。";
+"wDZ-DN-szv.text" = "start a new wallet by generating a wallet recovery phrase";
 
-/* Class = "UIButton"; text = "Send"; ObjectID = "crD-Yc-EK9"; */
-"crD-Yc-EK9.normalTitle" = "支払う";
+/* Class = "UIButton"; normalTitle = "Receive"; ObjectID = "wgi-qN-zQi"; */
+"wgi-qN-zQi.normalTitle" = "受け取り";
 
-/* Class = "UILabel"; text = "Amount"; ObjectID = "Mt8-yX-D7H"; */
-"Mt8-yX-D7H.text" = "Amount";
+/* Class = "UILabel"; text = "status:"; ObjectID = "x2u-C3-wz6"; */
+"x2u-C3-wz6.text" = "状態:";
+
+/* Class = "UILabel"; text = "88.8%"; ObjectID = "xl3-sr-16q"; */
+"xl3-sr-16q.text" = "88.8%";
+
+/* Class = "UIButton"; normalTitle = "continue"; ObjectID = "y8A-Lu-sSd"; */
+"y8A-Lu-sSd.normalTitle" = "接続";

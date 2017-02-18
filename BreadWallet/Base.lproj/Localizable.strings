@@ -1,5 +1,5 @@
-﻿/* No comment provided by engineer. */
-"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ = 1 Clovercoin.";
+/* No comment provided by engineer. */
+"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ = 1  lovercoin.";
 
 /* No comment provided by engineer. */
 "%@ is not allowed to access the camera" = "%@ is not allowed to access the camera";
@@ -543,3 +543,25 @@
 
 /* No comment provided by engineer. */
 "continue" = "Continue";
+
+"Login failed, unauthorized!" = "Login failed, unauthorized!";
+
+"Unexcepted error!" = "Unexcepted error!";
+
+"Login failed, Incorrect authen key!" = "Login failed, Incorrect authen key!";
+
+"Login failed, Invalid mnemonic code!" = "Login failed, Invalid mnemonic code!";
+
+"user name is empty!" = "user name is empty!";
+
+"user name too short" = "user name too short";
+
+"password is empty" = "password is empty";
+
+"This password is too short" = "This password is too short";
+
+"email address is empty!" = "email address is empty!";
+
+"This email address is invalid!" = "This email address is invalid!";
+
+"enable receive notifications" = "enable receive notifications";

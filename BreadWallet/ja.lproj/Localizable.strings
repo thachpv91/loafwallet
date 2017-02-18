@@ -1,5 +1,5 @@
 /* No comment provided by engineer. */
-"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ は「ビット」と言います。\n%2$@ = 1 ビットコイン";
+"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ は「ビット」と言います。\n%2$@ = 1 Clovercoin";  //
 
 /* No comment provided by engineer. */
 "%@ is not allowed to access the camera" = "%@ はカメラへのアクセスを拒否されています。";
@@ -23,7 +23,7 @@
 "\n         total %@" = "\n         合計 %1$@";
 
 /* No comment provided by engineer. */
-"\n%@\n\nif you ever lose your phone, you will need it to recover your wallet" = "\n%@\n\n携帯電話を紛失した場合、ウォレットを復元するためにはこのフレーズが必要になります。";
+"\n%@\n\nif you ever lose your phone, you will need it to recover your wallet" = "\n%@\n\n携帯電話を紛失した場合、財布を復元するためにはこのフレーズが必要になります。";
 
 /* No comment provided by engineer. */
 "\n%d attempts remaining\n" = "\n失敗 残り %d 回\n";
@@ -35,16 +35,16 @@
 "\n\n     amount %@" = "\n\n     送金額 %1$@";
 
 /* No comment provided by engineer. */
-"\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\n端末のパスコードを設定しないとウォレットを守ることができません。端末設定にてパスコードを有効にしてから進んでください。";
+"\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\n端末のパスコードを設定しないと財布を守ることができません。端末設定にてパスコードを有効にしてから進んでください。";
 
 /* No comment provided by engineer. */
-"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nこのアドレスは使用済みです！\n\nビットコインのアドレスは1回のみの\n利用が最適です。\n\n再利用してしまうと、プライバシーの\n低下及び宛先間違いが発生しやすく\nなります。例えば、相手が紛失した\nウォレットに送るとビットコインが\n消滅してしまう可能性もあります。";
+"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nこのアドレスは使用済みです！\n\nClovercoinのアドレスは1回のみの\n利用が最適です。\n\n再利用してしまうと、プライバシーの\n低下及び宛先間違いが発生しやすく\nなります。例えば、相手が紛失した\nウォレットに送るとClovercoinが\n消滅してしまう可能性もあります。";
 
 /* No comment provided by engineer. */
 "\nallow camera access in\nSettings->Privacy->Camera->%@" = "\nカメラへのアクセスを有効化するには\n設定⇒プライバシー⇒カメラ⇒%@";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "復元フレーズは絶対に\n誰にも見せないで下さい！\n復元フレーズを知っている人は\nあなたのビットコインを\n簡単に盗むことができます。";
+"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "復元フレーズは絶対に\n誰にも見せないで下さい！\n復元フレーズを知っている人は\nあなたのClovercoinを\n簡単に盗むことができます。";
 
 /* No comment provided by engineer. */
 "\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n" = "\nスクリーンショットをご遠慮下さい。\n他のアプリや端末に復元フレーズが\n見えてしまう危険性があります。\n";
@@ -71,10 +71,10 @@
 "bad password, try again" = "不正なパスワード、もう一度ご入力ください。";
 
 /* No comment provided by engineer. */
-"bad payment request" = "不正な支払い請求";
+"bad payment request" = "不正な支払い要求";
 
 /* No comment provided by engineer. */
-"bad payment request URL" = "不正な支払い請求URL";
+"bad payment request URL" = "不正な支払い要求URL";
 
 /* No comment provided by engineer. */
 "bad payment URL" = "不正な支払いURL";
@@ -86,22 +86,22 @@
 "bad signature" = "署名が正しくありません。";
 
 /* No comment provided by engineer. */
-"Bitcoin address" = "ビットコインアドレス";
+"Bitcoin address" = "Clovercoinアドレス";
 
 /* No comment provided by engineer. */
-"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "ビットコインアドレスをクリップボードにコピーすることもできます。\nビットコインアドレスは\n常に '1' または '3' で始まります。";
+"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "Clovercoinアドレスをクリップボードにコピーすることもできます。\nClovercoinアドレスは\n常に '1' または '3' で始まります。";
 
 /* No comment provided by engineer. */
-"bitcoin network fee" = "ビットコインネットワーク手数料";
+"bitcoin network fee" = "Clovercoinネットワーク手数料";
 
 /* No comment provided by engineer. */
-"bitcoin payments can't be less than %@" = "ビットコインの送金は %@ 以上でないと送れません。";
+"bitcoin payments can't be less than %@" = "Clovercoinの支払いは %@ 以上でないと送れません。";
 
 /* No comment provided by engineer. */
-"bitcoin transaction not signed" = "取引が署名されていません";
+"bitcoin transaction not signed" = "Clovercoin取引が署名されていません";
 
 /* No comment provided by engineer. */
-"bitcoin transaction outputs can't be less than %@" = "ビットコインの取引出力は %@ 以上でないといけません。";
+"bitcoin transaction outputs can't be less than %@" = "Clovercoinの取引出力は %@ 以上でないといけません。";
 
 /* No comment provided by engineer. */
 "block #%d of %d" = "ブロック #%1$d / %2$d";
@@ -119,28 +119,28 @@
 "change payment amount?" = "送金額だけ変更しますか？";
 
 /* No comment provided by engineer. */
-"change wallet passcode" = "ウォレットのパスコードを変更";
+"change wallet passcode" = "財布のパスコードを変更する";
 
 /* No comment provided by engineer. */
 "checking address balance..." = "アドレスの残高を確認しています…";
 
 /* No comment provided by engineer. */
-"checking private key balance..." = "秘密鍵の残高を確認中…";
+"checking private key balance..." = "秘密鍵の残高の確認中…";
 
 /* No comment provided by engineer. */
-"choose passcode for %@" = "%@ のパスコードを\nご指定下さい";
+"choose passcode for %@" = "%@ のパスコードを\nご選択してください";
 
 /* No comment provided by engineer. */
-"choose wallet passcode" = "パスコードをご指定下さい";
+"choose wallet passcode" = "財布のパスコードをご選択してください";
 
 /* No comment provided by engineer. */
-"clipboard doesn't contain a valid bitcoin address" = "クリップボードには有効な\nビットコインアドレスが\n含まれていません。";
+"clipboard doesn't contain a valid bitcoin address" = "クリップボードには有効な\nClovercoinアドレスが\n含まれていません。";
 
 /* No comment provided by engineer. */
 "close app" = "アプリを閉じる";
 
 /* No comment provided by engineer. */
-"CONFIRM WIPE" = "ウォレットを完全削除";
+"CONFIRM WIPE" = "財布を完全削除する";
 
 /* No comment provided by engineer. */
 "confirmed in block #%d" = "ブロック#%dにて承認";
@@ -155,28 +155,28 @@
 "copy" = "コピー";
 
 /* No comment provided by engineer. */
-"copy address to clipboard" = "アドレスをクリップボードへコピー";
+"copy address to clipboard" = "アドレスをクリップボードにコピーします";
 
 /* No comment provided by engineer. */
-"copy request to clipboard" = "リクエストをクリップボードへコピー";
+"copy request to clipboard" = "リクエストをクリップボードにコピーします";
 
 /* No comment provided by engineer. */
-"copy wallet addresses to clipboard?" = "ウォレットアドレスをクリップボードへコピーしますか？";
+"copy wallet addresses to clipboard?" = "財布アドレスをクリップボードにコピーしますか？";
 
 /* No comment provided by engineer. */
-"couldn't check address balance" = "アドレスの残高が確認できませんでした。";
+"couldn't check address balance" = "残高のアドレスが確認できませんでした。";
 
 /* No comment provided by engineer. */
-"couldn't make payment" = "支払いを完了できませんでした";
+"couldn't make payment" = "支払いが実行できませんでした";
 
 /* No comment provided by engineer. */
 "couldn't sweep balance" = "全残高送金ができませんでした";
 
 /* No comment provided by engineer. */
-"couldn't transmit payment to bitcoin network" = "取引をビットコインネットワークへ送信できませんでした";
+"couldn't transmit payment to bitcoin network" = "取引をClovercoinネットワークへ送信できませんでした";
 
 /* No comment provided by engineer. */
-"current wallet passcode" = "現在のパスコードをご入力下さい";
+"current wallet passcode" = "現在財布パスコードをご入力下さい";
 
 /* No comment provided by engineer. */
 "DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins)." = "端末が危険な状態です！！！\n端末を脱獄してしまうと、どの脱獄アプリでもキーチェーンへのアクセスできます。(つまり、あなたのビットコインを簡単に盗めます。)";
@@ -200,13 +200,13 @@
 "enter old passcode" = "現在のパスコードを\nご入力下さい";
 
 /* No comment provided by engineer. */
-"error signing bitcoin transaction" = "ビットコイン取引署名時エラー";
+"error signing bitcoin transaction" = "Clovercoin取引署名時エラー";
 
 /* No comment provided by engineer. */
 "error signing transaction" = "取引署名時エラー";
 
 /* No comment provided by engineer. */
-"from:" = "送金元:";
+"from:" = "から:";
 
 /* No comment provided by engineer. */
 "hour" = "時間";
@@ -230,13 +230,13 @@
 "insufficient funds" = "残高不足";
 
 /* No comment provided by engineer. */
-"insufficient funds for bitcoin network fee" = "ビットコインの\nネットワーク手数料を含めると\n残高が足りません";
+"insufficient funds for bitcoin network fee" = "Clovercoinの\nネットワーク手数料を含めると\n残高が足りません";
 
 /* No comment provided by engineer. */
 "INVALID" = "無効";
 
 /* No comment provided by engineer. */
-"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "このQRコードを人に見せる、または\nビットコインアドレスをコピーして人に\n送るとすぐに送金を受け取れます。";
+"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "このQRコードを人に見せる、または\nClovercoinアドレスをコピーして人に\n送るとすぐに送金を受け取れます。";
 
 /* No comment provided by engineer. */
 "minute" = "分";
@@ -266,16 +266,16 @@
 "no peers found" = "通信相手が見つかりませんでした。";
 
 /* No comment provided by engineer. */
-"not a bitcoin QR code" = "ビットコインのQRコードではありません";
+"not a bitcoin QR code" = "ClovercoinのQRコードではありません";
 
 /* No comment provided by engineer. */
-"not a valid bitcoin address" = "有効なビットコインアドレスではありません";
+"not a valid bitcoin address" = "有効なClovercoinアドレスではありません";
 
 /* No comment provided by engineer. */
 "not a valid private key" = "有効な秘密鍵ではありません";
 
 /* No comment provided by engineer. */
-"not connected to the bitcoin network" = "ビットコインネットワークに接続されていません。";
+"not connected to the bitcoin network" = "Clovercoinネットワークに接続されていません。";
 
 /* No comment provided by engineer. */
 "ok" = "OK";
@@ -299,7 +299,7 @@
 "payee identity isn't certified" = "支払先の認証データが不正です";
 
 /* No comment provided by engineer. */
-"payment address" = "支払先アドレス";
+"payment address" = "支払アドレス";
 
 /* No comment provided by engineer. */
 "payment output" = "支払い出力";
@@ -308,10 +308,10 @@
 "post-dated" = "後日";
 
 /* No comment provided by engineer. */
-"Receive bitcoins at this address: %@" = "このアドレスでビットコインを受取る： %@";
+"Receive bitcoins at this address: %@" = "このアドレスでClovercoinを受取る： %@";
 
 /* No comment provided by engineer. */
-"received" = "受取済み";
+"received" = "受け取った";
 
 /* No comment provided by engineer. */
 "received %@" = "着金あり %1$@";
@@ -329,13 +329,13 @@
 "reduce payment amount by\n%@?" = "%1$@ \n上記の分だけ送金額減らしますか？";
 
 /* No comment provided by engineer. */
-"request" = "請求";
+"request" = "要求";
 
 /* No comment provided by engineer. */
-"request an amount" = "指定金額を請求";
+"request an amount" = "金額を要求する";
 
 /* No comment provided by engineer. */
-"request expired" = "リクエストの有効期限切れました。";
+"request expired" = "要求が期限切れになった";
 
 /* No comment provided by engineer. */
 "requested network \"%@\" instead of \"%@\"" = "ネットワーク「%2$@」の代わりに「%1$@」を要求してしまいました。";
@@ -353,31 +353,31 @@
 "reset" = "リセット";
 
 /* No comment provided by engineer. */
-"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "ビットコインアドレスを取得するためにQRコードを見せてもらって下さい。\nビットコインアドレスを持っている人で\nあれば誰にでも送金が可能です。";
+"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "Clovercoinアドレスを取得するためにQRコードを見せてもらって下さい。\nClovercoinアドレスを持っている人で\nあれば誰にでも送金が可能です。";
 
 /* No comment provided by engineer. */
 "Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret." = "スクリーン ショットは、他のアプリや\nデバイスに閲覧することができます。\n新しい復元フレーズを作り、\n大事に守って下さい。";
 
 /* No comment provided by engineer. */
-"Screenshots are visible to other apps and devices. Your funds are at risk. Transfer your balance to another wallet." = "スクリーン ショットは、他のアプリや\nデバイスに閲覧することができます。\nこのウォレットが危険に晒されました！\n直ちに別の復元フレーズに\n全残高を移して下さい！";
+"Screenshots are visible to other apps and devices. Your funds are at risk. Transfer your balance to another wallet." = "スクリーン ショットは、他のアプリや\nデバイスに閲覧することができます。\nこのwalletが危険に晒されました！\n直ちに別の復元フレーズに\n全残高を移して下さい！";
 
 /* No comment provided by engineer. */
-"seen by %d of %d peers" = "%1$d / %2$d ピアにて伝播確認済";
+"seen by %d of %d peers" = "％d個の％dピアが見た";
 
 /* No comment provided by engineer. */
-"Send %@ from this private key into your wallet? The bitcoin network will receive a fee of %@." = "スキャンした秘密鍵の全残高\n%1$@ を\nbreadwallet宛に送金しても\n宜しいですか？\nビットコインネットワークへの\n手数料が %3$@ です。";
+"Send %@ from this private key into your wallet? The bitcoin network will receive a fee of %@." = "スキャンした秘密鍵の全残高\n%1$@ を\nbreadwallet宛に送金しても\n宜しいですか？\nClovercoinネットワークへの\n手数料が %3$@ です。";
 
 /* No comment provided by engineer. */
-"send address as email" = "ビットコインアドレスをメールにて共有";
+"send address as email" = "Clovercoinアドレスをメールにて共有";
 
 /* No comment provided by engineer. */
-"send address as message" = "ビットコインアドレスをメッセージにて共有";
+"send address as message" = "Clovercoinアドレスをメッセージにて共有";
 
 /* No comment provided by engineer. */
-"send request as email" = "リクエストをメールにて共有";
+"send request as email" = "メールでリクエストを送信する";
 
 /* No comment provided by engineer. */
-"send request as message" = "リクエストをメッセージにて共有";
+"send request as message" = "メッセージでリクエストを送信する";
 
 /* No comment provided by engineer. */
 "sent" = "送金済み";
@@ -389,13 +389,13 @@
 "settings" = "設定";
 
 /* No comment provided by engineer. */
-"show" = "表示";
+"show" = "表示する";
 
 /* No comment provided by engineer. */
-"show phrase" = "フレーズを表示";
+"show phrase" = "フレーズを表示する";
 
 /* No comment provided by engineer. */
-"sms not currently available" = "SMSは現在利用できません．";
+"sms not currently available" = "現在利用可能なMSMがない";
 
 /* No comment provided by engineer. */
 "spent address" = "当ウォレット外の使用済みアドレス";
@@ -404,7 +404,7 @@
 "spent input" = "使用済み入力";
 
 /* No comment provided by engineer. */
-"status:" = "ステータス:";
+"status:" = "状態:";
 
 /* No comment provided by engineer. */
 "swept!" = "全残高送金成功！";
@@ -416,19 +416,19 @@
 "the app will now close" = "アプリを閉じます";
 
 /* No comment provided by engineer. */
-"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "これがあなたのビットコインアドレスの一つ。タップすればコピーしたりメールやSMSで共有したりできます。\n取引を行うごとにアドレスは入れ\n替わりますが、一度表示したアドレスに\n対して送られたビットコインは\nいつまでも自動的に受け取られます。";
+"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "これがあなたのClovercoinアドレスの一つ。タップすればコピーしたりメールやSMSで送信したりできます。\n取引を行うごとにアドレスは入れ\n替わりますが、一度表示したアドレスに\n対して送られたビットコインは\nいつまでも自動的に受け取られます。";
 
 /* No comment provided by engineer. */
-"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "これがあなたのビットコイン残高です。ビットコインは通貨であり、為替レートが市場の動きにより変動します。";
+"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "これがあなたのClovercoin残高です。ビットコインは通貨であり、為替レートが市場の動きにより変動します。";
 
 /* No comment provided by engineer. */
-"this payment address is already in your wallet" = "このペイメントアドレスは既にあなたのウォレットに含まれています";
+"this payment address is already in your wallet" = "この支払いアドレスは既にあなたのwalletに含まれています";
 
 /* No comment provided by engineer. */
-"this private key is already in your wallet" = "この秘密鍵は既にあなたのウォレットに含まれています";
+"this private key is already in your wallet" = "この秘密鍵は既にあなたのwalletに含まれています";
 
 /* No comment provided by engineer. */
-"this private key is empty" = "この秘密鍵は承認済み残高がありません";
+"this private key is empty" = "この秘密鍵は空です";
 
 /* No comment provided by engineer. */
 "to:" = "送金先:";
@@ -443,7 +443,7 @@
 "touch id spending limit" = "Touch IDの送金可能額";
 
 /* No comment provided by engineer. */
-"transaction canceled, network timeout" = "取引キャンセルされました、\nネットワークタイムアウトがありました";
+"transaction canceled, network timeout" = "取引はキャンセルされました、\nネットワークタイムアウト";
 
 /* No comment provided by engineer. */
 "transaction fees would cost more than the funds available on this private key (due to tiny \"dust\" deposits)" = "この秘密鍵にある残高が通常手数料より小さいので送れません。";
@@ -458,7 +458,7 @@
 "transaction rejected" = "取引が拒否されました";
 
 /* No comment provided by engineer. */
-"turn device passcode on" = "端末のパスコードを有効に";
+"turn device passcode on" = "デバイスパスコードをオンにする";
 
 /* No comment provided by engineer. */
 "unexpected response from %@" = "%@ から予期しない応答";
@@ -473,7 +473,7 @@
 "unsupported or corrupted document" = "サポートされていないか破損しているドキュメント";
 
 /* No comment provided by engineer. */
-"unsupported signature type" = "サポートされていない署名の種類";
+"unsupported signature type" = "サポートされていない署名のタイプ";
 
 /* No comment provided by engineer. */
 "unsupported url" = "サポートされていないURL";
@@ -494,13 +494,13 @@
 "verify wallet passcode" = "もう一度パスコードをご入力下さい";
 
 /* No comment provided by engineer. */
-"wallet address" = "自分のアドレス";
+"wallet address" = "自分の財布アドレス";
 
 /* No comment provided by engineer. */
-"wallet disabled" = "ウォレット無効";
+"wallet disabled" = "財布無効";
 
 /* No comment provided by engineer. */
-"wallet passcode" = "ウォレットのパスコード";
+"wallet passcode" = "財布のパスコード";
 
 /* No comment provided by engineer. */
 "WARNING" = "警告";
@@ -512,28 +512,51 @@
 "WRITE DOWN YOUR RECOVERY PHRASE" = "復元フレーズを書き留めて下さい！";
 
 /* No comment provided by engineer. */
-"you received bitcoin!" = "ビットコインの着金確認！";
+"you received bitcoin!" = "Clovercoinの着金確認！";
 
 /* No comment provided by engineer. */
-"Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "あなたのウォレットが同期されていない可能性があります。\nブロックチェーンの再スキャンを行うと直ることが大半です。";
+"Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "あなたの財布が同期されていない可能性があります。\nブロックチェーンの再スキャンを行うと直ることが大半です。";
 
 /* No comment provided by engineer. */
-"Send" = "支払う";
+"Send" = "送信した";
 
 /* No comment provided by engineer. */
 "Receive" = "受け取る";
 
 /* No comment provided by engineer. */
-"Easily send Litecoin anywhere in the world with LoafWallet's live currency conversion rates, and QR scanner for quick on-the-go payments." = "Easily send Litecoin anywhere in the world with LoafWallet's live currency conversion rates, and QR scanner for quick on-the-go payments.";
+"Easily send Litecoin anywhere in the world with LoafWallet's live currency conversion rates, and QR scanner for quick on-the-go payments." = "CloverWalletの通貨換算レートとQRスキャナーを使って世界中どこでも簡単にClovercoinを送信できます。";
 
 /* No comment provided by engineer. */
-"Receive Litecoins with your receive address. Share you Litecoin Address with others, and request a payment. Your Litecoin address can be copied to your clipboard, sent via email and shared via other forms of social media." = "Receive Litecoins with your receive address. Share you Litecoin Address with others, and request a payment. Your Litecoin address can be copied to your clipboard, sent via email and shared via other forms of social media.";
+"Receive Litecoins with your receive address. Share you Litecoin Address with others, and request a payment. Your Litecoin address can be copied to your clipboard, sent via email and shared via other forms of social media." = "受け取った住所でクローバーコインを受け取る。 あなたと他の人とClovercoin Addressを共有し、支払いをリクエストしてください。 あなたのClovercoinアドレスはクリップボードにコピーしたり、電子メールで送信したり、他の形式のソーシャルメディアを介して共有することができます。";
 
 /* No comment provided by engineer. */
-"Browse through your transaction history, secured with your passcode. This is not visible to others, unless they possess your LoafWallet passcode. Find indepth details about every transaction." = "Browse through your transaction history, secured with your passcode. This is  not visible to others, unless they possess your LoafWallet passcode. Find indepth details about every transaction.";
+"Browse through your transaction history, secured with your passcode. This is not visible to others, unless they possess your LoafWallet passcode. Find indepth details about every transaction." = "パスコードで保護されたトランザクション履歴を参照してください。 あなたのCloverWalletパスコードを持っていない限り、これは他人には見えません。 すべての取引について細かい詳細を調べてください！";
 
 /* No comment provided by engineer. */
-"History" = "History";
+"History" = "履歴";
 
 /* No comment provided by engineer. */
-"continue" = "Continue";
+"continue" = "接続する";
+
+"Login failed, unauthorized!" = "ロングインに失敗しました。権限がありません";
+
+"Unexcepted error!" = "ロングインに失敗しました。権限がありません";
+
+"Login failed, Incorrect authen key!" = "ロングインに失敗しました。認証キーは間違いました";
+
+"Login failed, Invalid mnemonic code!" = "ロングインに失敗しました。無効なニーモニックコード";
+
+"user name is empty!" = "ユーザー名が空です!";
+
+"user name too short" = "ユーザー名は短すぎる";
+
+"password is empty" = "パスワードは空です";
+
+"This password is too short" = "このパスワードは短すぎます";
+
+"email address is empty!" = "電子メールアドレスは空です！";
+
+"This email address is invalid!" = "このメールのアドレスは無効です";
+
+"enable receive notifications" = "受信通知の許可";
+

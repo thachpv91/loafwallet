@@ -546,19 +546,27 @@
 {
     bool result = true;
     NSString * message;
-    if(self._userName.length <= MIN_USER_NAME_LENGTH)
+    if(self._userName.length <=0)
     {
         result = false;
-        message = NSLocalizedString(@"UserName too short", nil);
+        message = NSLocalizedString(@"user name is empty!", nil);
+    }else if(![self._userName isValidEmail])
+        {
+            result = false;
+            message = NSLocalizedString(@"This email address is invalid!", nil);
+        }else if(self._passWord.length <= 0)
+    {
+        result = false;
+        message = NSLocalizedString(@"password is empty", nil);
     }else if(self._passWord.length <= MIN_PASS_LENGTH)
     {
         result = false;
-        message = NSLocalizedString(@"Pass too short", nil);
+        message = NSLocalizedString(@"This password is too short", nil);
     }
     if(!result)
     {
         [[[UIAlertView alloc]
-                initWithTitle:NSLocalizedString(@"Warning", nil)
+                initWithTitle:NSLocalizedString(@"WARNING", nil)
                       message:message
                      delegate:self
             cancelButtonTitle:NSLocalizedString(@"ok", nil)
@@ -576,21 +584,24 @@
     if(email.length <=0)
     {
         result = false;
-        message = NSLocalizedString(@"email empty", nil);
-    }else if(![email isValidEmail])
+        message = NSLocalizedString(@"email address is empty!", nil);
+    }
+    if(![email isValidEmail])
     {
         result = false;
-        message = NSLocalizedString(@"invalid email!", nil);
+        message = NSLocalizedString(@"This email address is invalid!", nil);
     }
+    
     if(!result)
     {
         [[[UIAlertView alloc]
-          initWithTitle:NSLocalizedString(@"Warning", nil)
+          initWithTitle:NSLocalizedString(@"WARNING", nil)
           message:message
           delegate:self
           cancelButtonTitle:NSLocalizedString(@"ok", nil)
           otherButtonTitles:Nil, nil]
          show];
+    
     }
     
     return result;

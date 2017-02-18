@@ -31,7 +31,7 @@
 #import "BRCopyLabel.h"
 #import "NSString+Bitcoin.h"
 #import "NSData+Bitcoin.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 
 #define TRANSACTION_CELL_HEIGHT 75
 
@@ -255,6 +255,7 @@
                 detailLabel.text = self.outputText[indexPath.row];
                 subtitleLabel.text = self.outputDetail[indexPath.row];
                 amountLabel.text = [manager stringForAmount:[self.outputAmount[indexPath.row] longLongValue]];
+                // Thach note : need review
                 amountLabel.textColor = (self.sent > 0) ? [UIColor colorWithRed:1.0 green:0.33 blue:0.33 alpha:1.0] :
                                         [UIColor colorWithRed:0.0 green:0.75 blue:0.0 alpha:1.0];
 //                localCurrencyLabel.textColor = amountLabel.textColor;

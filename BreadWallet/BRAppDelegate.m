@@ -27,8 +27,8 @@
 #import "BRAppDelegate.h"
 #import "BRPeerManager.h"
 #import "BRWalletManager.h"
-#import "BREventManager.h"
-#import "breadwallet-Swift.h"
+//#import "BREventManager.h"
+#import "CloverWallet-Swift.h"
 #import "BRPhoneWCSessionManager.h"
 #import <WebKit/WebKit.h>
 #import <PushKit/PushKit.h>

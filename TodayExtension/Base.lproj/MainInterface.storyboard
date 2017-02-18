@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -179,8 +178,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeJ-XT-nMj" userLabel="No data view container">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="breadwallet-wide" translatesAutoresizingMaskIntoConstraints="NO" id="0me-bY-8oC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="breadwallet-wide" translatesAutoresizingMaskIntoConstraints="NO" id="0me-bY-8oC">
                                         <rect key="frame" x="90" y="47" width="140" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cd-bh-0CQ">
                                         <rect key="frame" x="80" y="154" width="160" height="30"/>
@@ -197,6 +197,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="0lz-es-jq8" secondAttribute="centerY" id="62W-CV-bnm"/>
                                             </constraints>
                                         </view>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="0lz-es-jq8" firstAttribute="width" secondItem="6Cd-bh-0CQ" secondAttribute="width" id="1ik-wy-7qa"/>
                                             <constraint firstItem="0lz-es-jq8" firstAttribute="height" secondItem="6Cd-bh-0CQ" secondAttribute="height" id="tOy-8W-Ddb"/>
@@ -213,14 +214,15 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="setup wallet" backgroundImage="button-bg-white-pressed">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="openAppButtonTapped:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="OkE-kj-w97"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="fgE-Q8-uG8" secondAttribute="bottom" constant="56" id="1FO-n1-fIR"/>
                                     <constraint firstItem="fgE-Q8-uG8" firstAttribute="centerX" secondItem="6Cd-bh-0CQ" secondAttribute="centerX" id="Btu-G9-w2O"/>
@@ -231,7 +233,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.42745098040000001" green="0.74509803919999995" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="jeJ-XT-nMj" secondAttribute="centerY" id="0Qu-j9-JbB"/>
@@ -282,6 +284,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="breadwallet-wide" width="140" height="20"/>
         <image name="button-bg-white-pressed" width="11" height="30"/>
         <image name="scanbutton" width="50" height="50"/>
     </resources>

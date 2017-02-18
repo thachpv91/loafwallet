@@ -14,8 +14,8 @@
 /* Class = "UILabel"; text = "subtitle"; ObjectID = "55a-IW-IjK"; */
 "55a-IW-IjK.text" = "subtitle";
 
-/* Class = "UILabel"; text = "contact@litecoin.org"; ObjectID = "5OA-tB-Exg"; */
-"5OA-tB-Exg.text" = "contact@litecoin.org";
+/* Class = "UILabel"; text = "contact@clovercoin.org"; ObjectID = "5OA-tB-Exg"; */
+"5OA-tB-Exg.text" = "contact@clovercoin.org";
 
 /* Class = "UILabel"; text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."; ObjectID = "84P-qS-Apm"; */
 "84P-qS-Apm.text" = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -35,17 +35,14 @@
 /* Class = "UIButton"; normalTitle = "Next"; ObjectID = "A9w-fv-a5B"; */
 "A9w-fv-a5B.normalTitle" = "Next";
 
-/* Class = "UITextField"; text = "Hanhcoin1234"; ObjectID = "Chj-oL-EKL"; */
-"Chj-oL-EKL.text" = "Hanhcoin1234";
-
 /* Class = "UILabel"; text = "USD"; ObjectID = "CsQ-fq-mfQ"; */
 "CsQ-fq-mfQ.text" = "USD";
 
 /* Class = "UILabel"; text = "start/recover another wallet"; ObjectID = "D1b-HB-lKH"; */
 "D1b-HB-lKH.text" = "start/recover another wallet";
 
-/* Class = "UILabel"; text = "Exchange Rate Data provided by\nlitecoin.com"; ObjectID = "D4H-hd-LsX"; */
-"D4H-hd-LsX.text" = "Exchange Rate Data provided by\nlitecoin.com";
+/* Class = "UILabel"; text = "Exchange Rate Data provided by\nclovercoin.com"; ObjectID = "D4H-hd-LsX"; */
+"D4H-hd-LsX.text" = "Exchange Rate Data provided by\nclovercoin.com";
 
 /* Class = "UITextField"; placeholder = "ƀ 0.00"; ObjectID = "DLS-lz-uxJ"; */
 "DLS-lz-uxJ.placeholder" = "ƀ 0.00";
@@ -53,8 +50,8 @@
 /* Class = "UIButton"; normalTitle = "2"; ObjectID = "E2i-Cd-bly"; */
 "E2i-Cd-bly.normalTitle" = "2";
 
-/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ELF-Iu-W3n"; */
-"ELF-Iu-W3n.normalTitle" = "Login";
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "ELF-Iu-W3n"; */
+"ELF-Iu-W3n.normalTitle" = "Sign in";
 
 /* Class = "UILabel"; text = "If you ever lose your phone, you will need this phrase to recover your wallet. Please write it down and keep it secure."; ObjectID = "EQG-Km-ZKY"; */
 "EQG-Km-ZKY.text" = "If you ever lose your phone, you will need this phrase to recover your wallet. Please write it down and keep it secure.";
@@ -65,8 +62,8 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "GWf-4e-jTu"; */
 "GWf-4e-jTu.text" = "Title";
 
-/* Class = "UILabel"; text = "BapWallet will send an email containing a one-off verification link to your email"; ObjectID = "GiD-lN-HbN"; */
-"GiD-lN-HbN.text" = "BapWallet will send an email containing a one-off verification link to your email";
+/* Class = "UILabel"; text = "CloverWallet will send an email containing a one-off verification link to your email"; ObjectID = "GiD-lN-HbN"; */
+"GiD-lN-HbN.text" = "CloverWallet will send an email containing a one-off verification link to your email";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "GtB-QA-MmI"; */
 "GtB-QA-MmI.text" = "Title";
@@ -107,17 +104,14 @@
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "OBr-C7-abe"; */
 "OBr-C7-abe.title" = " ";
 
-/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "QWn-Vq-Tda"; */
-"QWn-Vq-Tda.normalTitle" = "Send";
+/* Class = "UIButton"; normalTitle = "Send email"; ObjectID = "QWn-Vq-Tda"; */
+"QWn-Vq-Tda.normalTitle" = "Send email";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "RBk-Ju-5IV"; */
 "RBk-Ju-5IV.text" = "Detail";
 
-/* Class = "UITextField"; placeholder = "hoang4@yahoo.com"; ObjectID = "TXh-9Z-Nhs"; */
-"TXh-9Z-Nhs.placeholder" = "hoang4@yahoo.com";
-
-/* Class = "UITextField"; text = "hoang4@yahoo.com"; ObjectID = "TXh-9Z-Nhs"; */
-"TXh-9Z-Nhs.text" = "hoang4@yahoo.com";
+/* Class = "UITextField"; placeholder = "user@yahoo.com"; ObjectID = "TXh-9Z-Nhs"; */
+"TXh-9Z-Nhs.placeholder" = "user@yahoo.com";
 
 /* Class = "UILabel"; text = "not connected"; ObjectID = "UyF-OV-QVY"; */
 "UyF-OV-QVY.text" = "not connected";
@@ -146,8 +140,8 @@
 /* Class = "UILabel"; text = "Enter this wallet's recovery phrase to wipe it and start/recover another. Your current balance remains on this phrase."; ObjectID = "YC6-rN-4P5"; */
 "YC6-rN-4P5.text" = "Enter this wallet's recovery phrase to wipe it and start/recover another. Your current balance remains on this phrase.";
 
-/* Class = "UILabel"; text = "HTC"; ObjectID = "YjE-W8-yAb"; */
-"YjE-W8-yAb.text" = "HTC";
+/* Class = "UILabel"; text = "CLO"; ObjectID = "YjE-W8-yAb"; */
+"YjE-W8-yAb.text" = "CLO";
 
 /* Class = "UIButton"; normalTitle = "4"; ObjectID = "b8y-tJ-xAB"; */
 "b8y-tJ-xAB.normalTitle" = "4";
@@ -194,8 +188,8 @@
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "hWS-2G-hHE"; */
 "hWS-2G-hHE.title" = " ";
 
-/* Class = "UIButton"; normalTitle = "Forgot password"; ObjectID = "i5F-px-gfX"; */
-"i5F-px-gfX.normalTitle" = "Forgot password";
+/* Class = "UIButton"; normalTitle = "Forgot Password"; ObjectID = "i5F-px-gfX"; */
+"i5F-px-gfX.normalTitle" = "Forgot Password";
 
 /* Class = "UILabel"; text = "no transactions"; ObjectID = "iV4-R4-e53"; */
 "iV4-R4-e53.text" = "no transactions";
@@ -208,12 +202,6 @@
 
 /* Class = "UILabel"; text = "Pay To"; ObjectID = "l5l-JR-LKA"; */
 "l5l-JR-LKA.text" = "Pay To";
-
-/* Class = "UITextField"; placeholder = "hoang4@yahoo.com"; ObjectID = "mBg-02-Ffs"; */
-"mBg-02-Ffs.placeholder" = "hoang4@yahoo.com";
-
-/* Class = "UITextField"; text = "hoang4@yahoo.com"; ObjectID = "mBg-02-Ffs"; */
-"mBg-02-Ffs.text" = "hoang4@yahoo.com";
 
 /* Class = "UITextField"; placeholder = "0.00"; ObjectID = "mIE-Mf-HG3"; */
 "mIE-Mf-HG3.placeholder" = "0.00";
@@ -260,8 +248,8 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "uaG-gX-Ias"; */
 "uaG-gX-Ias.text" = "Title";
 
-/* Class = "UILabel"; text = "LoafWallet v%ver%%net%\n© 2016 Litecoin Association\n\nBased on BreadWallet\n© BreadWallet LLC"; ObjectID = "uvz-hk-Nr4"; */
-"uvz-hk-Nr4.text" = "LoafWallet v%ver%%net%\n© 2016 Litecoin Association\n\nBased on BreadWallet\n© BreadWallet LLC";
+/* Class = "UILabel"; text = "CloverWallet v%ver%%net%\n© 2016 Clovercoin Association\n\nBased on BreadWallet\n© BreadWallet LLC"; ObjectID = "uvz-hk-Nr4"; */
+"uvz-hk-Nr4.text" = "CloverWallet v%ver%%net%\n© 2016 Clovercoin Association\n\nBased on BreadWallet\n© BreadWallet LLC";
 
 /* Class = "UILabel"; text = "start a new wallet by generating a wallet recovery phrase"; ObjectID = "wDZ-DN-szv"; */
 "wDZ-DN-szv.text" = "start a new wallet by generating a wallet recovery phrase";

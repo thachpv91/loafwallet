@@ -29,9 +29,9 @@
 #import "BRWalletManager.h"
 #import "BRBubbleView.h"
 #import "BRPeerManager.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 #import "BRUserDefaultsSwitchCell.h"
-#import "breadwallet-Swift.h"
+#import "CloverWallet-Swift.h"
 #include <WebKit/WebKit.h>
 #include <asl.h>
 #ifdef DEBUG

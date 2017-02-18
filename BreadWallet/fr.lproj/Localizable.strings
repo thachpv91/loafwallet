@@ -1,242 +1,245 @@
 /* No comment provided by engineer. */
-"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ = 1 Litecoin.";
+"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ = 1  lovercoin.";
 
 /* No comment provided by engineer. */
-"%@ is not allowed to access the camera" = "%@ n'est pas autorisé à accéder à l'appareil photo";
+"%@ is not allowed to access the camera" = "%@ is not allowed to access the camera";
 
 /* No comment provided by engineer. */
-"%@\n\nbalance: %@" = "%1$@\n\nsolde : %2$@";
+"%@\n\nbalance: %@" = "%1$@\n\nbalance: %2$@";
 
 /* No comment provided by engineer. */
 "%d confirmations" = "%d confirmations";
 
 /* No comment provided by engineer. */
-"0 confirmations" = "0 confirmation";
+"0 confirmations" = "0 confirmations";
 
 /* No comment provided by engineer. */
 "1 confirmation" = "1 confirmation";
 
 /* No comment provided by engineer. */
-"\"%@\" is not a recovery phrase word" = "\"%@\" n'est pas un mot de phrase de récupération";
+"\"%@\" is not a recovery phrase word" = "\"%@\" is not a recovery phrase word";
 
 /* No comment provided by engineer. */
-"\n         total %@" = "\n         total %1$";
+"\n         total %@" = "\n         total %1$@";
 
 /* No comment provided by engineer. */
-"\n%@\n\nif you ever lose your phone, you will need it to recover your wallet" = "\n%@\n\nsi jamais vous perdez votre téléphone, vous en aurez besoin pour récupérer votre portefeuille";
+"\n%@\n\nif you ever lose your phone, you will need it to recover your wallet" = "\n%@\n\nif you ever lose your phone, you will need it to recover your wallet";
 
 /* No comment provided by engineer. */
-"\n%d attempts remaining\n" = "\n%d tentatives restantes\n";
+"\n%d attempts remaining\n" = "\n%d attempts remaining\n";
 
 /* No comment provided by engineer. */
-"\n1 attempt remaining\n" = "\n1 tentative restante\n";
+"\n1 attempt remaining\n" = "\n1 attempt remaining\n";
 
 /* No comment provided by engineer. */
-"\n\n     amount %@" = "\n\n     montant %1$@";
+"\n\n     amount %@" = "\n\n     amount %1$@";
 
 /* No comment provided by engineer. */
-"\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\nUn code d'accès est nécessaire pour sécuriser votre portefeuille. Allez dans les paramètres et activez le code d'accès pour continuer.";
+"\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue.";
 
 /* No comment provided by engineer. */
-"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nADRESSE DÉJÀ UTILISÉE\n\nles adresses Litecoin sont destinées à un usage unique\n\nla réutilisation réduit votre vie privée pour vous et pour le destinataire et peut entraîner une perte si le destinataire ne contrôle pas directement l'adresse";
+"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nADDRESS ALREADY USED\n\Clovercoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address";
 
 /* No comment provided by engineer. */
-"\nallow camera access in\nSettings->Privacy->Camera->%@" = "\npermettre l'accès à la caméra dans\nRéglages->Confidentialité->Appareil photo->%@";
+"\nallow camera access in\nSettings->Privacy->Camera->%@" = "\nallow camera access in\nSettings->Privacy->Camera->%@";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "\nNE LAISSEZ PERSONNE voir votre phrase\nde récupération sinon n'importe qui\npourra dépenser vos Litecoins.";
+"\nDO NOT let anyone see your recovery phrase or they can spend your bitcoins.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n" = "\nDO NOT let anyone see your recovery phrase or they can spend your Clovercoin.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n";
 
 /* No comment provided by engineer. */
-"\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n" = "\nNE PRENEZ PAS une capture d'écran. \nLes captures d'écran sont visibles par les autres \napplications et appareils.\n";
+"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "\nDO NOT let anyone see your recovery\nphrase or they can spend your Clovercoin.\n";
 
 /* No comment provided by engineer. */
-"\nnetwork fee +%@" = "\nfrais de réseau +%1$@";
+"\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n" = "\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n";
 
 /* No comment provided by engineer. */
-"\nNEVER type your recovery phrase into\npassword managers or elsewhere.\nOther devices may be infected.\n" = "\nNe tapez JAMAIS votre phrase de\nrécupération dans un gestionnaire\nde mots de passe où ailleurs. D'autres\ndispositifs peuvent être infectés.\n";
+"\nnetwork fee +%@" = "\nnetwork fee +%1$@";
 
 /* No comment provided by engineer. */
-"\ntry again in %d %@" = "\nréessayez dans %1$d %2$@";
+"\nNEVER type your recovery phrase into\npassword managers or elsewhere.\nOther devices may be infected.\n" = "\nNEVER type your recovery phrase into\npassword managers or elsewhere.\nOther devices may be infected.\n";
 
 /* No comment provided by engineer. */
-"about" = "à propos";
+"\ntry again in %d %@" = "\ntry again in %1$d %2$@";
 
 /* No comment provided by engineer. */
-"always require passcode" = "toujours exiger le code d'accès";
+"about" = "about";
 
 /* No comment provided by engineer. */
-"amount too small" = "montant trop faible";
+"always require passcode" = "always require passcode";
 
 /* No comment provided by engineer. */
-"bad password, try again" = "mauvais mot de passe, veuillez réessayer";
+"amount too small" = "amount too small";
 
 /* No comment provided by engineer. */
-"bad payment request" = "mauvaise demande de paiement";
+"bad password, try again" = "bad password, try again";
 
 /* No comment provided by engineer. */
-"bad payment request URL" = "mauvaise URL de demande de paiement";
+"bad payment request" = "bad payment request";
 
 /* No comment provided by engineer. */
-"bad payment URL" = "mauvaise addresse URL de paiement";
+"bad payment request URL" = "bad payment request URL";
 
 /* No comment provided by engineer. */
-"bad recovery phrase" = "mauvaise phrase de récupération";
+"bad payment URL" = "bad payment URL";
 
 /* No comment provided by engineer. */
-"bad signature" = "mauvaise signature";
+"bad recovery phrase" = "bad recovery phrase";
 
 /* No comment provided by engineer. */
-"Bitcoin address" = "Adresse Litecoin";
+"bad signature" = "bad signature";
 
 /* No comment provided by engineer. */
-"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "Les adresses Litecoin peuvent aussi être copiées dans le presse-papier. Une adresse Litecoin commence toujours par 'L' ou '3'.";
+"Bitcoin address" = "Clovercoin address";
 
 /* No comment provided by engineer. */
-"bitcoin network fee" = "frais de réseau Litecoin";
+"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "Clovercoin addresses can also be copied to the clipboard. A clovercoin address always starts with 'L' or '3'.";
 
 /* No comment provided by engineer. */
-"bitcoin payments can't be less than %@" = "Les paiements Litecoin ne peuvent pas être inférieurs à %@";
+"bitcoin network fee" = "Clovercoin network fee";
 
 /* No comment provided by engineer. */
-"bitcoin transaction not signed" = "Transaction Litecoin non signée";
+"bitcoin payments can't be less than %@" = "Clovercoin payments can't be less than %@";
 
 /* No comment provided by engineer. */
-"bitcoin transaction outputs can't be less than %@" = "Les sorties de transaction Litecoin ne peuvent pas être inférieures à %@";
+"bitcoin transaction not signed" = "Clovercoin transaction not signed";
 
 /* No comment provided by engineer. */
-"block #%d of %d" = "bloc #%1$d de %2$d";
+"bitcoin transaction outputs can't be less than %@" = "Clovercoin transaction outputs can't be less than %@";
 
 /* No comment provided by engineer. */
-"cancel" = "annuler";
+"block #%d of %d" = "block #%1$d of %2$d";
 
 /* No comment provided by engineer. */
-"change" = "modifier";
+"cancel" = "cancel";
 
 /* No comment provided by engineer. */
-"change passcode" = "modifier le code d'accès";
+"change" = "change";
 
 /* No comment provided by engineer. */
-"change payment amount?" = "modifier le montant du paiement ?";
+"change passcode" = "change passcode";
 
 /* No comment provided by engineer. */
-"change wallet passcode" = "modifier le code d'accès du portefeuille";
+"change payment amount?" = "change payment amount?";
 
 /* No comment provided by engineer. */
-"checking address balance..." = "vérification du solde de l'adresse...";
+"change wallet passcode" = "change wallet passcode";
 
 /* No comment provided by engineer. */
-"checking private key balance..." = "vérification du solde de la clé privée...";
+"checking address balance..." = "checking address balance...";
 
 /* No comment provided by engineer. */
-"choose passcode for %@" = "choisissez un code d'accès pour %@";
+"checking private key balance..." = "checking private key balance...";
 
 /* No comment provided by engineer. */
-"choose wallet passcode" = "choisir le code d'accès du portefeuille";
+"choose passcode for %@" = "choose passcode for %@";
 
 /* No comment provided by engineer. */
-"clipboard doesn't contain a valid bitcoin address" = "Le presse-papier ne contient pas une adresse Litecoin valide";
+"choose wallet passcode" = "choose wallet passcode";
 
 /* No comment provided by engineer. */
-"close app" = "fermer l'application";
+"clipboard doesn't contain a valid bitcoin address" = "Clipboard doesn't contain a valid Clovercoin address";
 
 /* No comment provided by engineer. */
-"CONFIRM WIPE" = "CONFIRMER EFFACEMENT";
+"close app" = "close app";
 
 /* No comment provided by engineer. */
-"confirmed in block #%d" = "confirmée en bloc #%d";
+"CONFIRM WIPE" = "CONFIRM WIPE";
+
+/* No comment provided by engineer. */
+"confirmed in block #%d" = "confirmed in block #%d";
 
 /* No comment provided by engineer. */
 "connect timeout" = "connect timeout";
 
 /* No comment provided by engineer. */
-"copied" = "copiée";
+"copied" = "copied";
 
 /* No comment provided by engineer. */
-"copy" = "copier";
+"copy" = "copy";
 
 /* No comment provided by engineer. */
-"copy address to clipboard" = "copier l'adresse au presse-papier";
+"copy address to clipboard" = "copy address to clipboard";
 
 /* No comment provided by engineer. */
-"copy request to clipboard" = "copier la demande au presse-papier";
+"copy request to clipboard" = "copy request to clipboard";
 
 /* No comment provided by engineer. */
-"copy wallet addresses to clipboard?" = "copier les adresses de portefeuille dans le presse-papier ?";
+"copy wallet addresses to clipboard?" = "copy wallet addresses to clipboard?";
 
 /* No comment provided by engineer. */
-"couldn't check address balance" = "impossible de vérifier le solde de l'adresse";
+"couldn't check address balance" = "couldn't check address balance";
 
 /* No comment provided by engineer. */
-"couldn't make payment" = "impossible d'effectuer le paiement";
+"couldn't make payment" = "couldn't make payment";
 
 /* No comment provided by engineer. */
-"couldn't sweep balance" = "impossible de balayer le solde";
+"couldn't sweep balance" = "couldn't sweep balance";
 
 /* No comment provided by engineer. */
-"couldn't transmit payment to bitcoin network" = "impossible de transmettre le paiement au réseau Litecoin";
+"couldn't transmit payment to bitcoin network" = "Couldn't transmit payment to Clovercoin network";
 
 /* No comment provided by engineer. */
-"current wallet passcode" = "code d'accès actuel du portefeuille";
+"current wallet passcode" = "current wallet passcode";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins)." = "SÉCURITÉ DE L'APPAREIL COMPROMISE\nN'importe quelle appli jailbreakée [débridée] peut accéder aux données du keychain [trousseau] des autres applis (et voler vos Litecoins).";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins)." = "DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your Clovercoin).";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins). Wipe this wallet immediately and restore on a secure device." = "SÉCURITÉ DE L'APPAREIL COMPROMISE\nN'importe quelle application 'jailbreakée' peut accéder aux données keychain des autres applications (et voler vos Litecoins). Effacez immédiatement ce portefeuille et restaurez sur un appareil sécurisé.";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins). Wipe this wallet immediately and restore on a secure device." = "DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your Clovercoin). Wipe this wallet immediately and restore on a secure device.";
 
 /* No comment provided by engineer. */
-"do it later" = "le faire plus tard";
+"do it later" = "do it later";
 
 /* No comment provided by engineer. */
-"done" = "terminé";
+"done" = "done";
 
 /* No comment provided by engineer. */
-"double spend" = "double dépense";
+"double spend" = "double spend";
 
 /* No comment provided by engineer. */
-"email not configured" = "e-mail non configuré";
+"email not configured" = "email not configured";
 
 /* No comment provided by engineer. */
-"enter old passcode" = "entrez l'ancien code d'accès";
+"enter old passcode" = "enter old passcode";
 
 /* No comment provided by engineer. */
-"error signing bitcoin transaction" = "erreur de signature de la transaction Litecoin";
+"error signing bitcoin transaction" = "Error signing Clovercoin transaction";
 
 /* No comment provided by engineer. */
-"error signing transaction" = "erreur de signature de la transaction";
+"error signing transaction" = "Error signing transaction";
 
 /* No comment provided by engineer. */
-"from:" = "de :";
+"from:" = "from:";
 
 /* No comment provided by engineer. */
-"hour" = "heure";
+"hour" = "hour";
 
 /* No comment provided by engineer. */
-"hours" = "heures";
+"hours" = "hours";
 
 /* No comment provided by engineer. */
-"id:" = "id :";
+"id:" = "id:";
 
 /* No comment provided by engineer. */
-"ignore" = "ignorer";
+"ignore" = "ignore";
 
 /* No comment provided by engineer. */
-"import private key" = "importer une clé privée";
+"import private key" = "import private key";
 
 /* No comment provided by engineer. */
 "IMPORTANT" = "IMPORTANT";
 
 /* No comment provided by engineer. */
-"insufficient funds" = "fonds insuffisants";
+"insufficient funds" = "insufficient funds";
 
 /* No comment provided by engineer. */
-"insufficient funds for bitcoin network fee" = "fonds insuffisants pour les frais de réseau Litecoin";
+"insufficient funds for bitcoin network fee" = "Insufficient funds for Clovercoin network fee";
 
 /* No comment provided by engineer. */
-"INVALID" = "INVALIDE";
+"INVALID" = "INVALID";
 
 /* No comment provided by engineer. */
-"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "Laissez les autres numériser ce code QR pour obtenir votre adresse Litecoin. N'importe qui peut envoyer des Litecoins à votre portefeuille en les transférant à votre adresse.";
+"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "Let others scan this QR code to get your Clovercoin address. Anyone can send Clovercoins to your wallet by transferring them to your address.";
 
 /* No comment provided by engineer. */
 "minute" = "minute";
@@ -245,295 +248,320 @@
 "minutes" = "minutes";
 
 /* No comment provided by engineer. */
-"missing certificate" = "certificat manquant";
+"missing certificate" = "missing certificate";
 
 /* No comment provided by engineer. */
-"more..." = "plus...";
+"more..." = "more...";
 
 /* No comment provided by engineer. */
-"moved" = "déplacée";
+"moved" = "moved";
 
 /* No comment provided by engineer. */
-"new wallet passcode" = "nouveau code d'accès du portefeuille";
+"new wallet passcode" = "new wallet passcode";
 
 /* No comment provided by engineer. */
-"next, write down your recovery phrase" = "ensuite, écrivez sur papier votre phrase de récupération";
+"next, write down your recovery phrase" = "next, write down your recovery phrase";
 
 /* No comment provided by engineer. */
-"no exchange rate data" = "aucune donnée de taux de change";
+"no exchange rate data" = "no exchange rate data";
 
 /* No comment provided by engineer. */
-"no peers found" = "aucun pair trouvé";
+"no peers found" = "no peers found";
 
 /* No comment provided by engineer. */
-"not a bitcoin QR code" = "n'est pas un code QR Litecoin";
+"not a bitcoin QR code" = "not a Clovercoin QR code";
 
 /* No comment provided by engineer. */
-"not a valid bitcoin address" = "n'est pas une adresse Litecoin valide";
+"not a valid bitcoin address" = "not a valid Clovercoin address";
 
 /* No comment provided by engineer. */
-"not a valid private key" = "n'est pas une clé privée valide";
+"not a valid private key" = "not a valid private key";
 
 /* No comment provided by engineer. */
-"not connected to the bitcoin network" = "Non connecté au réseau Litecoin";
+"not connected to the bitcoin network" = "not connected to the Clovercoin network";
 
 /* No comment provided by engineer. */
 "ok" = "ok";
 
 /* No comment provided by engineer. */
-"passcode" = "code d'accès";
+"passcode" = "passcode";
 
 /* No comment provided by engineer. */
-"passcode for %@" = "code d'accès pour %@";
+"passcode for %@" = "passcode for %@";
 
 /* No comment provided by engineer. */
-"password" = "mot de passe";
+"password" = "password";
 
 /* No comment provided by engineer. */
-"password protected key" = "clé protégée par mot de passe";
+"password protected key" = "password protected key";
 
 /* No comment provided by engineer. */
-"pay" = "payer";
+"pay" = "Pay";
 
 /* No comment provided by engineer. */
-"payee identity isn't certified" = "l'identité du bénéficiaire n'est pas certifiée";
+"payee identity isn't certified" = "payee identity isn't certified";
 
 /* No comment provided by engineer. */
-"payment address" = "adresse de paiement";
+"payment address" = "payment address";
 
 /* No comment provided by engineer. */
-"payment output" = "sortie de paiement";
+"payment output" = "payment output";
 
 /* No comment provided by engineer. */
-"post-dated" = "postdatée";
+"pending" = "pending";
 
 /* No comment provided by engineer. */
-"Receive bitcoins at this address: %@" = "Recevoir les Litecoins à cette adresse : %@";
+"post-dated" = "post-dated";
 
 /* No comment provided by engineer. */
-"received" = "reçue";
+"Receive bitcoins at this address: %@" = "Receive Clovercoin at this address: %@";
 
 /* No comment provided by engineer. */
-"received %@" = "%1$@ reçus";
+"received" = "received";
 
 /* No comment provided by engineer. */
-"recovery phrase" = "phrase de récupération";
+"received %@" = "received %1$@";
 
 /* No comment provided by engineer. */
-"recovery phrase doesn't match" = "la phrase de récupération ne correspond pas";
+"recovery phrase" = "recovery phrase";
 
 /* No comment provided by engineer. */
-"recovery phrase must have %d words" = "la phrase de récupération doit avoir %d mots";
+"recovery phrase doesn't match" = "recovery phrase doesn't match";
 
 /* No comment provided by engineer. */
-"reduce payment amount by\n%@?" = "réduire le montant du paiement de\n%1$@?";
+"recovery phrase must have %d words" = "recovery phrase must have %d words";
 
 /* No comment provided by engineer. */
-"request" = "demander";
+"reduce payment amount by\n%@?" = "reduce payment amount by\n%1$@?";
 
 /* No comment provided by engineer. */
-"request an amount" = "demander un montant";
+"request" = "request";
 
 /* No comment provided by engineer. */
-"request expired" = "demande expirée";
+"request an amount" = "request an amount";
 
 /* No comment provided by engineer. */
-"requested network \"%@\" instead of \"%@\"" = "réseau demandé \"%1$@\" à la place de \"%2$@\"";
+"request expired" = "request expired";
 
 /* No comment provided by engineer. */
-"rescan" = "réanalyser";
+"requested network \"%@\" instead of \"%@\"" = "requested network \"%1$@\" instead of \"%2$@\"";
 
 /* No comment provided by engineer. */
-"rescan blockchain" = "réanalyser la chaîne de blocs";
+"rescan" = "rescan";
 
 /* No comment provided by engineer. */
-"rescan blockchain if you think you may have missing transactions, or are having trouble sending (rescanning can take several minutes)" = "réanalysez la chaîne de blocs si vous pensez que vous avez des transactions manquantes, ou si vous avez des problèmes d'envoi (la réanalyse peut prendre quelques minutes)";
+"rescan blockchain" = "rescan blockchain";
 
 /* No comment provided by engineer. */
-"reset" = "réinitialiser";
+"rescan blockchain if you think you may have missing transactions, or are having trouble sending (rescanning can take several minutes)" = "rescan blockchain if you think you may have missing transactions, or are having trouble sending (rescanning can take several minutes)";
 
 /* No comment provided by engineer. */
-"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "Numérisez le code QR de quelqu'un pour obtenir son adresse Litecoin. Vous pouvez envoyer un paiement à n'importe qui avec une adresse.";
+"reset" = "reset";
 
 /* No comment provided by engineer. */
-"Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret." = "Les captures d'écran sont visibles aux autres applis et appareils. Générez une nouvelle phrase de récupération et gardez-la secrète.";
+"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "Scan someone else's QR code to get their Clovercoin address. You can send a payment to anyone with an address.";
 
 /* No comment provided by engineer. */
-"Screenshots are visible to other apps and devices. Your funds are at risk. Transfer your balance to another wallet." = "Les captures d'écran sont visibles aux autres applis et appareils. Vos fonds sont à risque. Transférez votre solde à un autre portefeuille.";
+"Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret." = "Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret.";
 
 /* No comment provided by engineer. */
-"seen by %d of %d peers" = "vu par %1$d de %2$d pairs";
+"Screenshots are visible to other apps and devices. Your funds are at risk. Transfer your balance to another wallet." = "Screenshots are visible to other apps and devices. Your funds are at risk. Transfer your balance to another wallet.";
 
 /* No comment provided by engineer. */
-"Send %@ from this private key into your wallet? The bitcoin network will receive a fee of %@." = "Envoyer %1$@ de cette clé privée dans votre portefeuille ? Le réseau Litecoin recevra des frais de %3$@.";
+"seen by %d of %d peers" = "seen by %1$d of %2$d peers";
 
 /* No comment provided by engineer. */
-"send address as email" = "envoyer l'adresse par e-mail";
+"Send %@ from this private key into your wallet? The bitcoin network will receive a fee of %@." = "Send %1$@ from this private key into your wallet? The Clovercoin network will receive a fee of %3$@.";
 
 /* No comment provided by engineer. */
-"send address as message" = "envoyer l'adresse par message";
+"send address as email" = "send address as email";
 
 /* No comment provided by engineer. */
-"send request as email" = "envoyer la demande par e-mail";
+"send address as message" = "send address as message";
 
 /* No comment provided by engineer. */
-"send request as message" = "envoyer la demande par message";
+"send request as email" = "send request as email";
 
 /* No comment provided by engineer. */
-"sent" = "envoyée";
+"send request as message" = "send request as message";
 
 /* No comment provided by engineer. */
-"sent!" = "envoyée !";
+"sent" = "sent";
 
 /* No comment provided by engineer. */
-"settings" = "paramètres";
+"sent!" = "sent!";
 
 /* No comment provided by engineer. */
-"show" = "montrer";
+"settings" = "settings";
 
 /* No comment provided by engineer. */
-"show phrase" = "montrer la phrase";
+"show" = "show";
 
 /* No comment provided by engineer. */
-"sms not currently available" = "sms actuellement indisponible";
+"show phrase" = "show phrase";
 
 /* No comment provided by engineer. */
-"spent address" = "adresse dépensée";
+"sms not currently available" = "sms not currently available";
 
 /* No comment provided by engineer. */
-"spent input" = "entrée dépensée";
+"spent address" = "spent address";
 
 /* No comment provided by engineer. */
-"status:" = "état :";
+"spent input" = "spent input";
 
 /* No comment provided by engineer. */
-"swept!" = "balayé !";
+"status:" = "status:";
 
 /* No comment provided by engineer. */
-"syncing..." = "concordance…";
+"swept!" = "swept!";
 
 /* No comment provided by engineer. */
-"the app will now close" = "l'application va se fermer";
+"syncing..." = "syncing...";
 
 /* No comment provided by engineer. */
-"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "Ceci est votre adresse Litecoin. Tapotez pour la copier ou pour l'envoyer par e-mail ou par sms. L'adresse changera à chaque fois que vous recevrez des fonds, mais les anciennes adresses fonctionneront toujours.";
+"the app will now close" = "the app will now close";
 
 /* No comment provided by engineer. */
-"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "Ceci est votre solde Litecoin. Litecoin est une monnaie. Le taux de change fluctue avec le marché.";
+"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "This is your Clovercoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work.";
 
 /* No comment provided by engineer. */
-"this payment address is already in your wallet" = "cette adresse de paiement est déjà dans votre portefeuille";
+"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "This is your Bapcoin balance. Clovercoin is a currency. The exchange rate changes with the market.";
 
 /* No comment provided by engineer. */
-"this private key is already in your wallet" = "cette clé privée est déjà dans votre portefeuille";
+"this payment address is already in your wallet" = "this payment address is already in your wallet";
 
 /* No comment provided by engineer. */
-"this private key is empty" = "cette clé privée est vide";
+"this private key is already in your wallet" = "this private key is already in your wallet";
 
 /* No comment provided by engineer. */
-"to:" = "à :";
+"this private key is empty" = "this private key is empty";
 
 /* No comment provided by engineer. */
-"to: %@" = "à : %@";
+"to:" = "to:";
 
 /* No comment provided by engineer. */
-"touch id limit" = "limite de touch id";
+"to: %@" = "to: %@";
 
 /* No comment provided by engineer. */
-"touch id spending limit" = "limite de dépense de touch id";
+"touch id limit" = "touch id limit";
 
 /* No comment provided by engineer. */
-"transaction canceled, network timeout" = "transaction annulée, network timeout";
+"touch id spending limit" = "touch id spending limit";
 
 /* No comment provided by engineer. */
-"transaction fees would cost more than the funds available on this private key (due to tiny \"dust\" deposits)" = "les frais de transaction coûteraient plus que les fonds disponibles sur cette clé privée (à cause de minuscules dépôts \"dust\")";
+"transaction canceled, network timeout" = "transaction canceled, network timeout";
 
 /* No comment provided by engineer. */
-"transaction history" = "historique de transaction";
+"transaction fees would cost more than the funds available on this private key (due to tiny \"dust\" deposits)" = "transaction fees would cost more than the funds available on this private key (due to tiny \"dust\" deposits)";
 
 /* No comment provided by engineer. */
-"transaction is post-dated" = "la transaction est postdatée";
+"transaction history" = "transaction history";
 
 /* No comment provided by engineer. */
-"transaction rejected" = "transaction rejetée";
+"transaction is post-dated" = "transaction is post-dated";
 
 /* No comment provided by engineer. */
-"turn device passcode on" = "activer le code d'accès de l'appareil";
+"transaction rejected" = "transaction rejected";
 
 /* No comment provided by engineer. */
-"unexpected response from %@" = "réponse inattendue de %@";
+"turn device passcode on" = "turn device passcode on";
 
 /* No comment provided by engineer. */
-"unknown address" = "adresse inconnue";
+"unexpected response from %@" = "unexpected response from %@";
 
 /* No comment provided by engineer. */
-"unrecognized address" = "adresse non reconnue";
+"unknown address" = "unknown address";
 
 /* No comment provided by engineer. */
-"unsupported or corrupted document" = "document non supporté ou endommagé";
+"unrecognized address" = "unrecognized address";
 
 /* No comment provided by engineer. */
-"unsupported signature type" = "type de signature non supporté";
+"unsupported or corrupted document" = "unsupported or corrupted document";
 
 /* No comment provided by engineer. */
-"unsupported url" = "url non supportée";
+"unsupported signature type" = "unsupported signature type";
 
 /* No comment provided by engineer. */
-"untrusted certificate" = "certificat non approuvé";
+"unsupported url" = "unsupported url";
 
 /* No comment provided by engineer. */
-"unverified" = "non vérifiée";
+"untrusted certificate" = "untrusted certificate";
 
 /* No comment provided by engineer. */
-"verified, waiting for confirmation" = "vérifiée, en attente de confirmation";
+"unverified" = "unverified";
 
 /* No comment provided by engineer. */
-"verify passcode" = "vérifiez le code d'accès";
+"verified, waiting for confirmation" = "verified, waiting for confirmation";
 
 /* No comment provided by engineer. */
-"verify wallet passcode" = "vérifier le code d'accès du portefeuille";
+"verify passcode" = "verify passcode";
 
 /* No comment provided by engineer. */
-"wallet address" = "adresse de portefeuille";
+"verify wallet passcode" = "verify wallet passcode";
 
 /* No comment provided by engineer. */
-"wallet disabled" = "portefeuille désactivé";
+"wallet address" = "wallet address";
 
 /* No comment provided by engineer. */
-"wallet passcode" = "code d'accès du portefeuille";
+"wallet disabled" = "wallet disabled";
 
 /* No comment provided by engineer. */
-"WARNING" = "AVERTISSEMENT";
+"wallet passcode" = "wallet passcode";
 
 /* No comment provided by engineer. */
-"wipe" = "effacer";
+"WARNING" = "WARNING";
 
 /* No comment provided by engineer. */
-"WRITE DOWN YOUR RECOVERY PHRASE" = "ÉCRIVEZ SUR PAPIER VOTRE PHRASE DE RÉCUPÉRATION";
+"wipe" = "wipe";
 
 /* No comment provided by engineer. */
-"you received bitcoin!" = "Vous avez reçu des Litecoins!";
+"WRITE DOWN YOUR RECOVERY PHRASE" = "WRITE DOWN YOUR RECOVERY PHRASE";
 
 /* No comment provided by engineer. */
-"Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "Votre portefeuille peut être désynchronisé.\nCeci peut souvent être résolu en réanalysant la chaîne de blocs.";
+"you received bitcoin!" = "You received Clovercoin!";
 
 /* No comment provided by engineer. */
-"Send" = "Payer";
+"Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain.";
 
 /* No comment provided by engineer. */
-"Receive" = "Recevoir";
+"Send" = "Send";
 
 /* No comment provided by engineer. */
-"Easily send Litecoin anywhere in the world with LoafWallet's live currency conversion rates, and QR scanner for quick on-the-go payments." = "Envoyez facilement des Litecoins n'importe où dans le monde avec les taux de convertions de monnaies en direct de LoafWallet, et un scanner de QR Code pour des paiements rapides sans contacts.";
+"Receive" = "Receive";
 
 /* No comment provided by engineer. */
-"Receive Litecoins with your receive address. Share you Litecoin Address with others, and request a payment. Your Litecoin address can be copied to your clipboard, sent via email and shared via other forms of social media." = "Recevez des Litecoins avec votre adresse de paiement. Partager votre adresse de paiement Litecoin avec d'autre personnes, et demander votre paiement. Votre adresse Litecoin peut être copié dans le presse-papier, être envoyé par e-mail et partagé dans tous vos  réseaux-sociaux.";
+"Easily send Litecoin anywhere in the world with BapWallet's live currency conversion rates, and QR scanner for quick on-the-go payments." = "Easily send Clovercoin anywhere in the world with CloverWallet's live currency conversion rates, and QR scanner for quick on-the-go payments.";
 
 /* No comment provided by engineer. */
-"Browse through your transaction history, secured with your passcode. This is not visible to others, unless they possess your LoafWallet passcode. Find indepth details about every transaction." = "Parcourez votre historique de transaction, sécurisé avec votre mot de passe. Ceci n'est pas visible aux autres personnes excepté si il possède votre mot de passe LoafWallet. Découvrez en profondeur les détails de chaque transaction.";
+"Receive Litecoins with your receive address. Share you Litecoin Address with others, and request a payment. Your Litecoin address can be copied to your clipboard, sent via email and shared via other forms of social media." = "Receive Clovercoins with your receive address. Share you Clovercoin Address with others, and request a payment. Your Clovercoin address can be copied to your clipboard, sent via email and shared via other forms of social media.";
 
 /* No comment provided by engineer. */
-"History" = "Historique";
+"Browse through your transaction history, secured with your passcode. This is not visible to others, unless they possess your LoafWallet passcode. Find indepth details about every transaction." = "Browse through your transaction history, secured with your passcode. This is  not visible to others, unless they possess your CloverWallet passcode. Find indepth details about every transaction.";
 
 /* No comment provided by engineer. */
-"continue" = "Suivant";
+"History" = "History";
+
+/* No comment provided by engineer. */
+"continue" = "Continue";
+
+"Login failed, unauthorized!" = "Login failed, unauthorized!"
+
+"Unexcepted error!" = "Unexcepted error!"
+
+"Login failed, Incorrect authen key!" = "Login failed, Incorrect authen key!"
+
+"Login failed, Invalid mnemonic code!" = "Login failed, Invalid mnemonic code!"
+
+"user name is empty!" = "user name is empty!"
+
+"user name too short" = "user name too short"
+
+"password is empty" = "password is empty"
+
+"This password is too short" = "This password is too short"
+
+"email address is empty!" = "email address is empty!"
+
+"This email address is invalid!" = "This email address is invalid!"
+
+

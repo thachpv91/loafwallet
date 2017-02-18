@@ -55,16 +55,16 @@
 {
     switch (resposeCode) {
         case RESPONSE_CODE_Unauthorized:
-            return NSLocalizedString(@"RESPONSE_CODE_Unauthorized", nil);
+            return NSLocalizedString(@"Login failed, unauthorized!", nil);
             break;
         case RESPONSE_CODE_Unexpected_Error:
-            return NSLocalizedString(@"RESPONSE_CODE_Unexpected_Error", nil);
+            return NSLocalizedString(@"Unexcepted error!", nil);
             break;
         case RESPONSE_CODE_Incorrect_Authen_Key:
-            return NSLocalizedString(@"RESPONSE_CODE_Incorrect_Authen_Key", nil);
+            return NSLocalizedString(@"Login failed, Incorrect authen key!", nil);
             break;
         case RESPONSE_CODE_Invalid_Mnemonic_Code:
-            return NSLocalizedString(@"RESPONSE_CODE_Invalid_Mnemonic_Code", nil);
+            return NSLocalizedString(@"Login failed, Invalid mnemonic code!", nil);
             break;
             
         default:

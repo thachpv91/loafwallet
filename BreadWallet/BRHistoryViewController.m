@@ -35,7 +35,7 @@
 #import "NSString+Bitcoin.h"
 #import "NSData+Bitcoin.h"
 #import "BREventManager.h"
-#import "breadwallet-Swift.h"
+#import "CloverWallet-Swift.h"
 #import <WebKit/WebKit.h>
 
 #define TRANSACTION_CELL_HEIGHT 75
@@ -125,7 +125,7 @@ static NSString *dateFormat(NSString *template)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         self.transactions = @[tx, tx, tx, tx, tx, tx];
         [self.tableView reloadData];
-        self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC", [manager stringForAmount:42980000]];
+        self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO", [manager stringForAmount:42980000]];
     });
 
     return;
@@ -164,7 +164,7 @@ static NSString *dateFormat(NSString *template)
 
                                                                if (! [self.navigationItem.title isEqual:NSLocalizedString(@"syncing...", nil)]) {
                                                                    if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
-                                                                   self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
+                                                                   self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO",
                                                                                                 [manager stringForAmount:manager.wallet.balance]];
                                                                }
 
@@ -204,7 +204,7 @@ static NSString *dateFormat(NSString *template)
         [[NSNotificationCenter defaultCenter] addObserverForName:BRPeerManagerSyncFinishedNotification object:nil
                                                            queue:nil usingBlock:^(NSNotification *note) {
                                                                if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
-                                                               self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
+                                                               self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO",
                                                                                             [manager stringForAmount:manager.wallet.balance]];
                                                            }];
     }
@@ -214,7 +214,7 @@ static NSString *dateFormat(NSString *template)
         [[NSNotificationCenter defaultCenter] addObserverForName:BRPeerManagerSyncFailedNotification object:nil
                                                            queue:nil usingBlock:^(NSNotification *note) {
                                                                if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
-                                                               self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
+                                                               self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO",
                                                                                             [manager stringForAmount:manager.wallet.balance]];
                                                            }];
     }
@@ -800,7 +800,7 @@ static NSString *dateFormat(NSString *template)
         cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.54 blue:0.38 alpha:1.0];
     }else
     {
-        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.69 blue:0.49 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0.30 green:0.77 blue:0.63 alpha:1.0];
     }
 }
 @end

@@ -37,7 +37,7 @@
 #import "BRWalletManager.h"
 #import "BRPaymentRequest.h"
 #import "UIImage+Utils.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 #import "Reachability.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import <sys/stat.h>
@@ -177,20 +177,20 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             if (! manager.noWallet) {
-                // thachpv note: need to review this code
-                BREventManager *eventMan = [BREventManager sharedEventManager];
-                NSLog(@"BRRootViewController viewDidLoad self.foregroundObserver = ...");
-                NSLog(@"BRRootViewController viewDidLoad BRPeerManager.connect()");
-                [[BRPeerManager sharedInstance] connect];
-                [self.sendViewController updateClipboardText];
-                if (eventMan.isInSampleGroup && ! eventMan.hasAskedForPermission) {
-                    [eventMan acquireUserPermissionInViewController:self.navigationController withCallback:nil];
-                }
-                else {
-                    NSString *userDefaultsKey = @"has_asked_for_push";
-                    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:userDefaultsKey];
-                    ([(id)[UIApplication sharedApplication].delegate registerForPushNotifications]);
-                }
+//                // thachpv note: need to review this code
+//                BREventManager *eventMan = [BREventManager sharedEventManager];
+//                NSLog(@"BRRootViewController viewDidLoad self.foregroundObserver = ...");
+//                NSLog(@"BRRootViewController viewDidLoad BRPeerManager.connect()");
+//                [[BRPeerManager sharedInstance] connect];
+//                [self.sendViewController updateClipboardText];
+//                if (eventMan.isInSampleGroup && ! eventMan.hasAskedForPermission) {
+//                    [eventMan acquireUserPermissionInViewController:self.navigationController withCallback:nil];
+//                }
+//                else {
+//                    NSString *userDefaultsKey = @"has_asked_for_push";
+//                    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:userDefaultsKey];
+//                    ([(id)[UIApplication sharedApplication].delegate registerForPushNotifications]);
+//                }
             }
 
             if (jailbroken && manager.wallet.totalReceived + manager.wallet.totalSent > 0) {
@@ -597,7 +597,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 
     if (self.percent.hidden) {
         self.navigationItem.titleView = nil;
-        self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC", [manager stringForAmount:balance]];
+        self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO", [manager stringForAmount:balance]];
         
     }
 }

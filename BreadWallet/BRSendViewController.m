@@ -39,8 +39,8 @@
 #import "NSString+Bitcoin.h"
 #import "NSMutableData+Bitcoin.h"
 #import "NSData+Bitcoin.h"
-#import "BREventManager.h"
-#import "breadwallet-Swift.h"
+//#import "BREventManager.h"
+#import "CloverWallet-Swift.h"
 
 #define SCAN_TIP      NSLocalizedString(@"Scan someone else's QR code to get their bitcoin address. "\
                                          "You can send a payment to anyone with an address.", nil)
@@ -532,7 +532,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
         }
         else amountController.to = address;
 
-        amountController.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
+        amountController.navigationItem.title = [NSString stringWithFormat:@"%@  CLO",
                                                  [manager stringForAmount:manager.wallet.balance]];
         [self.navigationController pushViewController:amountController animated:YES];
         return;

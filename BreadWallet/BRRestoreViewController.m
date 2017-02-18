@@ -31,7 +31,7 @@
 #import "NSMutableData+Bitcoin.h"
 #import "NSString+Bitcoin.h"
 #import "NSManagedObject+Sugar.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 
 #define PHRASE_LENGTH 12
 

@@ -29,7 +29,7 @@
 #import "BRWalletManager.h"
 #import "BRPeerManager.h"
 #import "BRTransaction.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 
 @interface BRAmountViewController ()
 
@@ -63,8 +63,11 @@
 
     self.payButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"pay", nil)
                       style:UIBarButtonItemStylePlain target:self action:@selector(pay:)];
-    self.amountField.placeholder = [manager stringForAmount:0];
+//    self.amountField.placeholder = [manager stringForAmount:0];
+    self.amountField.placeholder = [NSString stringWithFormat:@"%@  CLO",
+                                    [manager stringForAmount:0]];
     [self.decimalButton setTitle:manager.format.currencyDecimalSeparator forState:UIControlStateNormal];
+    
 
   //  [self updateLocalCurrencyLabel];
     
@@ -73,7 +76,7 @@
         usingBlock:^(NSNotification *note) {
             if ([BRPeerManager sharedInstance].syncProgress < 1.0) return; // wait for sync before updating balance
 
-            self.navigationItem.title = [NSString stringWithFormat:@"%@  HTC",
+            self.navigationItem.title = [NSString stringWithFormat:@"%@  CLO",
                                          [manager stringForAmount:manager.wallet.balance]];
         }];
     
@@ -106,6 +109,7 @@
 //        self.memoField.userInteractionEnabled = YES;
 //        self.memoField.placeholder = NSLocalizedString(@"memo:", nil);
         self.payButton.title = NSLocalizedString(@"request", nil);
+        self.payButton.tintColor = [UIColor whiteColor];
         self.navigationItem.rightBarButtonItem = self.payButton;
     }
 
@@ -152,6 +156,7 @@
 
 - (IBAction)number:(id)sender
 {
+    
     NSUInteger l = [self.amountField.text rangeOfCharacterFromSet:self.charset options:NSBackwardsSearch].location;
 
     l = (l < self.amountField.text.length) ? l + 1 : self.amountField.text.length;

@@ -27,7 +27,7 @@
 #import "BRWelcomeViewController.h"
 #import "BRRootViewController.h"
 #import "BRWalletManager.h"
-#import "BREventManager.h"
+//#import "BREventManager.h"
 
 
 @interface BRWelcomeViewController ()
