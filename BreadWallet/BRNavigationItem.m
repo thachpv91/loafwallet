@@ -83,6 +83,7 @@ static void *kTitleViewStateObservingContext = &kTitleViewStateObservingContext;
 	
 	if ( YES == [self.titleView isKindOfClass:[UILabel class]] ) {
 		UILabel *label = (UILabel *)self.titleView;
+        label.textColor = [UIColor whiteColor]; // Thach added to changed color title
 		UIFont *titleFont = [UIFont fontWithName:@"HelveticaNeue-Medium" size:23.0];
 		UIFont *smallFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:12.0];
 		NSString *simpleString = self.title;

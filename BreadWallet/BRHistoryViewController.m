@@ -310,9 +310,9 @@ static NSString *dateFormat(NSString *template)
 
     dispatch_once(&onceToken, ^{ // BUG: need to watch for NSCurrentLocaleDidChangeNotification
         monthDayHourFormatter = [NSDateFormatter new];
-        monthDayHourFormatter.dateFormat = dateFormat(@"HH:mm MMdd");
+        monthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyyyy");
         yearMonthDayHourFormatter = [NSDateFormatter new];
-        yearMonthDayHourFormatter.dateFormat = dateFormat(@"HH:mm yyyyMMdd");
+        yearMonthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyyyy");
     });
 
     NSString *date = self.txDates[uint256_obj(tx.txHash)];
@@ -457,7 +457,7 @@ static NSString *dateFormat(NSString *template)
     //UILabel *localCurrencyLabel;
     UIImageView *tickChecked, *tickUnchecked;
     BRWalletManager *manager = [BRWalletManager sharedInstance];
-
+    
     switch (indexPath.section) {
         case 0:
             if (self.moreTx && indexPath.row >= self.transactions.count) {
@@ -492,7 +492,7 @@ static NSString *dateFormat(NSString *template)
                 confirms = 6;
 #endif
 
-                textLabel.textColor = [UIColor darkTextColor];
+                textLabel.textColor = [UIColor whiteColor];
                 sentLabel.hidden = YES;
                 tickChecked.hidden = YES;
                 unconfirmedLabel.hidden = NO;
@@ -507,7 +507,7 @@ static NSString *dateFormat(NSString *template)
                 else if (confirms == 0 && [manager.wallet transactionIsPending:tx]) {
                     unconfirmedLabel.text = NSLocalizedString(@"pending", nil);
                     unconfirmedLabel.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.2];
-                    textLabel.textColor = [UIColor grayColor];
+                    textLabel.textColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0];// [UIColor grayColor];
                 }
                 else if (confirms == 0 && ! [manager.wallet transactionIsVerified:tx]) {
                     unconfirmedLabel.text = NSLocalizedString(@"unverified", nil);
@@ -644,7 +644,7 @@ static NSString *dateFormat(NSString *template)
     l.text = [self tableView:tableView titleForHeaderInSection:section];
     l.backgroundColor = [UIColor clearColor];
     l.font = [UIFont fontWithName:@"HelveticaNeue" size:13];
-    l.textColor = [UIColor grayColor];
+    l.textColor = [UIColor whiteColor];
     l.shadowColor = [UIColor whiteColor];
     l.shadowOffset = CGSizeMake(0.0, 1.0);
     l.numberOfLines = 0;
@@ -797,10 +797,33 @@ static NSString *dateFormat(NSString *template)
 {
     if(indexPath.row % 2 == 0)
     {
-        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.54 blue:0.38 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.69 blue:0.49 alpha:1.0];
+       
+        
     }else
     {
-        cell.backgroundColor = [UIColor colorWithRed:0.30 green:0.77 blue:0.63 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0.00 green:0.54 blue:0.38 alpha:1.0]; //[UIColor colorWithRed:0.30 green:0.77 blue:0.63 alpha:1.0];
+    }
+
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // Draw top border only on first cell
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        UIView *topLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1)];
+        topLineView.backgroundColor = [UIColor colorWithRed:0.30 green:0.77 blue:0.63 alpha:0.8];
+        [cell.contentView addSubview:topLineView];
+    }
+    
+    UIView *bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0, cell.bounds.size.height, self.view.bounds.size.width, 1)];
+    bottomLineView.backgroundColor = [UIColor colorWithRed:0.30 green:0.77 blue:0.63 alpha:0.8];
+    [cell.contentView addSubview:bottomLineView];
+}
+// Thach added
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.moreTx) { // more...
+        [self performSelector:@selector(more:) withObject:scrollView afterDelay:0.0];
     }
 }
+// Thach end added
 @end

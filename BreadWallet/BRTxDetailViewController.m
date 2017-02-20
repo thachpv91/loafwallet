@@ -179,8 +179,8 @@
                     textLabel.text = NSLocalizedString(@"id:", nil);
                     s = [NSString hexWithData:[NSData dataWithBytes:self.transaction.txHash.u8
                                                length:sizeof(UInt256)].reverse];
-                    detailLabel.text = [NSString stringWithFormat:@"%@\n%@", [s substringToIndex:s.length/2],
-                                        [s substringFromIndex:s.length/2]];
+                    detailLabel.text = s;//[NSString stringWithFormat:@"%@\n%@", [s substringToIndex:s.length/2],
+                                      //  [s substringFromIndex:s.length/2]];
                     detailLabel.copyableText = s;
                     break;
                     
@@ -221,12 +221,14 @@
                     //localCurrencyLabel = (id)[cell viewWithTag:5];
 
                     if (self.sent > 0 && self.sent == self.received) {
-                        textLabel.text = [manager stringForAmount:self.sent];
+                        textLabel.text =  [NSString stringWithFormat:@"%@ CLO" ,
+                                           [manager stringForAmount:self.sent]] ;
 //                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
 //                                                   [manager localCurrencyStringForAmount:self.sent]];
                     }
                     else {
-                        textLabel.text = [manager stringForAmount:self.received - self.sent];
+                        textLabel.text =  [NSString stringWithFormat:@"%@ CLO" ,
+                                           [manager stringForAmount:self.received - self.sent]];
 //                        localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
 //                                                   [manager localCurrencyStringForAmount:self.received - self.sent]];
                     }
@@ -257,7 +259,7 @@
                 amountLabel.text = [manager stringForAmount:[self.outputAmount[indexPath.row] longLongValue]];
                 // Thach note : need review
                 amountLabel.textColor = (self.sent > 0) ? [UIColor colorWithRed:1.0 green:0.33 blue:0.33 alpha:1.0] :
-                                        [UIColor colorWithRed:0.0 green:0.75 blue:0.0 alpha:1.0];
+                                        [UIColor whiteColor];
 //                localCurrencyLabel.textColor = amountLabel.textColor;
 //                localCurrencyLabel.text = [NSString stringWithFormat:@"(%@)",
 //                                           [manager localCurrencyStringForAmount:[self.outputAmount[indexPath.row]
@@ -315,7 +317,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
-        case 0: return 44.0;
+        case 0: return 60.0;
         case 1: return (self.sent > 0 && [self.outputText[indexPath.row] length] == 0) ? 40 : 60.0;
         case 2: return 60.0;
     }

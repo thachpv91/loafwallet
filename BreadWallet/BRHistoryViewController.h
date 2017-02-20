@@ -29,7 +29,7 @@
 @class BRTransaction;
 
 @interface BRHistoryViewController : UITableViewController <UIAlertViewDelegate, UINavigationControllerDelegate,
-UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, UIScrollViewDelegate>
 
 @property (nonatomic, strong) BRTransaction *transaction;
 
