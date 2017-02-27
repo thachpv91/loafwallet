@@ -184,6 +184,8 @@
 
 - (IBAction)about:(id)sender
 {
+    /***** Thachphan rem
+     
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *composeController = [MFMailComposeViewController new];
         NSString *msg;
@@ -210,6 +212,7 @@
         [[[UIAlertView alloc] initWithTitle:@"" message:NSLocalizedString(@"email not configured", nil) delegate:nil
           cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
     }
+     *****/ // Thach end rem
 }
 
 #if DEBUG

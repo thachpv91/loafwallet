@@ -483,6 +483,8 @@
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqual:NSLocalizedString(@"try again", nil)])
     {
         [self hideSpinnerLoading];
+        self.loginButton.alpha = 1.0f;
+        self.loginButton.enabled = true;
         if(_currentRequestType == RT_SAVE_MNEMONIC_CODE)
         {
             // Try request to save mnemonic Code

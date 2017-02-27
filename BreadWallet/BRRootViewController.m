@@ -256,7 +256,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         usingBlock:^(NSNotification *note) {
             if (! manager.noWallet && self.reachability.currentReachabilityStatus != NotReachable &&
                 [UIApplication sharedApplication].applicationState != UIApplicationStateBackground) {
-                NSLog(@"self.reachabilityObserver = .. [BRPeerManager sharedInstance] connect");
+                //NSLog(@"self.reachabilityObserver = .. [BRPeerManager sharedInstance] connect");
                 [[BRPeerManager sharedInstance] connect];
                  [self showErrorBar];
             }

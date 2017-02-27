@@ -374,11 +374,11 @@
 		75D5F3BE191EC270004AB296 /* CloverWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloverWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D5F3C9191EC270004AB296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D5F3CD191EC270004AB296 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		75D5F3CF191EC270004AB296 /* LoafWallet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoafWallet-Prefix.pch"; sourceTree = "<group>"; };
+		75D5F3CF191EC270004AB296 /* CloverWallet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloverWallet-Prefix.pch"; sourceTree = "<group>"; };
 		75D5F3D0191EC270004AB296 /* BRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAppDelegate.h; sourceTree = "<group>"; };
 		75D5F3D1191EC270004AB296 /* BRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRAppDelegate.m; sourceTree = "<group>"; };
 		75D5F3DF191EC270004AB296 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		75D5F3E5191EC270004AB296 /* LoafWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoafWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75D5F3E5191EC270004AB296 /* CloverWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloverWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D5F3F2191EC270004AB296 /* BreadWalletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreadWalletTests.m; sourceTree = "<group>"; };
 		75E83CF51B5F997A0038FB70 /* coinflip.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = coinflip.aiff; sourceTree = "<group>"; };
 		75EDC0E61CD92CE00090B838 /* BreadWalletUITests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BreadWalletUITests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -772,7 +772,7 @@
 			isa = PBXGroup;
 			children = (
 				75D5F3BE191EC270004AB296 /* CloverWallet.app */,
-				75D5F3E5191EC270004AB296 /* LoafWalletTests.xctest */,
+				75D5F3E5191EC270004AB296 /* CloverWalletTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -831,7 +831,7 @@
 				75D5F3C9191EC270004AB296 /* Info.plist */,
 				757E09971ADB8EEB006FD352 /* Localizable.strings */,
 				75D5F3CD191EC270004AB296 /* main.m */,
-				75D5F3CF191EC270004AB296 /* LoafWallet-Prefix.pch */,
+				75D5F3CF191EC270004AB296 /* CloverWallet-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -990,9 +990,9 @@
 			productReference = 75D5F3BE191EC270004AB296 /* CloverWallet.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75D5F3E4191EC270004AB296 /* LoafWalletTests */ = {
+		75D5F3E4191EC270004AB296 /* CloverWalletTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75D5F3F9191EC270004AB296 /* Build configuration list for PBXNativeTarget "LoafWalletTests" */;
+			buildConfigurationList = 75D5F3F9191EC270004AB296 /* Build configuration list for PBXNativeTarget "CloverWalletTests" */;
 			buildPhases = (
 				75D5F3E1191EC270004AB296 /* Sources */,
 				75D5F3E2191EC270004AB296 /* Frameworks */,
@@ -1003,9 +1003,9 @@
 			dependencies = (
 				75D5F3EB191EC270004AB296 /* PBXTargetDependency */,
 			);
-			name = LoafWalletTests;
+			name = CloverWalletTests;
 			productName = BreadWalletTests;
-			productReference = 75D5F3E5191EC270004AB296 /* LoafWalletTests.xctest */;
+			productReference = 75D5F3E5191EC270004AB296 /* CloverWalletTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1045,7 +1045,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 75D5F3B9191EC270004AB296 /* Build configuration list for PBXProject "LoafWallet" */;
+			buildConfigurationList = 75D5F3B9191EC270004AB296 /* Build configuration list for PBXProject "CloverWallet" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1077,7 +1077,7 @@
 			projectRoot = "";
 			targets = (
 				75D5F3BD191EC270004AB296 /* CloverWallet */,
-				75D5F3E4191EC270004AB296 /* LoafWalletTests */,
+				75D5F3E4191EC270004AB296 /* CloverWalletTests */,
 				75001D3D1A1EE89500585F55 /* submodules */,
 			);
 		};
@@ -1353,9 +1353,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1377,6 +1378,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-frandom-seed=$@";
+				PROVISIONING_PROFILE = "e18c4080-9f80-477a-9ea7-f5bd2fad330d";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1404,9 +1406,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1421,6 +1424,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-frandom-seed=$@";
+				PROVISIONING_PROFILE = "e18c4080-9f80-477a-9ea7-f5bd2fad330d";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -1436,11 +1440,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BreadWallet/LoafWallet-Prefix.pch";
+				GCC_PREFIX_HEADER = "BreadWallet/CloverWallet-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1450,7 +1454,8 @@
 				INFOPLIST_FILE = BreadWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bap.CloverWallet;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.bap.CloverWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1468,11 +1473,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BreadWallet/LoafWallet-Prefix.pch";
+				GCC_PREFIX_HEADER = "BreadWallet/CloverWallet-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1482,7 +1487,8 @@
 				INFOPLIST_FILE = BreadWallet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bap.CloverWallet;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.bap.CloverWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1503,7 +1509,7 @@
 				INFOPLIST_FILE = BreadWalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litecoin.loafwallet.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = LoafWalletTests;
+				PRODUCT_NAME = CloverWalletTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "BreadWalletTests/BreadWalletTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1522,7 +1528,7 @@
 				INFOPLIST_FILE = BreadWalletTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.litecoin.loafwallet.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = LoafWalletTests;
+				PRODUCT_NAME = CloverWalletTests;
 				SWIFT_OBJC_BRIDGING_HEADER = "BreadWalletTests/BreadWalletTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1541,7 +1547,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75D5F3B9191EC270004AB296 /* Build configuration list for PBXProject "LoafWallet" */ = {
+		75D5F3B9191EC270004AB296 /* Build configuration list for PBXProject "CloverWallet" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75D5F3F4191EC270004AB296 /* Debug */,
@@ -1559,7 +1565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75D5F3F9191EC270004AB296 /* Build configuration list for PBXNativeTarget "LoafWalletTests" */ = {
+		75D5F3F9191EC270004AB296 /* Build configuration list for PBXNativeTarget "CloverWalletTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75D5F3FA191EC270004AB296 /* Debug */,

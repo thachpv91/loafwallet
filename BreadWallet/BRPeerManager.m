@@ -55,11 +55,12 @@
 #if BITCOIN_TESTNET
 
 static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
-    { 0, "f5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f", 1317798646, 0x1e0ffff0 }
+    { 0, "756b43ae32be5d81d143de5ce2ce449b67483e9c56161b605cb9ba9139fd04ab", 1486363383L, 0x1e0ffff0 }
 };
 
 static const char *dns_seeds[] = {
    // "testnet-seed.litecointools.com", "testnet-seed.ltc.xurious.com"
+   // 54.238.190.114 //ip cua seed node
 };
 
 #else // main net
@@ -67,7 +68,8 @@ static const char *dns_seeds[] = {
 // blockchain checkpoints - these are also used as starting points for partial chain downloads, so they need to be at
 // difficulty transition boundaries in order to verify the block difficulty at the immediately following transition
 static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
-    { 0, "32faf033cd528f7c245f864b5f64d7b1f84b93be8105a110311b03365870d7fb", 1479086934, 0x1e0ffff0L } // thach modified
+    //{ 0, "32faf033cd528f7c245f864b5f64d7b1f84b93be8105a110311b03365870d7fb", 1479086934, 0x1e0ffff0L } // thach modified
+    { 0, "756b43ae32be5d81d143de5ce2ce449b67483e9c56161b605cb9ba9139fd04ab", 1486363383L, 0x1e0ffff0 }
     
 };
 

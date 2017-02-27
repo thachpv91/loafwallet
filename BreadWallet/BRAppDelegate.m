@@ -312,7 +312,7 @@ performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionH
 
 - (void)registerForPushNotifications {
     BOOL hasNotification = [UIUserNotificationSettings class] != nil;
-    NSString *userDefaultsKey = @"has_asked_for_push";
+    NSString *userDefaultsKey = @" ";
     BOOL hasAskedForPushNotification = [[NSUserDefaults standardUserDefaults] boolForKey:userDefaultsKey];
     
     if (hasAskedForPushNotification && hasNotification && !self.pushRegistry) {
