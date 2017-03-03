@@ -730,38 +730,38 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
 
 - (void)showErrorBar
 {
-    if (self.navigationItem.prompt != nil || self.navigationController.presentedViewController != nil) return;
-    self.navigationItem.prompt = @"";
-    self.errorBar.hidden = NO;
-    self.errorBar.alpha = 0.0;
-    
-    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0
-    options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.burger.center = CGPointMake(self.burger.center.x, 70.0);
-        self.errorBar.alpha = 1.0;
-    } completion:nil];
-    
-    BRWalletManager *manager = [BRWalletManager sharedInstance];
-    
-    if (! self.percent.hidden) [self hideTips];
-    self.percent.hidden = YES;
-    if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
-    self.balance = _balance; // reset navbar title
-    self.progress.hidden = self.pulse.hidden = YES;
+//    if (self.navigationItem.prompt != nil || self.navigationController.presentedViewController != nil) return;
+//    self.navigationItem.prompt = @"";
+//    self.errorBar.hidden = NO;
+//    self.errorBar.alpha = 0.0;
+//    
+//    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0
+//    options:UIViewAnimationOptionCurveEaseIn animations:^{
+//        self.burger.center = CGPointMake(self.burger.center.x, 70.0);
+//        self.errorBar.alpha = 1.0;
+//    } completion:nil];
+//    
+//    BRWalletManager *manager = [BRWalletManager sharedInstance];
+//    
+//    if (! self.percent.hidden) [self hideTips];
+//    self.percent.hidden = YES;
+//    if (! manager.didAuthenticate) self.navigationItem.titleView = self.logo;
+//    self.balance = _balance; // reset navbar title
+//    self.progress.hidden = self.pulse.hidden = YES;
 }
 
 - (void)hideErrorBar
 {
-    if (self.navigationItem.prompt == nil) return;
-    self.navigationItem.prompt = nil;
-
-    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0
-    options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.burger.center = CGPointMake(self.burger.center.x, 40.0);
-        self.errorBar.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        if (self.navigationItem.prompt == nil) self.errorBar.hidden = YES;
-    }];
+//    if (self.navigationItem.prompt == nil) return;
+//    self.navigationItem.prompt = nil;
+//
+//    [UIView animateWithDuration:UINavigationControllerHideShowBarDuration delay:0.0
+//    options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        self.burger.center = CGPointMake(self.burger.center.x, 40.0);
+//        self.errorBar.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        if (self.navigationItem.prompt == nil) self.errorBar.hidden = YES;
+//    }];
 }
 
 - (void)showBackupDialogIfNeeded
