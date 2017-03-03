@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define PROTO @"http"
-#define HOST  @"192.168.0.118:3000/api/v1/user"
-//#define HOST  @"45.32.102.232:/api/v1/user"
+#define PROTO @"https"
+//#define HOST  @"192.168.0.118:3000/api/v1/user"
+#define HOST  @"clover-miner.com/api/v1/user"
 #define BASE_URL  PROTO@"://"HOST
 
 #define BAP_API_LOGIN               @"login"

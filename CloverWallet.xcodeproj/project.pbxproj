@@ -116,8 +116,6 @@
 		BA7B535C1BDBC36700355E8D /* BRTransaction+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7B535B1BDBC36700355E8D /* BRTransaction+Utils.m */; };
 		BAA4843C1B3EFFAF0075C749 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA4843B1B3EFFAF0075C749 /* UIImage+Utils.m */; };
 		BAC7B6BE1BD9C29900165B84 /* BRPhoneWCSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC7B6BD1BD9C29900165B84 /* BRPhoneWCSessionManager.m */; };
-		DFC59ED91D29372C00D3C74E /* receive.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DFC59ED71D29372C00D3C74E /* receive.mp4 */; };
-		DFC59EDA1D29372C00D3C74E /* send.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DFC59ED81D29372C00D3C74E /* send.mp4 */; };
 		DFC59EDC1D2937A600D3C74E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFC59EDB1D2937A600D3C74E /* MediaPlayer.framework */; };
 		DFC59EE11D29389E00D3C74E /* BRTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC59EE01D29389E00D3C74E /* BRTutorial.m */; };
 /* End PBXBuildFile section */
@@ -438,8 +436,6 @@
 		BAE12BEA1B2DEE7F00895CC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAE12C041B2DEEF700895CC5 /* BRTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTodayViewController.h; sourceTree = "<group>"; };
 		BAE12C051B2DEEF700895CC5 /* BRTodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTodayViewController.m; sourceTree = "<group>"; };
-		DFC59ED71D29372C00D3C74E /* receive.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = receive.mp4; sourceTree = "<group>"; };
-		DFC59ED81D29372C00D3C74E /* send.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = send.mp4; sourceTree = "<group>"; };
 		DFC59EDB1D2937A600D3C74E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		DFC59EDF1D29389E00D3C74E /* BRTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTutorial.h; sourceTree = "<group>"; };
 		DFC59EE01D29389E00D3C74E /* BRTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTutorial.m; sourceTree = "<group>"; };
@@ -756,7 +752,7 @@
 		75D5F3B5191EC270004AB296 = {
 			isa = PBXGroup;
 			children = (
-				75D5F3C7191EC270004AB296 /* LoafWallet */,
+				75D5F3C7191EC270004AB296 /* CloverWallet */,
 				BAE12BE81B2DEE7F00895CC5 /* TodayExtension */,
 				75D5F3EC191EC270004AB296 /* BreadWalletTests */,
 				31D68B511C23B6C10030FAAA /* BreadWalletUITests */,
@@ -797,7 +793,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		75D5F3C7191EC270004AB296 /* LoafWallet */ = {
+		75D5F3C7191EC270004AB296 /* CloverWallet */ = {
 			isa = PBXGroup;
 			children = (
 				67D1682E1E52F1FF0082B011 /* Main.storyboard */,
@@ -821,7 +817,7 @@
 				7579F7FE19231D4600CA56F4 /* ThirdParty */,
 				75D5F3C8191EC270004AB296 /* Supporting Files */,
 			);
-			name = LoafWallet;
+			name = CloverWallet;
 			path = BreadWallet;
 			sourceTree = "<group>";
 		};
@@ -936,8 +932,6 @@
 		DFC59ED61D29372C00D3C74E /* Tutorials */ = {
 			isa = PBXGroup;
 			children = (
-				DFC59ED71D29372C00D3C74E /* receive.mp4 */,
-				DFC59ED81D29372C00D3C74E /* send.mp4 */,
 			);
 			path = Tutorials;
 			sourceTree = SOURCE_ROOT;
@@ -1089,9 +1083,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FBC9701CE3A9D5009578B7 /* bread-buy.tar in Resources */,
-				DFC59EDA1D29372C00D3C74E /* send.mp4 in Resources */,
 				757E09991ADB8EEB006FD352 /* Localizable.strings in Resources */,
-				DFC59ED91D29372C00D3C74E /* receive.mp4 in Resources */,
 				67452B171E5416EC00FE8F03 /* Images.xcassets in Resources */,
 				67014AF01E58283E00EDD918 /* Main.storyboard in Resources */,
 				75F2E0D31BE9803900EAE861 /* Launch Screen.storyboard in Resources */,
@@ -1353,20 +1345,19 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thanh Dao Ngoc (MHAQT24A5Q)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
+				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DEBUG=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_PEDANTIC = YES;
@@ -1376,9 +1367,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-frandom-seed=$@";
-				PROVISIONING_PROFILE = "e18c4080-9f80-477a-9ea7-f5bd2fad330d";
+				PROVISIONING_PROFILE = "49f516f5-ac54-4a6f-97eb-39d6c42077c9";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1406,7 +1397,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thanh Dao Ngoc (MHAQT24A5Q)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
@@ -1414,6 +1405,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_PEDANTIC = YES;
@@ -1423,8 +1415,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-frandom-seed=$@";
-				PROVISIONING_PROFILE = "e18c4080-9f80-477a-9ea7-f5bd2fad330d";
+				PROVISIONING_PROFILE = "49f516f5-ac54-4a6f-97eb-39d6c42077c9";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -1440,7 +1433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thanh Dao Ngoc (MHAQT24A5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1473,7 +1466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer: blockchain.bap.jp@gmail.com (3556NU76F8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thanh Dao Ngoc (MHAQT24A5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MHAQT24A5Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

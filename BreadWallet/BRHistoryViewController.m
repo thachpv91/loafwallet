@@ -310,9 +310,9 @@ static NSString *dateFormat(NSString *template)
 
     dispatch_once(&onceToken, ^{ // BUG: need to watch for NSCurrentLocaleDidChangeNotification
         monthDayHourFormatter = [NSDateFormatter new];
-        monthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyyyy");
+        monthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyy");
         yearMonthDayHourFormatter = [NSDateFormatter new];
-        yearMonthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyyyy");
+        yearMonthDayHourFormatter.dateFormat = dateFormat(@"HH:mm ddMMyy");
     });
 
     NSString *date = self.txDates[uint256_obj(tx.txHash)];
