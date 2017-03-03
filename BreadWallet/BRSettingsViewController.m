@@ -288,7 +288,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (tableView == self.selectorController.tableView) return 1;
-    return 4;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -297,13 +297,13 @@
 
     switch (section) {
         case 0: return 1;  // thachpv changed 2 -> 1
-        case 1: return (self.touchId) ? 2 : 1; // thachpv changed 3:2 -> 2:1
+//        case 1: return (self.touchId) ? 2 : 1; // thachpv changed 3:2 -> 2:1
 #ifdef DEBUG
-        case 2: return 3;  // thachpv added for debug
+        case 1: return 3;  // thachpv added for debug
 #else
-        case 2: return 2; // thachpv changed 3 -> 2
+        case 1: return 2; // thachpv changed 3 -> 2
 #endif
-        case 3: return 1; //
+        case 2: return 1; //
     }
 
     return 0;
@@ -345,39 +345,39 @@
             }
 
             break;
+//
+//        case 1:
+//            switch (indexPath.row) {
+//                /*
+//                case 0:
+//                    cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
+//                    cell.detailTextLabel.text = manager.localCurrencyCode;
+//                    break;
+//                 */
+//                case 0:
+//                    if (self.touchId) {
+//                        cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
+//                        cell.textLabel.text = NSLocalizedString(@"touch id limit", nil);
+//                        cell.detailTextLabel.text = [manager stringForAmount:manager.spendingLimit];
+//                    } else {
+//                        goto _switch_cell;
+//                    }
+//                    break;
+//                case 1:
+//                {
+//_switch_cell:
+//                    cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
+//                    BRUserDefaultsSwitchCell *switchCell = (BRUserDefaultsSwitchCell *)cell;
+//                    switchCell.titleLabel.text = NSLocalizedString(@"enable receive notifications", nil);
+//                    [switchCell setUserDefaultsKey:USER_DEFAULTS_LOCAL_NOTIFICATIONS_KEY];
+//                    break;
+//                }
+//
+//            }
+//
+//            break;
 
         case 1:
-            switch (indexPath.row) {
-                /*
-                case 0:
-                    cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
-                    cell.detailTextLabel.text = manager.localCurrencyCode;
-                    break;
-                 */
-                case 0:
-                    if (self.touchId) {
-                        cell = [tableView dequeueReusableCellWithIdentifier:selectorIdent];
-                        cell.textLabel.text = NSLocalizedString(@"touch id limit", nil);
-                        cell.detailTextLabel.text = [manager stringForAmount:manager.spendingLimit];
-                    } else {
-                        goto _switch_cell;
-                    }
-                    break;
-                case 1:
-                {
-_switch_cell:
-                    cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCell" forIndexPath:indexPath];
-                    BRUserDefaultsSwitchCell *switchCell = (BRUserDefaultsSwitchCell *)cell;
-                    switchCell.titleLabel.text = NSLocalizedString(@"enable receive notifications", nil);
-                    [switchCell setUserDefaultsKey:USER_DEFAULTS_LOCAL_NOTIFICATIONS_KEY];
-                    break;
-                }
-
-            }
-
-            break;
-
-        case 2:
             switch (indexPath.row) {
                 case 0:
                     cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
@@ -402,17 +402,17 @@ _switch_cell:
             }
             break;
 
-        case 3:
-            cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
-            cell.textLabel.text = @"early access";
-
-            if (![WKWebView class] || ![[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsEarlyAccess]) {
-                cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
-                cell.userInteractionEnabled = NO;
-                cell.hidden = YES;
-            }
-
-            break;
+//        case 2:
+//            cell = [tableView dequeueReusableCellWithIdentifier:actionIdent];
+//            cell.textLabel.text = @"early access";
+//
+//            if (![WKWebView class] || ![[BRAPIClient sharedClient] featureEnabled:BRFeatureFlagsEarlyAccess]) {
+//                cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
+//                cell.userInteractionEnabled = NO;
+//                cell.hidden = YES;
+//            }
+//
+//            break;
     }
 
     [self setBackgroundForCell:cell tableView:tableView indexPath:indexPath];
@@ -430,10 +430,10 @@ _switch_cell:
         case 1:
             return nil;
 
-        case 2:
-            return nil;
+//        case 2:
+//            return nil;
 
-        case 3:
+        case 2:
             return NSLocalizedString(@"rescan blockchain if you think you may have missing transactions, "
                                      "or are having trouble sending (rescanning can take several minutes)", nil);
     }
@@ -629,34 +629,34 @@ _switch_cell:
 
             break;
 
+//        case 1:
+//            switch (indexPath.row) {
+//                 /*
+//                case 0: // local currency
+//                    [self showCurrencySelector];
+//
+//                    break;
+//                  */
+//
+//                case 0: // touch id spending limit
+//                    if (self.touchId) {
+//                        [self performSelector:@selector(touchIdLimit:) withObject:nil afterDelay:0.0];
+//                        break;
+//                    } else {
+//                        goto _deselect_switch;
+//                    }
+//                    break;
+//                case 1:
+//_deselect_switch:
+//                    {
+//                        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//                    }
+//                    break;
+//            }
+//
+//            break;
+
         case 1:
-            switch (indexPath.row) {
-                 /*
-                case 0: // local currency
-                    [self showCurrencySelector];
-
-                    break;
-                  */
-
-                case 0: // touch id spending limit
-                    if (self.touchId) {
-                        [self performSelector:@selector(touchIdLimit:) withObject:nil afterDelay:0.0];
-                        break;
-                    } else {
-                        goto _deselect_switch;
-                    }
-                    break;
-                case 1:
-_deselect_switch:
-                    {
-                        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-                    }
-                    break;
-            }
-
-            break;
-
-        case 2:
             switch (indexPath.row) {
                 case 0: // change passcode
 //                    [BREventManager saveEvent:@"settings:change_pin"];
@@ -686,9 +686,9 @@ _deselect_switch:
             }
 
             break;
-        case 3:
-            [self showEarlyAccess];
-            break;
+//        case 3:
+//            [self showEarlyAccess];
+//            break;
     }
 }
 
