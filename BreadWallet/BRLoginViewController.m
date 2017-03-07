@@ -163,7 +163,18 @@
     [self.navigationController pushViewController:self.forgotPassViewController animated:YES];
  
 }
-
+- (void) finishedLogin
+{
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:USER_DEFAULTS_IS_LOGGED];
+    [[NSUserDefaults standardUserDefaults] setObject:self._userName forKey:USER_DEFAULTS_USENAME];
+    [[NSUserDefaults standardUserDefaults] setObject:self._passWord forKey:USER_DEFAULTS_PASSWORD];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.navigationController.presentingViewController
+         dismissViewControllerAnimated:NO completion:nil];
+    });
+}
 - (void) requestLogin:(NSString *)userName withPass:(NSString *)pass
 {
     _currentRequestType = RT_LOGIN;
@@ -292,8 +303,8 @@
         
     }else
     {
-        if(manager.isFirtLauch)
-        {
+//        if(manager.isFirtLauch)
+//        {
                 [manager setServerSaveMnemonic:YES];
                 NSLog(@"Login: handleLoginResponse: Restore from Server`s MnenicCode ");
                 // Resore wallet
@@ -309,15 +320,13 @@
 
                 }
            
-        }else
-        {
-                 NSLog(@" Login: handleLoginResponse: Login ok, show Wallet");
+//        }else
+//        {
+//                 NSLog(@" Login: handleLoginResponse: Login ok, show Wallet");
+//
+//        }
 
-        }
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self.navigationController.presentingViewController
-             dismissViewControllerAnimated:NO completion:nil];
-        });
+        [self finishedLogin];
         
      
     }
@@ -342,8 +351,8 @@
          BRWalletManager *manager = [BRWalletManager sharedInstance];
         [manager setServerSaveMnemonic:YES];
         
-        [self.navigationController.presentingViewController
-         dismissViewControllerAnimated:NO completion:nil];
+        
+        [self finishedLogin];
     }
 
 }

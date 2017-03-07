@@ -37,6 +37,7 @@
 - (void) requestLogin:(NSString * _Nonnull)userName withPass:(NSString * _Nonnull)pass;
 - (void) requestSaveMnemonicCode;
 - (void) requestResetPass:(id)sender;
+- (void) finishedLogin;
 
 - (void) handleLoginResponse:(NSDictionary *) response withError:(NSError *) error ;
 - (void) handleSaveMemonicCodeResponse:(NSDictionary *) response withError:(NSError *) error ;

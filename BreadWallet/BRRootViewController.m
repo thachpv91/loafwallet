@@ -362,13 +362,16 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)[[NSBundle mainBundle] URLForResource:@"coinflip"
                                                          withExtension:@"aiff"], &_pingsound);
 
-    if (!manager.noWallet) {
+    if (manager.isLogined) {
         //TODO: do some kickass quick logo animation, fast circle spin that slows
         self.splash.hidden = YES;
         self.navigationController.navigationBar.hidden = NO;
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
     }else
     {
+        [manager deleteWallet];
+         manager.didAuthenticate = YES;
         [self.navigationController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"] animated:NO completion:^{
             self.splash.hidden = YES;
             self.navigationController.navigationBar.hidden = NO;
@@ -378,7 +381,6 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
             }
         }];
         
-        manager.didAuthenticate = YES;
         self.showTips = YES;
         [self unlock:nil];
 

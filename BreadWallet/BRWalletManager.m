@@ -360,7 +360,13 @@ static NSDictionary *getKeychainDict(NSString *key, NSError **error)
     if (getKeychainData(SEED_KEY, &error) || error) return NO; // check for old keychain scheme
     return YES;
 }
-
+// thach added
+- (BOOL)isLogined
+{
+    BOOL isLogged = [[NSUserDefaults standardUserDefaults] boolForKey:USER_DEFAULTS_IS_LOGGED];
+    return isLogged;
+}
+// thach end
 // true if this is a "watch only" wallet with no signing ability
 - (BOOL)watchOnly
 {
@@ -369,11 +375,9 @@ static NSDictionary *getKeychainDict(NSString *key, NSError **error)
 
 -(BOOL)isServerSaveMnemonic
 {
-    NSError *error = nil;
-    int isServerSaved = getKeychainInt(SERVER_SAVE_MNEMONIC_KEY, &error);
-    if(isServerSaved && !error)
-        return YES;
-    return NO;
+
+    int isServerSaved = [[NSUserDefaults standardUserDefaults] boolForKey:SERVER_SAVE_MNEMONIC_KEY];
+    return isServerSaved;
 }
 
 // master public key used to generate wallet addresses
@@ -1398,12 +1402,11 @@ replacementString:(NSString *)string
     setKeychainData(nil, PIN_FAIL_COUNT_KEY, NO);
     setKeychainData(nil, PIN_FAIL_HEIGHT_KEY, NO);
     setKeychainData(nil, AUTH_PRIVKEY_KEY, NO);
-    setKeychainData(nil,SERVER_SAVE_MNEMONIC_KEY, NO);
+//    setKeychainData(nil,SERVER_SAVE_MNEMONIC_KEY, NO);
 }
 - (void)setServerSaveMnemonic:(BOOL) isSaved
 {
-    if(isSaved) setKeychainInt(1, SERVER_SAVE_MNEMONIC_KEY, NO);
-    else setKeychainData(nil,SERVER_SAVE_MNEMONIC_KEY, NO);
+     [[NSUserDefaults standardUserDefaults] setBool:isSaved forKey:SERVER_SAVE_MNEMONIC_KEY];
 }
 // thachpv end
 @end

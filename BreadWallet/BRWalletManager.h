@@ -70,6 +70,7 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletManagerSeedChangedNotificatio
 // thachpv added
 @property (nonatomic, readonly, getter=isServerSaveMnemonic) BOOL serverSaveMnemonic;
 @property (nonatomic, assign) BOOL isFirtLauch;
+@property (nonatomic, readonly) BOOL isLogined;
 @property (nonatomic, copy) NSString * _Nullable authenKey;
 // thach end
 
