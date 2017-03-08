@@ -169,6 +169,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:USER_DEFAULTS_IS_LOGGED];
     [[NSUserDefaults standardUserDefaults] setObject:self._userName forKey:USER_DEFAULTS_USENAME];
     [[NSUserDefaults standardUserDefaults] setObject:self._passWord forKey:USER_DEFAULTS_PASSWORD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.navigationController.presentingViewController

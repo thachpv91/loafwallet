@@ -367,7 +367,9 @@ FOUNDATION_EXPORT NSString* _Nonnull const BRWalletLoginFinishedNotification;
         self.splash.hidden = YES;
         self.navigationController.navigationBar.hidden = NO;
         [[UIApplication sharedApplication] setStatusBarHidden:NO];
-
+        
+        NSString * username = [[NSUserDefaults standardUserDefaults] objectForKey:USER_DEFAULTS_USENAME];
+        NSLog(@"\n Welcome to cloverwallet, %@", username );
     }else
     {
         [manager deleteWallet];
